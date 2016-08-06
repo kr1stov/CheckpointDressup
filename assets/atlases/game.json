@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "dummy.png",
+	"frame": {"x":0,"y":0,"w":50,"h":50},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":50},
+	"sourceSize": {"w":50,"h":50}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "game.png",
+	"format": "RGBA8888",
+	"size": {"w":50,"h":50},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:027750b660a82e5109ffa0003bf78490:5301a0242db2204adf3c8b1befc1bdfc:fc2835210f98bae8e8c1b7f0a84c9321$"
+}
+}
