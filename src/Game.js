@@ -43,6 +43,11 @@ Fashion.Game = function (game) {
      */
     this.menu = null;
     /**
+     * @property {Fashion.Phone} phone - An instance of the phone.
+     * @private
+     */
+    this.phone = null;
+    /**
      * @property {Fashion.Intro} intro - Animated Intro-sequence introducing the game to the player.
      * @private
      */
@@ -75,7 +80,6 @@ Fashion.Game.prototype = {
         //-----------------------------------
         this.phone = new Fashion.Phone(this.game);
         this.gameLayer.add(this.phone);
-
         //-----------------------------------
         // Alert (& Overlay)
         //-----------------------------------
