@@ -58,16 +58,15 @@ Fashion.StartScreen = function (game, parent)
     //-----------------------------------
     // add background & stretch it to screen size
     this.add(this.bg);
-    this.bg.scale.set(this.game.world.width / this.bg.width, this.game.world.height / this.bg.height);
+    //this.bg.scale.set(this.game.world.width / this.bg.width, this.game.world.height / this.bg.height);
     // new game button
     this.add(this.btnNewGame);
     this.btnNewGame.text = Fashion.translate(Fashion.LangTokens.MENU_BTN_NEW);
     this.btnNewGame.onDown.add(this.handleBtnNewGameDown, this);
     // continue game button
     this.add(this.btnShowCredits);
-    this.btnShowCredits.text = Fashion.translate(Fashion.LangTokens.MENU_BTN_CONTINUE);
+    this.btnShowCredits.text = Fashion.translate(Fashion.LangTokens.MENU_BTN_SHOW_CREDITS);
     this.btnShowCredits.onDown.add(this.handleBtnContinueGameDown, this);
-    this.btnShowCredits.enabled = Fashion.savegameExists;
 
     this.arrangeChildren();
 };
@@ -123,6 +122,7 @@ Fashion.StartScreen.prototype.arrangeChildren = function ()
     // position buttons
     this.btnNewGame.x = Math.round(this.game.world.width - this.btnNewGame.width * 1.2);
     this.btnNewGame.y = Math.round(this.game.world.height * 0.66);
+
     this.btnShowCredits.x = this.btnNewGame.x;
     this.btnShowCredits.y = Math.round(this.game.world.height * 0.8);
 };
