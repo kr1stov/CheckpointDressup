@@ -25,7 +25,8 @@ Fashion.Asset.AtlasPath = {
     PHONE: 'phone/',
     ROAD: 'road/',
     TRUCK: 'truck/',
-    DRESS_UP_SPACE: 'dress-up-space/'
+    DRESS_UP_SPACE: 'dress-up-space/',
+    CHARACTER: 'truck/character/'
 
 };
 /**
@@ -59,7 +60,11 @@ Fashion.Asset.Image = {
     //-----------------------------------
     // Truck
     //-----------------------------------
-    TRUCK_BG: Fashion.Asset.AtlasPath.TRUCK + 'bg-truck.png'
+    TRUCK_BG: Fashion.Asset.AtlasPath.TRUCK + 'bg-truck.png',
+    //-----------------------------------
+    // Character
+    //-----------------------------------
+    CHARACTER_BASE: Fashion.Asset.AtlasPath.CHARACTER + 'heroine.png'
 };
 /**
  * @namespace Fashion.Asset.Animation

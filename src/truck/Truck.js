@@ -25,10 +25,21 @@ Fashion.Truck = function (game, key, parent, name, addToStage, enableBody, physi
      * @property {Phaser.BitmapText} bg - Background
      */
     this.bg = this.game.make.image(0, 0, key, Fashion.Asset.Image.TRUCK_BG);
+    /**
+     * @property {Fashion.Character} character -
+     * @private
+     */
+    this.character = new Fashion.Character(game, 0, 0, key);
     //-----------------------------------
     // Init
     //-----------------------------------
     this.add(this.bg);
+    this.add(this.character);
+
+    this.character.anchor.setTo(0.5, 0);
+
+    this.character.x = this.bg.width / 2;
+    this.character.y = this.bg.height * 0.1;
 };
 
 // extend class Phaser.Group
