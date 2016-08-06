@@ -11,7 +11,8 @@ Fashion.Asset = {};
  */
 Fashion.Asset.TextureAtlas = {
 
-    GAME: 'gameAtlas'
+    GAME: 'gameAtlas',
+    MENU: 'gameAtlas'
 
 };
 /**
@@ -33,7 +34,7 @@ Fashion.Asset.Image = {
     //-----------------------------------
     MENU_BG : Fashion.PATH_IMAGES + 'menu-bg.jpg',
     MENU_BTN : Fashion.Asset.AtlasPath.UI + 'menu-btn-up.png',
-    MENU_BTN_DISABLED : Fashion.PATH_IMAGES + 'menu-btn-disabled.png',
+    MENU_BTN_DISABLED : Fashion.Asset.AtlasPath.UI + 'menu-btn-disabled.png',
     //-----------------------------------
     // Phones
     //-----------------------------------
