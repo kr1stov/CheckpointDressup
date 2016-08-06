@@ -65,7 +65,7 @@ Fashion.StartScreen = function (game, parent)
     this.btnNewGame.onDown.add(this.handleBtnNewGameDown, this);
     // continue game button
     this.add(this.btnShowCredits);
-    this.btnShowCredits.text = Fashion.translate(Fashion.LangTokens.MENU_BTN_CONTINUE);
+    this.btnShowCredits.text = Fashion.translate(Fashion.LangTokens.MENU_BTN_SHOW_CREDITS);
     this.btnShowCredits.onDown.add(this.handleBtnContinueGameDown, this);
     this.btnShowCredits.enabled = Fashion.savegameExists;
 
