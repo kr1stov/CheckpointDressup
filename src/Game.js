@@ -77,40 +77,45 @@ Fashion.Game.prototype = {
         //-----------------------------------
         this.gameLayer = this.game.add.group();
         this.gameLayer.name = "GameLayer";
+        this.menuLayer = this.game.add.group();
+        this.menuLayer.name = "MenuLayer";
         //-----------------------------------
         // Menu
         //-----------------------------------
         this.menu = new Fashion.StartScreen(this.game);
         this.menu.onNewGame.add(this.handleNewGameClick, this);
         this.menu.onShowCredits.add(this.handleShowCredits, this);
-        this.gameLayer.add(this.menu);
+        this.menuLayer.add(this.menu);
         this.menu.hide();
         //-----------------------------------
         // Credits
         //-----------------------------------
         this.creditsScreen = new Fashion.CreditsScreen(this.game);
         this.creditsScreen.onInputDown.add(this.handleCreditsClose, this);
-        this.gameLayer.add(this.creditsScreen);
+        this.menuLayer.add(this.creditsScreen);
         this.creditsScreen.hide();
         //-----------------------------------
         // Intro
         //-----------------------------------
         this.introScreen = new Fashion.IntroScreen(this.game);
         this.introScreen.onInputDown.add(this.handleIntroClose, this);
-        this.gameLayer.add(this.introScreen);
+        this.menuLayer.add(this.introScreen);
         this.introScreen.hide();
         //-----------------------------------
         // GameOverScreen
         //-----------------------------------
         this.gameOverScreen = new Fashion.GameOverScreen(this.game);
         this.gameOverScreen.onInputDown.add(this.handleGameOverClose, this);
-        this.gameLayer.add(this.gameOverScreen);
+        this.menuLayer.add(this.gameOverScreen);
         this.gameOverScreen.hide();
         //-----------------------------------
         // Phone
         //-----------------------------------
-        this.phone = new Fashion.Phone(this.game);
+        this.phone = new Fashion.Phone(this.game, Fashion.Asset.TextureAtlas.GAME);
         this.gameLayer.add(this.phone);
+
+        this.phone.x = this.game.world.width - this.phone.width;
+        this.phone.y = this.game.world.height - this.phone.height;
         //-----------------------------------
         // Alert (& Overlay)
         //-----------------------------------
@@ -137,7 +142,8 @@ Fashion.Game.prototype = {
         //-----------------------------------
         // Kickoff
         //-----------------------------------
-        this.showScreen(Fashion.Game.Screen.MENU);
+        //this.showScreen(Fashion.Game.Screen.MENU); // FIXME
+        this.startNewGame();
     },
 
 
@@ -277,8 +283,7 @@ Fashion.Game.prototype = {
      */
     startNewGame: function ()
     {
-        // TODO
-        this.currentScreen.hide();
+        //this.showScreen(Fashion.Game.Screen.INTRO); // FIXME uncomment this and comment handleIntroClose
     },
     //-----------------------------------
     // Screen handler
@@ -292,7 +297,7 @@ Fashion.Game.prototype = {
      */
     handleNewGameClick: function ()
     {
-        this.showScreen(Fashion.Game.Screen.INTRO);
+        this.startNewGame();
     },
     /**
      *
@@ -303,7 +308,7 @@ Fashion.Game.prototype = {
      */
     handleIntroClose: function ()
     {
-        this.startNewGame();
+        this.currentScreen.hide();
     },
     /**
      *
