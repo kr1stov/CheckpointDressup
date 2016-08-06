@@ -20,7 +20,7 @@
 Fashion.IntroScreen = function (game, parent, name, addToStage, enableBody, physicsBodyType)
 {
     // call super constructor
-    Fashion.ClickableScreen.call(this, game, 'introBG', parent, name, addToStage, enableBody, physicsBodyType);
+    Fashion.ClickableScreen.call(this, game, Fashion.Asset.Image.INTRO_BG, parent, name, addToStage, enableBody, physicsBodyType);
 
 
 };

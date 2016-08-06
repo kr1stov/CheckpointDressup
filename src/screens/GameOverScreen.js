@@ -20,7 +20,7 @@
 Fashion.GameOverScreen = function (game, parent, name, addToStage, enableBody, physicsBodyType)
 {
     // call super constructor
-    Fashion.ClickableScreen.call(this, game, 'gameOverBG', parent, name, addToStage, enableBody, physicsBodyType);
+    Fashion.ClickableScreen.call(this, game, Fashion.Asset.Image.GAME_OVER, parent, name, addToStage, enableBody, physicsBodyType);
 };
 
 // extend class Fashion.ClickableScreen

@@ -33,11 +33,15 @@ Fashion.Asset.Image = {
     // Menu
     //-----------------------------------
     MENU_BG : 'splash-bg',
+    CREDITS_BG : 'creditsBG',
+    INTRO_BG : 'introBG',
+    GAME_OVER : 'gameOverBG',
     MENU_BTN : Fashion.Asset.AtlasPath.UI + 'menu-btn-up.png',
     MENU_BTN_DISABLED : Fashion.Asset.AtlasPath.UI + 'menu-btn-disabled.png',
     //-----------------------------------
     // Phones
     //-----------------------------------
+    PHONE_BG: Fashion.Asset.AtlasPath.PHONE + 'bg-phone.png',
     MESSAGE_BACKGROUND_INCOMING: Fashion.Asset.AtlasPath.PHONE + 'message-bg-incoming.png'
 };
 /**
