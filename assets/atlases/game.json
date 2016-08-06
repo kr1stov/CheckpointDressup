@@ -18,7 +18,7 @@
 },
 {
 	"filename": "phone/message-incoming.png",
-	"frame": {"x":1267,"y":414,"w":164,"h":127},
+	"frame": {"x":1464,"y":0,"w":164,"h":127},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":164,"h":127},
@@ -26,7 +26,7 @@
 },
 {
 	"filename": "phone/message-outgoing.png",
-	"frame": {"x":1432,"y":414,"w":164,"h":127},
+	"frame": {"x":1464,"y":128,"w":164,"h":127},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":164,"h":127},
@@ -57,8 +57,40 @@
 	"sourceSize": {"w":196,"h":413}
 },
 {
+	"filename": "truck/garments/marxist-bottom.png",
+	"frame": {"x":1464,"y":256,"w":95,"h":107},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":95,"h":107},
+	"sourceSize": {"w":95,"h":107}
+},
+{
+	"filename": "truck/garments/marxist-hat.png",
+	"frame": {"x":1154,"y":510,"w":120,"h":117},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":117},
+	"sourceSize": {"w":120,"h":117}
+},
+{
+	"filename": "truck/garments/marxist-shoes.png",
+	"frame": {"x":1025,"y":557,"w":128,"h":67},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":67},
+	"sourceSize": {"w":128,"h":67}
+},
+{
+	"filename": "truck/garments/marxist-top.png",
+	"frame": {"x":1275,"y":465,"w":167,"h":149},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":167,"h":149},
+	"sourceSize": {"w":167,"h":149}
+},
+{
 	"filename": "ui/menu-btn-disabled.png",
-	"frame": {"x":1025,"y":557,"w":200,"h":50},
+	"frame": {"x":1267,"y":414,"w":200,"h":50},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":50},
@@ -66,7 +98,7 @@
 },
 {
 	"filename": "ui/menu-btn-up.png",
-	"frame": {"x":1025,"y":557,"w":200,"h":50},
+	"frame": {"x":1267,"y":414,"w":200,"h":50},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":50},
@@ -77,8 +109,8 @@
 	"version": "1.0",
 	"image": "game.png",
 	"format": "RGBA8888",
-	"size": {"w":1596,"h":632},
+	"size": {"w":1628,"h":632},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:850cc7dd0b2d96d3231908f8694ebc87:42147c9288f47a9559d313bc905d0f26:fc2835210f98bae8e8c1b7f0a84c9321$"
+	"smartupdate": "$TexturePacker:SmartUpdate:c488f725e7c349bf4b289328e566b25d:5d5287f3458ecbdad924eaf1127717b4:fc2835210f98bae8e8c1b7f0a84c9321$"
 }
 }
