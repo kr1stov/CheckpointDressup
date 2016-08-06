@@ -45,7 +45,8 @@ module.exports = function(grunt) {
                 "src/utils/FormatUtil.js",
                 "src/utils/LabelUtil.js",
 
-                "src/phone/Phone.js"
+                "src/phone/Phone.js",
+                "scr/phone/Message.js"
 
             ]
         },
