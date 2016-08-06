@@ -28,6 +28,10 @@ Fashion.Message = function (game, parent, name, addToStage, enableBody, physicsB
 Fashion.Message.prototype = Object.create(Phaser.Group.prototype);
 Fashion.Message.prototype.constructor = Fashion.Message;
 
+var type : Fashion.MessageType;
+var text : "";
+
+
 //============================================================
 // Public interface
 //============================================================
@@ -45,6 +49,27 @@ Fashion.Message.prototype.constructor = Fashion.Message;
 Fashion.Message.prototype.destroy = function (destroyChildren, soft) {
 
     Phaser.Group.prototype.destroy.call(this, destroyChildren, soft);
+};
+
+/**
+ * sete message type
+ *
+ * @method Fashion.Message#setType
+ * @memberof Fashion.Message
+ */
+Fashion.Message.prototype.setType = function (type) {
+    this.type = type;
+
+};
+
+/**
+ * sets text of message
+ *
+ * @method Fashion.Message#setText
+ * @memberof Fashion.Message
+ */
+Fashion.Message.prototype.setText = function (text) {
+    this.text = text;
 };
 //============================================================
 // Private methods
