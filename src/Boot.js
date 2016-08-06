@@ -208,8 +208,11 @@ Fashion.Boot.prototype = {
             Fashion.PATH_SFX = Fashion.PATH_AUDIO;
 
             // FIXME force WAV for testing
-            //Fashion.PATH_SFX += "wav/";
-            //Fashion.AUDIO_FORMAT = ".wav";
+            if (true)
+            {
+                Fashion.PATH_SFX += "wav/";
+                Fashion.AUDIO_FORMAT = ".wav";
+            } else
             // FIXME uncomment this code once all formats are available
             // native m4a on iOS
             if (this.game.device.safari || this.game.device.mobileSafari)
