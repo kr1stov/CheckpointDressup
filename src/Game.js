@@ -43,6 +43,11 @@ Fashion.Game = function (game) {
      */
     this.menu = null;
     /**
+     * @property {Fashion.CreditsScreen} credits - The credits screen.
+     * @private
+     */
+    this.creditsScreen = null;
+    /**
      * @property {Fashion.Phone} phone - An instance of the phone.
      * @private
      */
@@ -75,6 +80,12 @@ Fashion.Game.prototype = {
         this.menu.onShowCredits.add(this.showCredits, this);
         this.gameLayer.add(this.menu);
         this.menu.hide();
+        //-----------------------------------
+        // Credits
+        //-----------------------------------
+        this.creditsScreen = new Fashion.CreditsScreen(this.game);
+        this.gameLayer.add(this.creditsScreen);
+        this.creditsScreen.hide();
         //-----------------------------------
         // Phone
         //-----------------------------------
