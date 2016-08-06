@@ -32,7 +32,7 @@ Fashion.Asset.Image = {
     //-----------------------------------
     // Menu
     //-----------------------------------
-    MENU_BG : Fashion.PATH_IMAGES + 'menu-bg.jpg',
+    MENU_BG : 'menu-bg',
     MENU_BTN : Fashion.Asset.AtlasPath.UI + 'menu-btn-up.png',
     MENU_BTN_DISABLED : Fashion.Asset.AtlasPath.UI + 'menu-btn-disabled.png',
     //-----------------------------------
@@ -93,5 +93,6 @@ Fashion.Asset.Font = {
  */
 Fashion.Asset.FontStyle = {
 
-    SOME_STYLE: "someFontStyle"
+    MENU_BTN_ACTIVE: "menuBtnActive",
+    MENU_BTN_DISABLED: "menuBtnActive"
 };
