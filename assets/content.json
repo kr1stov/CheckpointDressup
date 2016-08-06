@@ -1,3 +1,104 @@
 {
+  "garments":
+  {
+    "burka":
+    {
+      "imageKey": "burka",
+      "imageOffset":
+      {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones":
+      [
+        "head",
+        "upperBody",
+        "lowerBody"
+      ],
+      "coverage":
+      {
+        "head": "strict",
+        "hair": "strict",
+        "torso": "strict",
+        "arms": "strict",
+        "thighs": "strict",
+        "calves": "strict"
+      },
+      "bodyPartsBlocked":
+      [
+        "head",
+        "hair",
+        "torso",
+        "arms",
+        "thighs",
+        "calves"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    }
+  },
 
+  "dressCodes":
+  {
+    "fanatics":
+    {
+      "failTolerance": 0,
+      "penaltyPerFail": 1,
+      "penaltyLimit": 0,
+      "corruptibility": false,
+      "greed": 0.1,
+
+      "minStyle":
+      {
+
+      },
+
+      "maxStyle":
+      {
+        "exposed": 0,
+        "relaxed": 0,
+        "moderate": 0,
+        "military": 0
+      },
+
+      "must":
+      {
+
+      },
+      "mustNot":
+      {
+
+      }
+
+    },
+    "government":
+    {
+      "failTolerance": 1,
+      "penaltyPerFail": 1,
+      "penaltyLimit": 10,
+      "corruptibility": true,
+      "greed": 0.1,
+
+      "minStyle":
+      {
+        "relaxed": 2
+      },
+
+      "maxStyle":
+      {
+        "strict": 0,
+        "military": 0
+      },
+
+      "must":
+      {
+
+      },
+      "mustNot":
+      {
+        "exposed": ["torso", "thighs", "calves"]
+      }
+
+    }
+  }
 }

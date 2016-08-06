@@ -11,7 +11,8 @@ Fashion.Asset = {};
  */
 Fashion.Asset.TextureAtlas = {
 
-    GAME: 'gameAtlas'
+    GAME: 'gameAtlas',
+    MENU: 'gameAtlas'
 
 };
 /**
@@ -19,7 +20,9 @@ Fashion.Asset.TextureAtlas = {
  */
 Fashion.Asset.AtlasPath = {
 
-    SOME_PATH : 'somePath/'
+    UI: 'ui/',
+    GARMENTS : 'truck/garments/',
+    PHONE: 'phone/'
 
 };
 /**
@@ -27,9 +30,15 @@ Fashion.Asset.AtlasPath = {
  */
 Fashion.Asset.Image = {
     //-----------------------------------
-    // Calendar
+    // Menu
     //-----------------------------------
-    SOME_IMAGE: Fashion.Asset.AtlasPath.SOME_PATH + 'some-image.png'
+    MENU_BG : 'splash-bg',
+    MENU_BTN : Fashion.Asset.AtlasPath.UI + 'menu-btn-up.png',
+    MENU_BTN_DISABLED : Fashion.Asset.AtlasPath.UI + 'menu-btn-disabled.png',
+    //-----------------------------------
+    // Phones
+    //-----------------------------------
+    MESSAGE_BACKGROUND_INCOMING: Fashion.Asset.AtlasPath.PHONE + 'message-bg-incoming.png'
 };
 /**
  * @namespace Fashion.Asset.Animation
@@ -84,5 +93,6 @@ Fashion.Asset.Font = {
  */
 Fashion.Asset.FontStyle = {
 
-    SOME_STYLE: "someFontStyle"
+    MENU_BTN_ACTIVE: "menuBtnActive",
+    MENU_BTN_DISABLED: "menuBtnActive"
 };
