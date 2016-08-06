@@ -303,8 +303,7 @@ Fashion.Game.prototype = {
      */
     handleIntroClose: function ()
     {
-        //this.startNewGame();
-        this.gameOver(Fashion.Game.GameOverEvent.ARRESTED);
+        this.startNewGame();
     },
     /**
      *
