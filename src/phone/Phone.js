@@ -24,8 +24,26 @@ Fashion.Phone = function (game, parent, name, addToStage, enableBody, physicsBod
     // call super constructor
     Phaser.Group.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
 
-    
+    /**
+     * @property {Fashion.Message[]} messages - array of all messages that can be displayed
+     * @private
+     */
+    this.messages = [];
+
+    /**
+     * @property {integer} numberOfMessages - number of messages that can be displayed
+     * @private
+     */
+    this.numberOfMessages = 3;
+
+    /**
+     * @property {integer[]} yPositions - y Positions of messages / offset
+     * @private
+     */
+    this.yPositions = [];
 };
+
+
 
 // extend class Phaser.Group
 Fashion.Phone.prototype = Object.create(Phaser.Group.prototype);
