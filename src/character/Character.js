@@ -7,23 +7,28 @@
  * @class Fashion.Character
  * @classdesc Create a new 'Character' object.
  * @constructor
- * @extends Phaser.Image
+ * @extends Phaser.Sprite
  * @param {Phaser.Game} game - A reference to the currently running game.
  * @param {number} x - The x coordinate of the Image. The coordinate is relative to any parent container this Image may be in.
  * @param {number} y - The y coordinate of the Image. The coordinate is relative to any parent container this Image may be in.
  * @param {string|Phaser.RenderTexture|Phaser.BitmapData|PIXI.Texture} key - The texture used by the Image during rendering. It can be a string which is a reference to the Cache entry, or an instance of a RenderTexture, BitmapData or PIXI.Texture.
  * @param {string|number} frame - If this Image is using part of a sprite sheet or texture atlas you can specify the exact frame to use by giving a string or numeric index.
  */
-Fashion.Character = function (game, x, y, key)
+Fashion.Character = function (game, x, y, key, dropZones)
 {
     // call super constructor
-    Phaser.Image.call(this, game, x, y, key, Fashion.Asset.Image.CHARACTER_BASE);
+    Phaser.Sprite.call(this, game, x, y, key, Fashion.Asset.Image.CHARACTER_BASE);
+    /**
+     * @property {Object} dropZones -
+     * @private
+     */
+    this.dropZones = dropZones;
 
-
+    this.drawDropZones();
 };
 
-// extend class Phaser.Image
-Fashion.Character.prototype = Object.create(Phaser.Image.prototype);
+// extend class Phaser.Sprite
+Fashion.Character.prototype = Object.create(Phaser.Sprite.prototype);
 Fashion.Character.prototype.constructor = Fashion.Character;
 
 //============================================================
@@ -41,7 +46,7 @@ Fashion.Character.prototype.constructor = Fashion.Character;
  */
 Fashion.Character.prototype.reset = function (x, y)
 {
-    Phaser.Image.prototype.reset.call(this, x, y);
+    Phaser.Sprite.prototype.reset.call(this, x, y);
 
     return this;
 };
@@ -56,12 +61,34 @@ Fashion.Character.prototype.reset = function (x, y)
 Fashion.Character.prototype.destroy = function (destroyChildren)
 {
 
-    Phaser.Image.prototype.destroy.call(this, destroyChildren);
+    Phaser.Sprite.prototype.destroy.call(this, destroyChildren);
 };
 //============================================================
 // Private methods
 //============================================================
+/**
+ *
+ *
+ * @method Fashion.Character#drawDropZones
+ * @memberof Fashion.Character
+ * @private
+ */
+Fashion.Character.prototype.drawDropZones = function ()
+{
+    var rect;
+    var zone;
+    for (var key in this.dropZones)
+    {
+        rect = this.dropZones[key];
+        zone = this.game.make.graphics(rect.x, rect.y);
+        Log.debug("zone key: " + key, rect.x, rect.y, rect.width, rect.height);
 
+        zone.beginFill(0xff0000, 0.5);
+        zone.drawRect(0, 0, rect.width, rect.height);
+
+        this.addChild(zone);
+    }
+};
 //============================================================
 // Implicit getters and setters
 //============================================================
