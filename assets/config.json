@@ -1,9 +1,16 @@
 {
   "fonts": {
-    "someFontStyle": {
-      "font": "Lato-Regular",
-      "fill": "white",
-      "fontSize": 14
+    "menuBtnActive":
+    {
+      "font": "Lato-Bold",
+      "fill": "#fcfcfa",
+      "fontSize": 22
+    },
+    "menuBtnDisabled":
+    {
+      "font": "Lato-Bold",
+      "fill": "#c6c6bd",
+      "fontSize": 22
     }
   }
 }
