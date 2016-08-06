@@ -19,6 +19,7 @@ Fashion.Asset.TextureAtlas = {
  */
 Fashion.Asset.AtlasPath = {
 
+    UI: 'ui/',
     GARMENTS : 'truck/garments/',
     PHONE: 'phone/'
 
@@ -27,6 +28,10 @@ Fashion.Asset.AtlasPath = {
  * @namespace Fashion.Asset.Image
  */
 Fashion.Asset.Image = {
+    //-----------------------------------
+    // Menu
+    //-----------------------------------
+    MENU_BG : Fashion.PATH_IMAGES + 'menu-bg.jpg',
     //-----------------------------------
     // Phones
     //-----------------------------------
