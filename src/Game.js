@@ -71,6 +71,12 @@ Fashion.Game.prototype = {
         this.gameLayer.add(this.menu);
         this.menu.hide();
         //-----------------------------------
+        // Phone
+        //-----------------------------------
+        this.phone = new Fashion.Phone(this.game);
+        this.gameLayer.add(this.phone);
+
+        //-----------------------------------
         // Alert (& Overlay)
         //-----------------------------------
         //this.overlayAlert = new Fashion.Overlay(this.game, 0, 0);
@@ -96,7 +102,7 @@ Fashion.Game.prototype = {
         //-----------------------------------
         // Kickoff
         //-----------------------------------
-        this.showScreen(Fashion.Game.Screen.MENU);
+        //this.showScreen(Fashion.Game.Screen.MENU);
     },
 
 
