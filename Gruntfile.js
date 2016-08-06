@@ -40,7 +40,8 @@ module.exports = function(grunt) {
 
                 "src/screens/Screen.js",
                 "src/screens/StartScreen.js",
-                "src/screens/GameOver.js",
+                "src/screens/GameOverScreen.js",
+                "src/screens/CreditsScreen.js",
 
                 "src/utils/FormatUtil.js",
                 "src/utils/LabelUtil.js",
