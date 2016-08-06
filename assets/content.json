@@ -1,37 +1,365 @@
 {
   "garments":
   {
-    "burka":
-    {
+    "burka": {
       "imageKey": "burka",
-      "imageOffset":
-      {
+      "imageOffset": {
         "x": 0,
         "y": 0
       },
-      "dropZones":
-      [
-        "head",
+      "dropZones": [
         "upperBody",
         "lowerBody"
       ],
-      "coverage":
-      {
-        "head": "strict",
-        "hair": "strict",
+      "coverage": {
         "torso": "strict",
         "arms": "strict",
         "thighs": "strict",
         "calves": "strict"
       },
-      "bodyPartsBlocked":
-      [
-        "head",
-        "hair",
+      "bodyPartsBlocked": [
         "torso",
         "arms",
         "thighs",
         "calves"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "gloves": {
+      "imageKey": "gloves",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "hands"
+      ],
+      "coverage": {
+        "hands": "strict"
+      },
+      "bodyPartsBlocked": [
+        "hands"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "niqab": {
+      "imageKey": "gloves",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "head"
+      ],
+      "coverage": {
+        "hair": "strict",
+        "face": "strict"
+      },
+      "bodyPartsBlocked": [
+        "hair",
+        "face"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "veil": {
+      "imageKey": "veil",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "head"
+      ],
+      "coverage": {
+        "eyes": "strict"
+      },
+      "bodyPartsBlocked": [
+        "eyes"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "black-shoes": {
+      "imageKey": "black-shoes",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "feet"
+      ],
+      "coverage": {
+        "feet": "strict"
+      },
+      "bodyPartsBlocked": [
+        "feet"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "makeup": {
+      "imageKey": "makeup",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "head"
+      ],
+      "coverage": {
+        "face": "relaxed"
+      },
+      "bodyPartsBlocked": [
+        "face"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "sunglasses": {
+      "imageKey": "sunglasses",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "head"
+      ],
+      "coverage": {
+        "eyes": "relaxed"
+      },
+      "bodyPartsBlocked": [
+        "eyes"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "chinos": {
+      "imageKey": "chinos",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "lowerBody"
+      ],
+      "coverage": {
+        "thighs": "relaxed",
+        "calves": "relaxed"
+      },
+      "bodyPartsBlocked": [
+        "thighs",
+        "calves"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "shirt": {
+      "imageKey": "shirt",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "upperBody"
+      ],
+      "coverage": {
+        "torso": "relaxed",
+        "arms": "relaxed"
+      },
+      "bodyPartsBlocked": [
+        "torso",
+        "arms"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "sneakers": {
+      "imageKey": "sneakers",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "feet"
+      ],
+      "coverage": {
+        "feet": "relaxed"
+      },
+      "bodyPartsBlocked": [
+        "feet"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "espandrillos": {
+      "imageKey": "espandrillos",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "feet"
+      ],
+      "coverage": {
+        "feet": "relaxed"
+      },
+      "bodyPartsBlocked": [
+        "feet"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "military-pants": {
+      "imageKey": "military-pants",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "lowerBody"
+      ],
+      "coverage": {
+        "thighs": "military",
+        "calves": "military"
+      },
+      "bodyPartsBlocked": [
+        "thighs",
+        "calves"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "military-top": {
+      "imageKey": "military-top",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "upperBody"
+      ],
+      "coverage": {
+        "torso": "military",
+        "arms": "military"
+      },
+      "bodyPartsBlocked": [
+        "torso",
+        "arms"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "military-boots": {
+      "imageKey": "military-boots",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "feet"
+      ],
+      "coverage": {
+        "feet": "military"
+      },
+      "bodyPartsBlocked": [
+        "feet"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "military-bandana": {
+      "imageKey": "military-bandana",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "head"
+      ],
+      "coverage": {
+        "hair": "military"
+      },
+      "bodyPartsBlocked": [
+        "hair"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "hijab": {
+      "imageKey": "hijab",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "head"
+      ],
+      "coverage": {
+        "hair": "moderate"
+      },
+      "bodyPartsBlocked": [
+        "hair"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "moderate-top": {
+      "imageKey": "moderate-top",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "upperBody"
+      ],
+      "coverage": {
+        "torso": "moderate",
+        "arms": "moderate"
+      },
+      "bodyPartsBlocked": [
+        "torso",
+        "arms"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "moderate-skirt": {
+      "imageKey": "moderate-skirt",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "lowerBody"
+      ],
+      "coverage": {
+        "thighs": "moderate",
+        "calves": "moderate"
+      },
+      "bodyPartsBlocked": [
+        "thighs",
+        "calves"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "flats": {
+      "imageKey": "flats",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "feet"
+      ],
+      "coverage": {
+        "feet": "moderate"
+      },
+      "bodyPartsBlocked": [
+        "feet"
       ],
       "dressDuration": 1000,
       "undressDuration": 1000
@@ -46,7 +374,7 @@
       "penaltyPerFail": 1,
       "penaltyLimit": 0,
       "corruptibility": false,
-      "greed": 0.1,
+      "greed": 0,
 
       "minStyle":
       {
@@ -68,6 +396,37 @@
       "mustNot":
       {
 
+      }
+
+    },
+    "rebels":
+    {
+      "failTolerance": 1,
+      "penaltyPerFail": 1,
+      "penaltyLimit": 10,
+      "corruptibility": true,
+      "greed": 0.2,
+
+      "minStyle":
+      {
+
+      },
+
+      "maxStyle":
+      {
+        "strict": 2,
+        "relaxed": 1
+      },
+
+      "must":
+      {
+        "strict": ["hair"],
+        "exposed": ["face", "eyes"]
+      },
+      "mustNot":
+      {
+        "exposed": ["torso", "arms", "thighs", "calves", "feet"],
+        "relaxed": ["feet"]
       }
 
     },
@@ -99,6 +458,33 @@
         "exposed": ["torso", "thighs", "calves"]
       }
 
+    },
+    "marxists":
+    {
+      "failTolerance": 1,
+      "penaltyPerFail": 2,
+      "penaltyLimit": 10,
+      "corruptibility": true,
+      "greed": 0.05,
+
+      "minStyle":
+      {
+        "military": 5
+      },
+
+      "maxStyle":
+      {
+        "strict": 0
+      },
+
+      "must":
+      {
+
+      },
+      "mustNot":
+      {
+
+      }
     }
   }
 }
