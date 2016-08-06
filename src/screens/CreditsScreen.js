@@ -8,7 +8,7 @@
  *
  * @classdesc Create a new 'Credits' object.
  * @constructor
- * @extends Fashion.Screen
+ * @extends Fashion.ClickableScreen
  * @param {Phaser.Game} game - A reference to the currently running game.
  * @param {DisplayObject|null} [parent=(game world)] - The parent Group (or other {@link DisplayObject}) that this group will be added to.
  *     If undefined/unspecified the Group will be added to the {@link Phaser.Game#world Game World}; if null the Group will not be added to any parent.
@@ -20,13 +20,12 @@
 Fashion.CreditsScreen = function (game, parent, name, addToStage, enableBody, physicsBodyType)
 {
     // call super constructor
-    Fashion.Screen.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
-
+    Fashion.ClickableScreen.call(this, game, 'creditsBG', parent, name, addToStage, enableBody, physicsBodyType);
 
 };
 
-// extend class Fashion.Screen
-Fashion.CreditsScreen.prototype = Object.create(Fashion.Screen.prototype);
+// extend class Fashion.ClickableScreen
+Fashion.CreditsScreen.prototype = Object.create(Fashion.ClickableScreen.prototype);
 Fashion.CreditsScreen.prototype.constructor = Fashion.CreditsScreen;
 
 //============================================================
@@ -46,7 +45,7 @@ Fashion.CreditsScreen.prototype.constructor = Fashion.CreditsScreen;
 Fashion.CreditsScreen.prototype.destroy = function (destroyChildren, soft)
 {
 
-    Fashion.Screen.prototype.destroy.call(this, destroyChildren, soft);
+    Fashion.ClickableScreen.prototype.destroy.call(this, destroyChildren, soft);
 };
 //============================================================
 // Private methods

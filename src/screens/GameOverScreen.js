@@ -8,7 +8,7 @@
  *
  * @classdesc Create a new 'GameOver' object.
  * @constructor
- * @extends Fashion.Screen
+ * @extends Fashion.ClickableScreen
  * @param {Phaser.Game} game - A reference to the currently running game.
  * @param {DisplayObject|null} [parent=(game world)] - The parent Group (or other {@link DisplayObject}) that this group will be added to.
  *     If undefined/unspecified the Group will be added to the {@link Phaser.Game#world Game World}; if null the Group will not be added to any parent.
@@ -20,13 +20,11 @@
 Fashion.GameOverScreen = function (game, parent, name, addToStage, enableBody, physicsBodyType)
 {
     // call super constructor
-    Fashion.Screen.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
-
-    // TODO
+    Fashion.ClickableScreen.call(this, game, 'gameOverBG', parent, name, addToStage, enableBody, physicsBodyType);
 };
 
-// extend class Fashion.Screen
-Fashion.GameOverScreen.prototype = Object.create(Fashion.Screen.prototype);
+// extend class Fashion.ClickableScreen
+Fashion.GameOverScreen.prototype = Object.create(Fashion.ClickableScreen.prototype);
 Fashion.GameOverScreen.prototype.constructor = Fashion.GameOverScreen;
 
 //============================================================
@@ -46,7 +44,7 @@ Fashion.GameOverScreen.prototype.constructor = Fashion.GameOverScreen;
 Fashion.GameOverScreen.prototype.destroy = function (destroyChildren, soft)
 {
 
-    Fashion.Screen.prototype.destroy.call(this, destroyChildren, soft);
+    Fashion.ClickableScreen.prototype.destroy.call(this, destroyChildren, soft);
 };
 //============================================================
 // Private methods
