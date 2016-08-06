@@ -24,9 +24,13 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
     // call super constructor
     Phaser.Group.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
     /**
-     * @property {Phaser.BitmapText} bg -
+     * @property {Phaser.Image} bg -
      */
     this.bg = this.game.make.image(0, 0, key, Fashion.Asset.Image.PHONE_BG);
+    /**
+     * @property {Phaser.Image} frame -
+     */
+    this.frame = this.game.make.image(0, 0, key, Fashion.Asset.Image.PHONE_FRAME);
     /**
      * @property {Phaser.Group} messageContainer -
      * @private
@@ -41,10 +45,14 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
     // Init
     //-----------------------------------
     this.add(this.bg);
+    this.add(this.frame);
     this.add(this.messageContainer);
 
+    this.frame.x = Math.round((this.bg.width - this.frame.width) / 2);
+    this.frame.y = Math.round((this.bg.height - this.frame.height) / 2);
+
     this.messageMask.beginFill(0xffffff);
-    this.messageMask.drawRect(30, 40, 200, 490);
+    this.messageMask.drawRect(this.frame.x + 16, this.frame.y + 117, 205, 336);
 
     this.messageContainer.add(this.messageMask);
     this.messageContainer.mask = this.messageMask;
@@ -57,7 +65,18 @@ Fashion.Phone.prototype.constructor = Fashion.Phone;
 //============================================================
 // Public interface
 //============================================================
+/**
+ *
+ *
+ * @method Fashion.Phone#addMessage
+ * @memberof Fashion.Phone
+ */
+Fashion.Phone.prototype.addMessage = function (type, text)
+{
+    var m = new Fashion.Message();
 
+    this.messageContainer.add(m);
+};
 /**
  * Destroys this group.
  *
