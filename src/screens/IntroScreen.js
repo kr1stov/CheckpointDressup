@@ -4,11 +4,11 @@
  */
 
 /**
- * @class Fashion.GameOver
+ * @class Fashion.IntroScreen
  *
- * @classdesc Create a new 'GameOver' object.
+ * @classdesc Create a new 'IntroScreen' object.
  * @constructor
- * @extends Fashion.Screen
+ * @extends Fashion.ClickableScreen
  * @param {Phaser.Game} game - A reference to the currently running game.
  * @param {DisplayObject|null} [parent=(game world)] - The parent Group (or other {@link DisplayObject}) that this group will be added to.
  *     If undefined/unspecified the Group will be added to the {@link Phaser.Game#world Game World}; if null the Group will not be added to any parent.
@@ -17,17 +17,17 @@
  * @param {boolean} [enableBody=false] - If true all Sprites created with {@link #create} or {@link #createMulitple} will have a physics body created on them. Change the body type with {@link #physicsBodyType}.
  * @param {integer} [physicsBodyType=0] - The physics body type to use when physics bodies are automatically added. See {@link #physicsBodyType} for values.
  */
-Fashion.GameOver = function (game, parent, name, addToStage, enableBody, physicsBodyType)
+Fashion.IntroScreen = function (game, parent, name, addToStage, enableBody, physicsBodyType)
 {
     // call super constructor
-    Fashion.Screen.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
+    Fashion.ClickableScreen.call(this, game, 'introBG', parent, name, addToStage, enableBody, physicsBodyType);
 
-    // TODO
+
 };
 
-// extend class Fashion.Screen
-Fashion.GameOver.prototype = Object.create(Fashion.Screen.prototype);
-Fashion.GameOver.prototype.constructor = Fashion.GameOver;
+// extend class Fashion.ClickableScreen
+Fashion.IntroScreen.prototype = Object.create(Fashion.ClickableScreen.prototype);
+Fashion.IntroScreen.prototype.constructor = Fashion.IntroScreen;
 
 //============================================================
 // Public interface
@@ -38,15 +38,15 @@ Fashion.GameOver.prototype.constructor = Fashion.GameOver;
  *
  * Removes all children, then removes this group from its parent and nulls references.
  *
- * @method Fashion.GameOver#destroy
- * @memberof Fashion.GameOver
+ * @method Fashion.IntroScreen#destroy
+ * @memberof Fashion.IntroScreen
  * @param {boolean} [destroyChildren=true] - If true `destroy` will be invoked on each removed child.
  * @param {boolean} [soft=false] - A 'soft destroy' (set to true) doesn't remove this group from its parent or null the game reference. Set to false and it does.
  */
-Fashion.GameOver.prototype.destroy = function (destroyChildren, soft)
+Fashion.IntroScreen.prototype.destroy = function (destroyChildren, soft)
 {
 
-    Fashion.Screen.prototype.destroy.call(this, destroyChildren, soft);
+    Fashion.ClickableScreen.prototype.destroy.call(this, destroyChildren, soft);
 };
 //============================================================
 // Private methods

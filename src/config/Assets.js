@@ -32,7 +32,7 @@ Fashion.Asset.Image = {
     //-----------------------------------
     // Menu
     //-----------------------------------
-    MENU_BG : 'menu-bg',
+    MENU_BG : 'splash-bg',
     MENU_BTN : Fashion.Asset.AtlasPath.UI + 'menu-btn-up.png',
     MENU_BTN_DISABLED : Fashion.Asset.AtlasPath.UI + 'menu-btn-disabled.png',
     //-----------------------------------

@@ -40,8 +40,11 @@ module.exports = function(grunt) {
                 "src/enums/MessageType.js",
 
                 "src/screens/Screen.js",
+                "src/screens/ClickableScreen.js",
                 "src/screens/StartScreen.js",
-                "src/screens/GameOver.js",
+                "src/screens/GameOverScreen.js",
+                "src/screens/CreditsScreen.js",
+                "src/screens/IntroScreen.js",
 
                 "src/utils/FormatUtil.js",
                 "src/utils/LabelUtil.js",
