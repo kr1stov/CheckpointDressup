@@ -126,7 +126,7 @@ Fashion = {
 //============================================================
 Fashion.Boot = function (game) {
 
-    Log.initialize(false);
+    Log.initialize(true);
 
     GTLib.LangUtil.setValidLanguages([
         GTLib.LangUtil.Language.EN
