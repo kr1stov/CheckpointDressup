@@ -1,0 +1,11 @@
+{
+  "messages": {
+    "message01":
+    {
+      "pretext": "A friend of your cousin just said that",
+      "text": "A man was stoned in the village ahead",
+      "factions": 100,
+      "certainty": "ISIS"
+    }
+  }
+}

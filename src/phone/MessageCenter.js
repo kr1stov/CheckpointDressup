@@ -1,12 +1,15 @@
 /**
+ * Created by Christoph on 06.08.2016.
+ */
+/**
  * @author       Michel Wacker <mw@gentletroll.com>
  * @copyright    2016 Gentle Troll Entertainment GmbH
  */
 
 /**
- * @class Fashion.Message
+ * @class Fashion.MessageCenter
  *
- * @classdesc Create a new 'Message' object.
+ * @classdesc Create a new 'MessageCenter' object.
  * @constructor
  * @extends Phaser.Group
  * @param {Phaser.Game} game - A reference to the currently running game.
@@ -17,21 +20,23 @@
  * @param {boolean} [enableBody=false] - If true all Sprites created with {@link #create} or {@link #createMulitple} will have a physics body created on them. Change the body type with {@link #physicsBodyType}.
  * @param {integer} [physicsBodyType=0] - The physics body type to use when physics bodies are automatically added. See {@link #physicsBodyType} for values.
  */
-Fashion.Message = function (game, parent, name, addToStage, enableBody, physicsBodyType) {
+Fashion.MessageCenter = function (game, parent, name, addToStage, enableBody, physicsBodyType) {
     // call super constructor
     Phaser.Group.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
 
-    
+    // build message pools
+
 };
 
 // extend class Phaser.Group
-Fashion.Message.prototype = Object.create(Phaser.Group.prototype);
-Fashion.Message.prototype.constructor = Fashion.Message;
+Fashion.MessageCenter.prototype = Object.create(Phaser.Group.prototype);
+Fashion.MessageCenter.prototype.constructor = Fashion.MessageCenter;
 
-var type;
-var text;
-var pretext;
 
+var textPool;
+var pretextPool;
+var currentFaction;
+var certainty;
 //============================================================
 // Public interface
 //============================================================
@@ -41,35 +46,27 @@ var pretext;
  *
  * Removes all children, then removes this group from its parent and nulls references.
  *
- * @method Fashion.Message#destroy
- * @memberof Fashion.Message
+ * @method Fashion.MessageCenter#destroy
+ * @memberof Fashion.MessageCenter
  * @param {boolean} [destroyChildren=true] - If true `destroy` will be invoked on each removed child.
  * @param {boolean} [soft=false] - A 'soft destroy' (set to true) doesn't remove this group from its parent or null the game reference. Set to false and it does.
  */
-Fashion.Message.prototype.destroy = function (destroyChildren, soft) {
+Fashion.MessageCenter.prototype.destroy = function (destroyChildren, soft) {
 
     Phaser.Group.prototype.destroy.call(this, destroyChildren, soft);
 };
 
 /**
- * sete message type
+ * builds message pool
  *
- * @method Fashion.Message#setType
- * @memberof Fashion.Message
+ * @method Fashion.MessageCenter#generatePool
+ * @memberof Fashion.MessageCenter
  */
-Fashion.Message.prototype.setType = function (type) {
-    this.type = type;
-
-};
-
-/**
- * sets text of message
- *
- * @method Fashion.Message#setText
- * @memberof Fashion.Message
- */
-Fashion.Message.prototype.setText = function (text) {
-    this.text = text;
+Fashion.MessageCenter.prototype.buildPool = function (src, dest) {
+    for(var i = 0; i < src.length; i++)
+    {
+        dest[i] = src[i];
+    }
 };
 //============================================================
 // Private methods
