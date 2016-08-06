@@ -30,6 +30,7 @@ Fashion.Message.prototype.constructor = Fashion.Message;
 
 var type;
 var text;
+var pretext;
 
 //============================================================
 // Public interface

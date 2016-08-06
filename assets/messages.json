@@ -1,0 +1,19 @@
+{
+  "preMessages":
+  {
+    "preMessage01":
+    {
+      "text": "A friend of your cousin just said that"
+    }
+  },
+
+  "messages":
+  {
+    "message01":
+    {
+      "factions": "ISIS",
+      "text": "A man was stoned in the village ahead",
+      "certainty": 100
+    }
+  }
+}
