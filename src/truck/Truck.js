@@ -17,7 +17,7 @@
  * @param {boolean} [enableBody=false] - If true all Sprites created with {@link #create} or {@link #createMulitple} will have a physics body created on them. Change the body type with {@link #physicsBodyType}.
  * @param {integer} [physicsBodyType=0] - The physics body type to use when physics bodies are automatically added. See {@link #physicsBodyType} for values.
  */
-Fashion.Truck = function (game, key, parent, name, addToStage, enableBody, physicsBodyType)
+Fashion.Truck = function (game, key, dropZones, parent, name, addToStage, enableBody, physicsBodyType)
 {
     // call super constructor
     Phaser.Group.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
@@ -29,7 +29,7 @@ Fashion.Truck = function (game, key, parent, name, addToStage, enableBody, physi
      * @property {Fashion.Character} character -
      * @private
      */
-    this.character = new Fashion.Character(game, 0, 0, key);
+    this.character = new Fashion.Character(game, 0, 0, key, dropZones);
     //-----------------------------------
     // Init
     //-----------------------------------
