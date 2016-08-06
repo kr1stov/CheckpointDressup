@@ -28,9 +28,8 @@ Fashion.Message = function (game, parent, name, addToStage, enableBody, physicsB
 Fashion.Message.prototype = Object.create(Phaser.Group.prototype);
 Fashion.Message.prototype.constructor = Fashion.Message;
 
-var type : Fashion.MessageType;
-var text : "";
-
+var type;
+var text;
 
 //============================================================
 // Public interface
