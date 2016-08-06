@@ -24,7 +24,10 @@ Fashion.Character = function (game, x, y, key, dropZones)
      */
     this.dropZones = dropZones;
 
-    this.drawDropZones();
+    if (Fashion.debug)
+    {
+        this.drawDropZones();
+    }
 };
 
 // extend class Phaser.Sprite
