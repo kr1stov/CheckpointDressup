@@ -3,8 +3,8 @@
  * @copyright    2015 Gentle Troll Entertainment GmbH
  */
 /**
- * @namespace Money.LangTokens
+ * @namespace Fashion.LangTokens
  */
-Money.LangTokens = {
+Fashion.LangTokens = {
     SOME_TRANSLATION: "some-translation"
 };

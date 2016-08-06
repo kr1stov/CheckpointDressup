@@ -3,33 +3,33 @@
  * @copyright    2015 Gentle Troll Entertainment GmbH
  */
 /**
- * @namespace Money.FormatUtil
+ * @namespace Fashion.FormatUtil
  */
-Money.FormatUtil = Money.FormatUtil || {};
+Fashion.FormatUtil = Fashion.FormatUtil || {};
 /**
  * Formats a numeric value into a string depending on whether it's larger or smaller than 0;
  *
- * @method Money.FormatUtil#formatValue
- * @memberof Money.FormatUtil
+ * @method Fashion.FormatUtil#formatValue
+ * @memberof Fashion.FormatUtil
  * @param {number} value - Numeric value to be formatted.
  * @return {string} The formatted string value.
  */
-Money.FormatUtil.formatValue = function (value)
+Fashion.FormatUtil.formatValue = function (value)
 {
-    var s = Money.FormatUtil.convertNumToString(value);
+    var s = Fashion.FormatUtil.convertNumToString(value);
 
     return (value > 0) ? "+" + s : s;
 };
 /**
  * Converts a number into a string and inserts a dot if four digits long or more.
  *
- * @method Money.FormatUtil#convertNumToString
- * @memberof Money.FormatUtil
+ * @method Fashion.FormatUtil#convertNumToString
+ * @memberof Fashion.FormatUtil
  * @param {number} num - The number to convert.
  * @return {string} - The converted string.
  * @static
  */
-Money.FormatUtil.convertNumToString = function (num)
+Fashion.FormatUtil.convertNumToString = function (num)
 {
     var negative = (num < 0);
     num = Math.abs(num);
@@ -51,79 +51,79 @@ Money.FormatUtil.convertNumToString = function (num)
 /**
  * Puts to numbers together as a string and divides them with a slash.
  *
- * @method Money.FormatUtil.FormatUtil#convertTwoValuesToStringWithSlash
- * @memberof Money.FormatUtil.FormatUtil
+ * @method Fashion.FormatUtil.FormatUtil#convertTwoValuesToStringWithSlash
+ * @memberof Fashion.FormatUtil.FormatUtil
  * @param {number} num1 - The number left to the slash
  * @param {number} num2 - The number on the right of the slash
  * @return {string} - The converted string.
  * @static
  */
-Money.FormatUtil.convertTwoNumbersToStringWithSlash = function (num1, num2)
+Fashion.FormatUtil.convertTwoNumbersToStringWithSlash = function (num1, num2)
 {
-    return Money.FormatUtil.convertNumToString(num1) + " / " + Money.FormatUtil.convertNumToString(num2);
+    return Fashion.FormatUtil.convertNumToString(num1) + " / " + Fashion.FormatUtil.convertNumToString(num2);
 };
 /**
  * Converts number to string and adds %-sign to it.
  *
- * @method Money.FormatUtil.#convertNumberToPercentageString
- * @memberof Money.FormatUtil
+ * @method Fashion.FormatUtil.#convertNumberToPercentageString
+ * @memberof Fashion.FormatUtil
  * @param {number} num
  * @static
  */
-Money.FormatUtil.convertNumberToPercentageString = function (num)
+Fashion.FormatUtil.convertNumberToPercentageString = function (num)
 {
     return num + " %";
 };
 /**
  * Converts number to string and adds a +-sign before it (if positive) and a %-sign after it.
  *
- * @method Money.FormatUtil.#convertNumberToPlusPercentageString
- * @memberof Money.FormatUtil
+ * @method Fashion.FormatUtil.#convertNumberToPlusPercentageString
+ * @memberof Fashion.FormatUtil
  * @param {number} num
  * @static
  */
-Money.FormatUtil.convertNumberToPlusPercentageString = function (num)
+Fashion.FormatUtil.convertNumberToPlusPercentageString = function (num)
 {
-    var s = Money.FormatUtil.formatValue(num);
-    return Money.FormatUtil.convertNumberToPercentageString(s);
+    var s = Fashion.FormatUtil.formatValue(num);
+    return Fashion.FormatUtil.convertNumberToPercentageString(s);
 };
 /**
  * Converts a number to a string and adds '%'-sign to it.
  *
- * @method Money.FormatUtil#convertNumberToPercentageString
- * @memberof Money.FormatUtil
+ * @method Fashion.FormatUtil#convertNumberToPercentageString
+ * @memberof Fashion.FormatUtil
  * @param {number} num
  * @return {string}
  * @static
  */
-Money.FormatUtil.convertNumberToPercentageString = function (num)
+Fashion.FormatUtil.convertNumberToPercentageString = function (num)
 {
     return num + " %";
 };
 /**
  * Calculates percentage of num1 from num2 and adds '%'-sign.
  *
- * @method Money.FormatUtil.FormatUtil#convertTwoNumbersToPercentageString
- * @memberof Money.FormatUtil.FormatUtil
+ * @method Fashion.FormatUtil.FormatUtil#convertTwoNumbersToPercentageString
+ * @memberof Fashion.FormatUtil.FormatUtil
  * @param {number} num1
  * @param {number} num2
  * @return {string} - The converted string.
  * @static
  */
-Money.FormatUtil.convertTwoNumbersToPercentageString = function (num1, num2)
+Fashion.FormatUtil.convertTwoNumbersToPercentageString = function (num1, num2)
 {
     return Math.round((num1 / num2) * 100) + " %";
 };
 /**
  * Makes sure a number is two digits long.
  *
- * @method Money.FormatUtil#makeNumberATwoDigitString
- * @memberof Money.FormatUtil
+ * @method Fashion.FormatUtil#makeNumberATwoDigitString
+ * @memberof Fashion.FormatUtil
  * @param {number} num
  * @return {string}
  * @static
  */
-Money.FormatUtil.makeNumberATwoDigitString = function (num)
+Fashion.FormatUtil.makeNumberATwoDigitString = function (num)
 {
     num = num.toString();
     if (num.length === 1)
@@ -139,15 +139,15 @@ Money.FormatUtil.makeNumberATwoDigitString = function (num)
 /**
  * Adds ",00" to the converted number.
  *
- * @method Money.FormatUtil#convertNumberToPriceString
- * @memberof Money.FormatUtil
+ * @method Fashion.FormatUtil#convertNumberToPriceString
+ * @memberof Fashion.FormatUtil
  * @param {number} num
  * @return {string}
  * @static
  */
-Money.FormatUtil.convertNumberToPriceString = function (num)
+Fashion.FormatUtil.convertNumberToPriceString = function (num)
 {
-    num = Money.FormatUtil.convertNumToString(num);
+    num = Fashion.FormatUtil.convertNumToString(num);
     num += ",00"; //TODO build a real conversion of partial quantities
     return num;
 };
