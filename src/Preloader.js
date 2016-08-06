@@ -88,7 +88,9 @@ Fashion.Preloader.prototype = {
         //-----------------------------------
         // Large Images
         //-----------------------------------
-        //this.load.image('map', Fashion.PATH_LARGE_IMAGES + 'map.jpg');
+        this.load.image('creditsBG', Fashion.PATH_IMAGES + 'credits-bg.png');
+        this.load.image('gameOverBG', Fashion.PATH_IMAGES + 'game-over-bg.png');
+        this.load.image('introBG', Fashion.PATH_IMAGES + 'intro-bg.png');
         //-----------------------------------
         // Audio
         //-----------------------------------
