@@ -142,7 +142,8 @@ Fashion.Game.prototype = {
         //-----------------------------------
         // Kickoff
         //-----------------------------------
-        this.showScreen(Fashion.Game.Screen.MENU);
+        //this.showScreen(Fashion.Game.Screen.MENU); // FIXME
+        this.startNewGame();
     },
 
 
@@ -282,8 +283,7 @@ Fashion.Game.prototype = {
      */
     startNewGame: function ()
     {
-        // TODO
-        this.currentScreen.hide();
+        //this.showScreen(Fashion.Game.Screen.INTRO); // FIXME uncomment this and comment handleIntroClose
     },
     //-----------------------------------
     // Screen handler
@@ -297,7 +297,7 @@ Fashion.Game.prototype = {
      */
     handleNewGameClick: function ()
     {
-        this.showScreen(Fashion.Game.Screen.INTRO);
+        this.startNewGame();
     },
     /**
      *
@@ -308,7 +308,7 @@ Fashion.Game.prototype = {
      */
     handleIntroClose: function ()
     {
-        this.startNewGame();
+        this.currentScreen.hide();
     },
     /**
      *
