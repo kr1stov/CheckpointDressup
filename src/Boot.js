@@ -197,7 +197,7 @@ Fashion.Boot.prototype = {
         Fashion.PATH_CONTENT = Fashion.PATH_GFX + "game/";
         Fashion.PATH_PRELOADER = Fashion.PATH_ASSETS + "preloader/";
         Fashion.PATH_FONTS = Fashion.PATH_ASSETS + "fonts/";
-        Fashion.PATH_LARGE_IMAGES = Fashion.PATH_ASSETS + "images/";
+        Fashion.PATH_IMAGES = Fashion.PATH_ASSETS + "images/";
         //-----------------------------------
         // Select audio format
         //-----------------------------------
@@ -232,7 +232,7 @@ Fashion.Boot.prototype = {
         }
 
         //  Here we load the assets required for our preloader
-        this.load.image('menu-bg', Fashion.PATH_LARGE_IMAGES + "menu-bg.jpg");
+        this.load.image('menu-bg', Fashion.PATH_IMAGES + "menu-bg.jpg");
         this.load.image('preloaderBar', Fashion.PATH_PRELOADER + "load-bar-background.png");
         this.load.image('preloaderFill', Fashion.PATH_PRELOADER + "load-bar-overlay.png");
     },
