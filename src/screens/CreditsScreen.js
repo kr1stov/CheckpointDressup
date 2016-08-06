@@ -4,9 +4,9 @@
  */
 
 /**
- * @class Fashion.GameOver
+ * @class Fashion.CreditsScreen
  *
- * @classdesc Create a new 'GameOver' object.
+ * @classdesc Create a new 'Credits' object.
  * @constructor
  * @extends Fashion.Screen
  * @param {Phaser.Game} game - A reference to the currently running game.
@@ -17,17 +17,17 @@
  * @param {boolean} [enableBody=false] - If true all Sprites created with {@link #create} or {@link #createMulitple} will have a physics body created on them. Change the body type with {@link #physicsBodyType}.
  * @param {integer} [physicsBodyType=0] - The physics body type to use when physics bodies are automatically added. See {@link #physicsBodyType} for values.
  */
-Fashion.GameOver = function (game, parent, name, addToStage, enableBody, physicsBodyType)
+Fashion.CreditsScreen = function (game, parent, name, addToStage, enableBody, physicsBodyType)
 {
     // call super constructor
     Fashion.Screen.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
 
-    // TODO
+
 };
 
 // extend class Fashion.Screen
-Fashion.GameOver.prototype = Object.create(Fashion.Screen.prototype);
-Fashion.GameOver.prototype.constructor = Fashion.GameOver;
+Fashion.CreditsScreen.prototype = Object.create(Fashion.Screen.prototype);
+Fashion.CreditsScreen.prototype.constructor = Fashion.CreditsScreen;
 
 //============================================================
 // Public interface
@@ -38,12 +38,12 @@ Fashion.GameOver.prototype.constructor = Fashion.GameOver;
  *
  * Removes all children, then removes this group from its parent and nulls references.
  *
- * @method Fashion.GameOver#destroy
- * @memberof Fashion.GameOver
+ * @method Fashion.Credits#destroy
+ * @memberof Fashion.Credits
  * @param {boolean} [destroyChildren=true] - If true `destroy` will be invoked on each removed child.
  * @param {boolean} [soft=false] - A 'soft destroy' (set to true) doesn't remove this group from its parent or null the game reference. Set to false and it does.
  */
-Fashion.GameOver.prototype.destroy = function (destroyChildren, soft)
+Fashion.CreditsScreen.prototype.destroy = function (destroyChildren, soft)
 {
 
     Fashion.Screen.prototype.destroy.call(this, destroyChildren, soft);
@@ -56,3 +56,6 @@ Fashion.GameOver.prototype.destroy = function (destroyChildren, soft)
 // Implicit getters and setters
 //============================================================
 
+/**
+ * Created by mwacker on 06.08.16.
+ */
