@@ -22,7 +22,9 @@ Fashion.Asset.AtlasPath = {
 
     UI: 'ui/',
     GARMENTS : 'truck/garments/',
-    PHONE: 'phone/'
+    PHONE: 'phone/',
+    ROAD: 'road/',
+    TRUCK: 'truck/'
 
 };
 /**
@@ -33,12 +35,26 @@ Fashion.Asset.Image = {
     // Menu
     //-----------------------------------
     MENU_BG : 'splash-bg',
+    CREDITS_BG : 'creditsBG',
+    INTRO_BG : 'introBG',
+    GAME_OVER : 'gameOverBG',
     MENU_BTN : Fashion.Asset.AtlasPath.UI + 'menu-btn-up.png',
     MENU_BTN_DISABLED : Fashion.Asset.AtlasPath.UI + 'menu-btn-disabled.png',
     //-----------------------------------
     // Phones
     //-----------------------------------
-    MESSAGE_BACKGROUND_INCOMING: Fashion.Asset.AtlasPath.PHONE + 'message-bg-incoming.png'
+    PHONE_BG: Fashion.Asset.AtlasPath.PHONE + 'bg-phone.png',
+    PHONE_FRAME: Fashion.Asset.AtlasPath.PHONE + 'frame.png',
+    MESSAGE_INCOMING: Fashion.Asset.AtlasPath.PHONE + 'message-incoming.png',
+    MESSAGE_OUTGOING: Fashion.Asset.AtlasPath.PHONE + 'message-outgoing.png',
+    //-----------------------------------
+    // ROAD
+    //-----------------------------------
+    ROAD_BG: Fashion.Asset.AtlasPath.ROAD  + 'bg-road.png',
+    //-----------------------------------
+    // Truck
+    //-----------------------------------
+    TRUCK_BG: Fashion.Asset.AtlasPath.TRUCK + 'bg-truck.png'
 };
 /**
  * @namespace Fashion.Asset.Animation

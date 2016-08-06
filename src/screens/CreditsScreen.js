@@ -20,7 +20,7 @@
 Fashion.CreditsScreen = function (game, parent, name, addToStage, enableBody, physicsBodyType)
 {
     // call super constructor
-    Fashion.ClickableScreen.call(this, game, 'creditsBG', parent, name, addToStage, enableBody, physicsBodyType);
+    Fashion.ClickableScreen.call(this, game, Fashion.Asset.Image.CREDITS_BG, parent, name, addToStage, enableBody, physicsBodyType);
 
 };
 

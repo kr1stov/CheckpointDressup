@@ -4,11 +4,11 @@
  */
 
 /**
- * @class Fashion.IntroScreen
+ * @class Fashion.Truck
  *
- * @classdesc Create a new 'IntroScreen' object.
+ * @classdesc Create a new 'Truck' object.
  * @constructor
- * @extends Fashion.ClickableScreen
+ * @extends Phaser.Group
  * @param {Phaser.Game} game - A reference to the currently running game.
  * @param {DisplayObject|null} [parent=(game world)] - The parent Group (or other {@link DisplayObject}) that this group will be added to.
  *     If undefined/unspecified the Group will be added to the {@link Phaser.Game#world Game World}; if null the Group will not be added to any parent.
@@ -17,17 +17,23 @@
  * @param {boolean} [enableBody=false] - If true all Sprites created with {@link #create} or {@link #createMulitple} will have a physics body created on them. Change the body type with {@link #physicsBodyType}.
  * @param {integer} [physicsBodyType=0] - The physics body type to use when physics bodies are automatically added. See {@link #physicsBodyType} for values.
  */
-Fashion.IntroScreen = function (game, parent, name, addToStage, enableBody, physicsBodyType)
+Fashion.Truck = function (game, key, parent, name, addToStage, enableBody, physicsBodyType)
 {
     // call super constructor
-    Fashion.ClickableScreen.call(this, game, Fashion.Asset.Image.INTRO_BG, parent, name, addToStage, enableBody, physicsBodyType);
-
-
+    Phaser.Group.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
+    /**
+     * @property {Phaser.BitmapText} bg - Background
+     */
+    this.bg = this.game.make.image(0, 0, key, Fashion.Asset.Image.TRUCK_BG);
+    //-----------------------------------
+    // Init
+    //-----------------------------------
+    this.add(this.bg);
 };
 
-// extend class Fashion.ClickableScreen
-Fashion.IntroScreen.prototype = Object.create(Fashion.ClickableScreen.prototype);
-Fashion.IntroScreen.prototype.constructor = Fashion.IntroScreen;
+// extend class Phaser.Group
+Fashion.Truck.prototype = Object.create(Phaser.Group.prototype);
+Fashion.Truck.prototype.constructor = Fashion.Truck;
 
 //============================================================
 // Public interface
@@ -38,15 +44,15 @@ Fashion.IntroScreen.prototype.constructor = Fashion.IntroScreen;
  *
  * Removes all children, then removes this group from its parent and nulls references.
  *
- * @method Fashion.IntroScreen#destroy
- * @memberof Fashion.IntroScreen
+ * @method Fashion.Truck#destroy
+ * @memberof Fashion.Truck
  * @param {boolean} [destroyChildren=true] - If true `destroy` will be invoked on each removed child.
  * @param {boolean} [soft=false] - A 'soft destroy' (set to true) doesn't remove this group from its parent or null the game reference. Set to false and it does.
  */
-Fashion.IntroScreen.prototype.destroy = function (destroyChildren, soft)
+Fashion.Truck.prototype.destroy = function (destroyChildren, soft)
 {
 
-    Fashion.ClickableScreen.prototype.destroy.call(this, destroyChildren, soft);
+    Phaser.Group.prototype.destroy.call(this, destroyChildren, soft);
 };
 //============================================================
 // Private methods
