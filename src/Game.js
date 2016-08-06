@@ -146,6 +146,36 @@ Fashion.Game.prototype = {
 
     },
 
+    /**
+     *
+     *
+     * @method Fashion.Game#gameOver
+     * @memberof Fashion.Game
+     * @private
+     */
+    gameOver: function (type)
+    {
+        switch (type)
+        {
+            case Fashion.Game.GameOverEvent.ARRESTED:
+            {
+                Log.debug("Player was arrested!");
+                break;
+            }
+            case Fashion.Game.GameOverEvent.ARRIVED:
+            {
+                Log.debug("Player has arrived!");
+                break;
+            }
+            default:
+            {
+                Log.error("Invalid game over type received: " + type);
+                break;
+            }
+        }
+
+        this.showScreen(Fashion.Game.Screen.GAME_OVER);
+    },
     //quitGame: function (pointer)
     //{
         //  Here you should destroy anything you no longer need.
@@ -273,7 +303,8 @@ Fashion.Game.prototype = {
      */
     handleIntroClose: function ()
     {
-        this.startNewGame();
+        //this.startNewGame();
+        this.gameOver(Fashion.Game.GameOverEvent.ARRESTED);
     },
     /**
      *
