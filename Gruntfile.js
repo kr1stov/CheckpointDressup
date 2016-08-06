@@ -42,7 +42,9 @@ module.exports = function(grunt) {
                 "src/screens/StartScreen.js",
 
                 "src/utils/FormatUtil.js",
-                "src/utils/LabelUtil.js"
+                "src/utils/LabelUtil.js",
+
+                "src/phone/Phone.js"
 
             ]
         },
