@@ -6,5 +6,6 @@
  * @namespace Fashion.LangTokens
  */
 Fashion.LangTokens = {
-    SOME_TRANSLATION: "some-translation"
+    MENU_BTN_NEW: "menu-button-newGame",
+    MENU_BTN_SHOW_CREDITS: "menu-button-showCredits"
 };
