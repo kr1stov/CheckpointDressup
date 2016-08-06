@@ -36,7 +36,7 @@ Fashion.Preloader.prototype = {
         //-----------------------------------
         // Setup visual preloader
         //-----------------------------------
-        this.background = this.game.add.image(0, 0, "menu-bg");
+        this.background = this.game.add.image(0, 0, "splash-bg");
         this.background.x = Math.round((this.game.world.width - this.background.width) / 2);
         this.background.y = Math.round((this.game.world.height - this.background.height) / 2);
 

@@ -232,10 +232,11 @@ Fashion.Boot.prototype = {
                 Fashion.PATH_SFX += "wav/";
                 Fashion.AUDIO_FORMAT = ".wav";
             }
+
         }
 
         //  Here we load the assets required for our preloader
-        this.load.image('menu-bg', Fashion.PATH_IMAGES + "menu-bg.jpg");
+        this.load.image('splash-bg', Fashion.PATH_IMAGES + "splash-bg.png");
         this.load.image('preloaderBar', Fashion.PATH_PRELOADER + "load-bar-background.png");
         this.load.image('preloaderFill', Fashion.PATH_PRELOADER + "load-bar-overlay.png");
     },
