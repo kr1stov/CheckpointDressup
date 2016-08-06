@@ -37,6 +37,7 @@ module.exports = function(grunt) {
                 "src/enums/ClothingStyle.js",
                 "src/enums/DropZone.js",
                 "src/enums/Faction.js",
+                "src/enums/MessageType.js",
 
                 "src/screens/Screen.js",
                 "src/screens/StartScreen.js",
