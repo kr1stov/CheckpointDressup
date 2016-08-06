@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Checkpoint Fashion</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1, IE=9">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Phaser App">
+    <meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <!-- non-retina iPhone pre iOS 7 -->
+    <link rel="apple-touch-icon" sizes="57x57" href="icons/app_icon_57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icons/app_icon_60x60.png">
+    <!-- non-retina iPad pre iOS 7 -->
+    <link rel="apple-touch-icon" sizes="72x72" href="icons/app_icon_72x72.png">
+    <!-- non-retina iPad iOS 7 -->
+    <link rel="apple-touch-icon" sizes="76x76" href="icons/app_icon_76x76.png">
+    <!-- retina iPhone pre iOS 7 -->
+    <link rel="apple-touch-icon" sizes="114x114" href="icons/app_icon_114x114.png">
+    <!-- retina iPhone iOS 7 -->
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/app_icon_120x120.png">
+    <!-- retina iPad pre iOS 7 -->
+    <link rel="apple-touch-icon" sizes="144x144" href="icons/app_icon_144x144.png">
+    <!-- retina iPad iOS 7 -->
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/app_icon_152x152.png">
+    <link rel="apple-touch-icon" sizes="256x256" href="icons/app_icon_256x256.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="icons/app_icon_512x512.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="icons/app_icon_1024x1024.png">
+
+    <style>
+        @font-face {
+            font-family: Lato-Regular;
+            src: url('assets/fonts/Lato-Regular.ttf');
+        }
+
+        @font-face {
+            font-family: Lato-Bold;
+            src: url('assets/fonts/Lato-Bold.ttf');
+        }
+
+        @font-face {
+            font-family: Lato-Light;
+            src: url('assets/fonts/Lato-Light.ttf');
+        }
+
+        @font-face {
+            font-family: AlegreyaSans-Black;
+            src: url('assets/fonts/AlegreyaSans-Black.ttf');
+        }
+
+        body {
+            margin: 0px 0px 1px 0px; /* the extra 1px allows the iOS inner/outer check to work */
+            background: #ffffff;
+        }
+
+        #fontLoader {
+            font-size: 1px;
+            visibility: hidden;
+        }
+        .light {
+            font-family: 'Lato-Light';
+        }
+        .regular {
+            font-family: 'Lato-Regular';
+        }
+        .bold {
+            font-family: 'Lato-Bold';
+        }
+        .black {
+            font-family: 'AlegreyaSans-Black';
+        }
+
+        #orientation {
+            margin: 0 auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            background-repeat: no-repeat;
+            background-size: 70%;
+            background-position: center;
+            z-index: 999;
+            display: none;
+            color: #576382;
+        }
+
+        #orientation img {
+            width: 300px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #learning-module {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 99%;
+            background: white;
+            display: none;
+        }
+
+        #learning-module #cancel-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin-top: 3px;
+            margin-right: 3px;
+            font-family: sans-serif;
+            font-size: 11px;
+            color: #9b9b9b;
+        }
+    </style>
+
+    <script src="lib/phaser-no-physics.js"></script>
+    <script src="lib/gtlib.js"></script>
+    <script src="lib/utils/ArrayUtil.js"></script>
+    <script src="lib/utils/FontUtil.js"></script>
+    <script src="lib/utils/LangUtil.js"></script>
+    <script src="lib/TextButton.js"></script>
+    <script src="lib/CategoryButton.js"></script>
+    <script src="lib/ShiningCategoryButton.js"></script>
+    <script src="lib/IconWithLabel.js"></script>
+    <script src="lib/LabelWithIcon.js"></script>
+    <script src="lib/DynamicToolTip.js"></script>
+    <script src="lib/SpeechBubble.js"></script>
+    <script src="lib/LabelWithValue.js"></script>
+    <script src="lib/LabelPanel.js"></script>
+
+    <script src="src/Boot.js"></script>
+    <script src="src/Preloader.js"></script>
+    <script src="src/Game.js"></script>
+
+    <script src="src/config/Assets.js"></script>
+    <script src="src/config/Config.js"></script>
+    <script src="src/config/Avatar.js"></script>
+    <script src="src/config/Player.js"></script>
+    <script src="src/config/Tweens.js"></script>
+    <script src="src/config/Hints.js"></script>
+    <script src="src/config/LangTokens.js"></script>
+    <script src="src/config/GameData.js"></script>
+
+    <script src="src/utils/FormatUtil.js"></script>
+    <script src="src/utils/LabelUtil.js"></script>
+
+    <!--<script src="src/game/GameController.js"></script>-->
+</head>
+<body>
+
+<div id="game"></div>
+<div id="orientation">
+    <img src="images/orientation.png" alt="Please change the device orientation"/>
+</div>
+    <span id="fontLoader">
+        <span class="light"></span>
+        <span class="regular"></span>
+        <span class="bold"></span>
+        <span class="black"></span>
+    </span>
+
+<div id="learning-module">
+    <iframe src="" style="width: 100%; height: 100%"
+            marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0">
+    </iframe>
+    <a id='cancel-button' href="#">Abbrechen</a>
+</div>
+
+<script type="text/javascript">
+
+    (function () {
+        // params to pass to the boot state
+        var params = {
+            assetsPath: 'assets/',
+            translations: 'assets/translations_en.json'
+        };
+        // Create the game
+        var game = new Phaser.Game(1024, 631, Phaser.CANVAS, 'game');
+        //	Add the States your game has.
+        //	You don't have to do this in the html, it could be done in your Boot state too, but for simplicity I'll keep it here.
+        game.state.add('Boot', Money.Boot);
+        game.state.add('Preloader', Money.Preloader);
+        game.state.add('Game', Money.Game);
+        //	Now start the Boot state.
+        game.state.start('Boot', true, false, params);
+        // hide navigation bar on iOS6
+        // Set a timeout...
+        setTimeout(function(){
+            // Hide the address bar!
+            window.scrollTo(0, 1);
+        }, 0);
+
+    })();
+</script>
+
+</body>
+</html>

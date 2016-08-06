@@ -1,0 +1,19 @@
+{
+  "fonts": {
+    "cardTitleLarge": {
+      "font": "Lato-Regular",
+      "fill": "white",
+      "fontSize": 14
+    },
+    "cardUsesCountLarge": {
+      "font": "Lato-Bold",
+      "fill": "white",
+      "fontSize": 18
+    },
+    "cardTitleSmall": {
+      "font": "Lato-Light",
+      "fill": "white",
+      "fontSize": 8
+    }
+  }
+}
