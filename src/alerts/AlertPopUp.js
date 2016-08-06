@@ -4,19 +4,19 @@
  */
 
 /**
- * @class Money.AlertPopUp
+ * @class Fashion.AlertPopUp
  *
  * @classdesc Create a new 'AlertPopUp' object.
  * @constructor
- * @extends Money.PopUp
+ * @extends Fashion.PopUp
  * @param {Phaser.Game} game - A reference to the currently running game.
  * @param {DisplayObject|null} [parent=(game world)] - The parent Group (or other {@link DisplayObject}) that this group will be added to.
  *     If undefined/unspecified the Group will be added to the {@link Phaser.Game#world Game World}; if null the Group will not be added to any parent.
 */
-Money.AlertPopUp = function (game, parent)
+Fashion.AlertPopUp = function (game, parent)
 {
     // call super constructor
-    Money.PopUp.call(this, game, parent);
+    Fashion.PopUp.call(this, game, parent);
     /**
      * @property {function} affirmHandler - Function to call when affirm-button has been clicked.
      * @private
@@ -37,9 +37,9 @@ Money.AlertPopUp = function (game, parent)
 };
 
 
-// extend class Money.PopUp
-Money.AlertPopUp.prototype = Object.create(Money.PopUp.prototype);
-Money.AlertPopUp.prototype.constructor = Money.AlertPopUp;
+// extend class Fashion.PopUp
+Fashion.AlertPopUp.prototype = Object.create(Fashion.PopUp.prototype);
+Fashion.AlertPopUp.prototype.constructor = Fashion.AlertPopUp;
 
 //============================================================
 // Public interface
@@ -50,34 +50,34 @@ Money.AlertPopUp.prototype.constructor = Money.AlertPopUp;
  *
  * Removes all children, then removes this group from its parent and nulls references.
  *
- * @method Money.AlertPopUp#destroy
- * @memberof Money.AlertPopUp
+ * @method Fashion.AlertPopUp#destroy
+ * @memberof Fashion.AlertPopUp
  * @param {boolean} [destroyChildren=true] - If true `destroy` will be invoked on each removed child.
  * @param {boolean} [soft=false] - A 'soft destroy' (set to true) doesn't remove this group from its parent or null the game reference. Set to false and it does.
  */
-Money.AlertPopUp.prototype.destroy = function (destroyChildren, soft)
+Fashion.AlertPopUp.prototype.destroy = function (destroyChildren, soft)
 {
     this.affirmHandler = null;
     this.cancelHandler = null;
     this.context = null;
 
-    Money.PopUp.prototype.destroy.call(this, destroyChildren, soft);
+    Fashion.PopUp.prototype.destroy.call(this, destroyChildren, soft);
 };
 /**
  * displays this event's popup
  *
  * @override
- * @method Money.AlertPopUp#renderPopUp
- * @memberof Money.AlertPopUp
+ * @method Fashion.AlertPopUp#renderPopUp
+ * @memberof Fashion.AlertPopUp
  * @param {function} affirmHandler
  * @param {function} cancelHandler
  * @param {object} context
  * @param {boolean} instantly - if true, use tweens
  */
-Money.AlertPopUp.prototype.show = function (affirmHandler, cancelHandler, context, instantly)
+Fashion.AlertPopUp.prototype.show = function (affirmHandler, cancelHandler, context, instantly)
 {
     // super()
-    Money.PopUp.prototype.show.call(this, instantly);
+    Fashion.PopUp.prototype.show.call(this, instantly);
 
     this.affirmHandler = affirmHandler;
     this.cancelHandler = cancelHandler;
@@ -90,14 +90,14 @@ Money.AlertPopUp.prototype.show = function (affirmHandler, cancelHandler, contex
 /**
  * dispatch onAffirm signal if affirm button is clicked
  *
- * @method Money.AlertPopUp#handleOnBtnAffirmDown
- * @memberof Money.AlertPopUp
+ * @method Fashion.AlertPopUp#handleOnBtnAffirmDown
+ * @memberof Fashion.AlertPopUp
  * @protected
  */
-Money.AlertPopUp.prototype.handleOnBtnAffirmDown = function ()
+Fashion.AlertPopUp.prototype.handleOnBtnAffirmDown = function ()
 {
 
-    Money.PopUp.prototype.handleOnBtnAffirmDown.call(this);
+    Fashion.PopUp.prototype.handleOnBtnAffirmDown.call(this);
 
     if (this.affirmHandler)
     {
@@ -107,13 +107,13 @@ Money.AlertPopUp.prototype.handleOnBtnAffirmDown = function ()
 /**
  * dispatch onCancel signal if cancel button is clicked
  *
- * @method Money.AlertPopUp#handleOnBtnCancelDown
- * @memberof Money.AlertPopUp
+ * @method Fashion.AlertPopUp#handleOnBtnCancelDown
+ * @memberof Fashion.AlertPopUp
  * @protected
  */
-Money.AlertPopUp.prototype.handleOnBtnCancelDown = function ()
+Fashion.AlertPopUp.prototype.handleOnBtnCancelDown = function ()
 {
-    Money.PopUp.prototype.handleOnBtnCancelDown.call(this);
+    Fashion.PopUp.prototype.handleOnBtnCancelDown.call(this);
 
     if (this.cancelHandler)
     {
@@ -123,13 +123,13 @@ Money.AlertPopUp.prototype.handleOnBtnCancelDown = function ()
 /**
  * Plays a click sound for the button.
  *
- * @method Money.AlertPopUp#playButtonSound
- * @memberof Money.AlertPopUp
+ * @method Fashion.AlertPopUp#playButtonSound
+ * @memberof Fashion.AlertPopUp
  * @private
  */
-Money.AlertPopUp.prototype.playButtonSound = function ()
+Fashion.AlertPopUp.prototype.playButtonSound = function ()
 {
-    Money.playSound(Money.Asset.Sound.BTN_CLICK);
+    Fashion.playSound(Fashion.Asset.Sound.BTN_CLICK);
 };
 //============================================================
 // Implicit getters and setters
