@@ -32,6 +32,8 @@ Fashion.Asset.Image = {
     // Menu
     //-----------------------------------
     MENU_BG : Fashion.PATH_IMAGES + 'menu-bg.jpg',
+    MENU_BTN : Fashion.Asset.AtlasPath.UI + 'menu-btn-up.png',
+    MENU_BTN_DISABLED : Fashion.PATH_IMAGES + 'menu-btn-disabled.png',
     //-----------------------------------
     // Phones
     //-----------------------------------
