@@ -42,7 +42,8 @@ Fashion.Asset.Image = {
     // Phones
     //-----------------------------------
     PHONE_BG: Fashion.Asset.AtlasPath.PHONE + 'bg-phone.png',
-    MESSAGE_BACKGROUND_INCOMING: Fashion.Asset.AtlasPath.PHONE + 'message-bg-incoming.png'
+    MESSAGE_INCOMING: Fashion.Asset.AtlasPath.PHONE + 'message-incoming.png',
+    MESSAGE_OUTGOING: Fashion.Asset.AtlasPath.PHONE + 'message-outgoing.png'
 };
 /**
  * @namespace Fashion.Asset.Animation
