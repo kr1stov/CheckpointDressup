@@ -48,6 +48,7 @@ module.exports = function(grunt) {
 
                 "src/road/Road.js",
                 "src/truck/Truck.js",
+                "src/dressup/DressUpSpace.js",
 
                 "src/utils/FormatUtil.js",
                 "src/utils/LabelUtil.js",
