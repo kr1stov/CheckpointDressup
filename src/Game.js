@@ -43,6 +43,11 @@ Fashion.Game = function (game) {
      */
     this.menu = null;
     /**
+     * @property {Fashion.Intro} introScreen - Animated Intro-sequence introducing the game to the player.
+     * @private
+     */
+    this.introScreen = null;
+    /**
      * @property {Fashion.CreditsScreen} credits - The credits screen.
      * @private
      */
@@ -57,11 +62,6 @@ Fashion.Game = function (game) {
      * @private
      */
     this.phone = null;
-    /**
-     * @property {Fashion.Intro} intro - Animated Intro-sequence introducing the game to the player.
-     * @private
-     */
-    //this.intro = null;
     /**
      * @property {Fashion.Overlay} overlayAlert - Overlay for hiding the background when an alert is shown.
      * @private
@@ -81,20 +81,29 @@ Fashion.Game.prototype = {
         // Menu
         //-----------------------------------
         this.menu = new Fashion.StartScreen(this.game);
-        this.menu.onNewGame.add(this.startNewGame, this);
-        this.menu.onShowCredits.add(this.showCredits, this);
+        this.menu.onNewGame.add(this.handleNewGameClick, this);
+        this.menu.onShowCredits.add(this.handleShowCredits, this);
         this.gameLayer.add(this.menu);
         this.menu.hide();
         //-----------------------------------
         // Credits
         //-----------------------------------
         this.creditsScreen = new Fashion.CreditsScreen(this.game);
+        this.creditsScreen.onInputDown.add(this.handleCreditsClose, this);
         this.gameLayer.add(this.creditsScreen);
         this.creditsScreen.hide();
+        //-----------------------------------
+        // Intro
+        //-----------------------------------
+        this.introScreen = new Fashion.IntroScreen(this.game);
+        this.introScreen.onInputDown.add(this.handleIntroClose, this);
+        this.gameLayer.add(this.introScreen);
+        this.introScreen.hide();
         //-----------------------------------
         // GameOverScreen
         //-----------------------------------
         this.gameOverScreen = new Fashion.GameOverScreen(this.game);
+        this.gameOverScreen.onInputDown.add(this.handleGameOverClose, this);
         this.gameLayer.add(this.gameOverScreen);
         this.gameOverScreen.hide();
         //-----------------------------------
@@ -128,7 +137,7 @@ Fashion.Game.prototype = {
         //-----------------------------------
         // Kickoff
         //-----------------------------------
-        //this.showScreen(Fashion.Game.Screen.MENU);
+        this.showScreen(Fashion.Game.Screen.MENU);
     },
 
 
@@ -178,25 +187,19 @@ Fashion.Game.prototype = {
             // Style choice screen
             //-----------------------------------
             case Fashion.Game.Screen.INTRO:
-                this.currentScreen = this.intro;
+                this.currentScreen = this.introScreen;
                 break;
             //-----------------------------------
             // Milestones screen
             //-----------------------------------
             case Fashion.Game.Screen.GAME_OVER:
-                // lazy create milestone screen.
-                if (!this.milestonesScreen)
-                {
-                    this.createMilestoneScreen();
-                }
-                this.currentScreen = this.milestonesScreen;
+                this.currentScreen = this.gameOverScreen;
                 break;
             //-----------------------------------
             // Desktop screen
             //-----------------------------------
             case Fashion.Game.Screen.CREDITS:
-                // TODO
-                //this.currentScreen = this.desktop;
+                this.currentScreen = this.creditsScreen;
                 break;
 
             default:
@@ -231,6 +234,7 @@ Fashion.Game.prototype = {
     {
         this.overlayAlert.hide();
     },
+    
     //-----------------------------------
     // Menu Screen
     //-----------------------------------
@@ -243,13 +247,66 @@ Fashion.Game.prototype = {
      */
     startNewGame: function ()
     {
+        // TODO
+        this.currentScreen.hide();
+    },
+    //-----------------------------------
+    // Screen handler
+    //-----------------------------------
+    /**
+     *
+     *
+     * @method Fashion.Game#handleNewGameClick
+     * @memberof Fashion.Game
+     * @private
+     */
+    handleNewGameClick: function ()
+    {
         this.showScreen(Fashion.Game.Screen.INTRO);
     },
-
-
-    showCredits: function ()
+    /**
+     *
+     *
+     * @method Fashion.Game#handleIntroClose
+     * @memberof Fashion.Game
+     * @private
+     */
+    handleIntroClose: function ()
+    {
+        this.startNewGame();
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#handleShowCredits
+     * @memberof Fashion.Game
+     * @private
+     */
+    handleShowCredits: function ()
     {
         this.showScreen(Fashion.Game.Screen.CREDITS);
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#handleCreditsClose
+     * @memberof Fashion.Game
+     * @private
+     */
+    handleCreditsClose: function ()
+    {
+        this.showScreen(Fashion.Game.Screen.MENU);
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#handleGameOverClose
+     * @memberof Fashion.Game
+     * @private
+     */
+    handleGameOverClose: function ()
+    {
+        this.showScreen(Fashion.Game.Screen.MENU);
     }
 };
 /**
