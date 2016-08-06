@@ -42,6 +42,7 @@ Fashion.Asset.Image = {
     // Phones
     //-----------------------------------
     PHONE_BG: Fashion.Asset.AtlasPath.PHONE + 'bg-phone.png',
+    PHONE_FRAME: Fashion.Asset.AtlasPath.PHONE + 'frame.png',
     MESSAGE_INCOMING: Fashion.Asset.AtlasPath.PHONE + 'message-incoming.png',
     MESSAGE_OUTGOING: Fashion.Asset.AtlasPath.PHONE + 'message-outgoing.png'
 };
