@@ -23,6 +23,7 @@ Fashion.Asset.AtlasPath = {
     UI: 'ui/',
     GARMENTS : 'truck/garments/',
     PHONE: 'phone/',
+    ROAD: 'road/',
     TRUCK: 'truck/'
 
 };
@@ -46,6 +47,10 @@ Fashion.Asset.Image = {
     PHONE_FRAME: Fashion.Asset.AtlasPath.PHONE + 'frame.png',
     MESSAGE_INCOMING: Fashion.Asset.AtlasPath.PHONE + 'message-incoming.png',
     MESSAGE_OUTGOING: Fashion.Asset.AtlasPath.PHONE + 'message-outgoing.png',
+    //-----------------------------------
+    // ROAD
+    //-----------------------------------
+    ROAD_BG: Fashion.Asset.AtlasPath.ROAD  + 'bg-road.png',
     //-----------------------------------
     // Truck
     //-----------------------------------
