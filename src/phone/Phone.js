@@ -20,11 +20,34 @@
  * @param {boolean} [enableBody=false] - If true all Sprites created with {@link #create} or {@link #createMulitple} will have a physics body created on them. Change the body type with {@link #physicsBodyType}.
  * @param {integer} [physicsBodyType=0] - The physics body type to use when physics bodies are automatically added. See {@link #physicsBodyType} for values.
  */
-Fashion.Phone = function (game, parent, name, addToStage, enableBody, physicsBodyType) {
+Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physicsBodyType) {
     // call super constructor
     Phaser.Group.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
+    /**
+     * @property {Phaser.BitmapText} bg -
+     */
+    this.bg = this.game.make.image(0, 0, key, Fashion.Asset.Image.PHONE_BG);
+    /**
+     * @property {Phaser.Group} messageContainer -
+     * @private
+     */
+    this.messageContainer = this.game.make.group();
+    /**
+     * @property {Phaser.Graphics} messageMask - The message mask.
+     * @private
+     */
+    this.messageMask = this.game.make.graphics(0, 0);
+    //-----------------------------------
+    // Init
+    //-----------------------------------
+    this.add(this.bg);
+    this.add(this.messageContainer);
 
-    
+    this.messageMask.beginFill(0xffffff);
+    this.messageMask.drawRect(30, 40, 200, 490);
+
+    this.messageContainer.add(this.messageMask);
+    this.messageContainer.mask = this.messageMask;
 };
 
 // extend class Phaser.Group
