@@ -1,5 +1,8 @@
 {
-  "some": {
-    "translation": "Well, hello there!"
+  "menu": {
+    "button": {
+      "newGame": "New Game",
+      "showCredits": "Credits"
+    }
   }
 }
