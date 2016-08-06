@@ -43,7 +43,9 @@ module.exports = function(grunt) {
                 "src/screens/GameOver.js",
 
                 "src/utils/FormatUtil.js",
-                "src/utils/LabelUtil.js"
+                "src/utils/LabelUtil.js",
+
+                "src/phone/Phone.js"
 
             ]
         },
