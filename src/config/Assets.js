@@ -19,7 +19,8 @@ Fashion.Asset.TextureAtlas = {
  */
 Fashion.Asset.AtlasPath = {
 
-    SOME_PATH : 'somePath/'
+    GARMENTS : 'truck/garments/',
+    PHONE: 'phone/'
 
 };
 /**
@@ -27,9 +28,9 @@ Fashion.Asset.AtlasPath = {
  */
 Fashion.Asset.Image = {
     //-----------------------------------
-    // Calendar
+    // Phones
     //-----------------------------------
-    SOME_IMAGE: Fashion.Asset.AtlasPath.SOME_PATH + 'some-image.png'
+    MESSAGE_BACKGROUND_INCOMING: Fashion.Asset.AtlasPath.PHONE + 'message-bg-incoming.png'
 };
 /**
  * @namespace Fashion.Asset.Animation
