@@ -528,10 +528,11 @@ Fashion.Game.prototype = {
      */
     startNewGameDelayed: function (data)
     {
-       this.road.startRolling(roadConfig.scrollSpeed);
-       this.loadNextCheckpoint();
-       Fashion.playSound(Fashion.Asset.Sound.TRUCK_START);
-       Fashion.playSound(Fashion.Asset.Sound.TRUCK, 0.5);
+        var roadConfig = Fashion.content.gameConfig.road;
+        this.road.startRolling(roadConfig.scrollSpeed);
+        this.loadNextCheckpoint();
+        Fashion.playSound(Fashion.Asset.Sound.TRUCK_START);
+        Fashion.playSound(Fashion.Asset.Sound.TRUCK, 0.5);
     },
 
 
