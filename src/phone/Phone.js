@@ -44,6 +44,7 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
 
     this.messageArray = new Array();
 
+
     //-----------------------------------
     // Init
     //-----------------------------------
@@ -60,8 +61,12 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
     this.messageContainer.add(this.messageMask);
     this.messageContainer.mask = this.messageMask;
 
-    this.addMessage(key, Fashion.MessageType.INCOMING, "Bacon ipsum dolor amet ham pork pig.");
-    this.addMessage(key, Fashion.MessageType.OUTGOING, "Bacon ipsum dolor amet ham pork pig.");
+    this.addMessage(key, Fashion.MessageType.INCOMING, "1 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    this.addMessage(key, Fashion.MessageType.OUTGOING, "2 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    this.addMessage(key, Fashion.MessageType.INCOMING, "3 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    this.addMessage(key, Fashion.MessageType.OUTGOING, "4 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    this.addMessage(key, Fashion.MessageType.INCOMING, "5 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+
 };
 
 
@@ -81,37 +86,53 @@ Fashion.Phone.prototype.constructor = Fashion.Phone;
  */
 Fashion.Phone.prototype.addMessage = function (key, type, text)
 {
-    for(var i=0; i<this.messageArray.length; i++)
-    {
-        this.messageArray[i].y -= 130;
-    }
-
     var mTemp = this.game.make.group();
-    var atemp;
+    var aTemp;
     var tTemp;
 
     if(type == Fashion.MessageType.INCOMING) {
-        atemp = this.game.make.image(this.frame.x + 20, this.frame.height - 170, key, Fashion.Asset.Image.MESSAGE_INCOMING);
-        tTemp = this.game.add.text(atemp.x+25, atemp.y+10, text, {fontSize: '12px', fill: '#000', wordWrap: true, wordWrapWidth: atemp.width-30});
-        //Fashion.LabelUtil.setLabelWithStyle(tTemp, "lorem ipsum", Fashion.Asset.FontStyle.PHONE_MESSAGE);
-
+        aTemp = this.game.make.image(this.frame.x + 20, this.frame.height - 170, key, Fashion.Asset.Image.MESSAGE_INCOMING);
+        //aTemp.scale.y = 1;
+        tTemp = this.game.add.text(aTemp.x+25, aTemp.y+5, text, {fontSize: '10px', fill: '#000', wordWrap: true, wordWrapWidth: aTemp.width-30});
     }
     else {
-        atemp = this.game.make.image(this.frame.x + 50, this.frame.height - 170, key, Fashion.Asset.Image.MESSAGE_OUTGOING);
-        tTemp = this.game.add.text(atemp.x+10, atemp.y+10, text, {fontSize: '12px', fill: '#000', wordWrap: true, wordWrapWidth: atemp.width-25});
-        //Fashion.LabelUtil.setLabelWithStyle(tTemp, "lorem ipsum", Fashion.Asset.FontStyle.PHONE_MESSAGE);
+        aTemp = this.game.make.image(this.frame.x + 50, this.frame.height - 170, key, Fashion.Asset.Image.MESSAGE_OUTGOING);
+        //aTemp.scale.y = 0.5;
+        tTemp = this.game.add.text(aTemp.x+10, aTemp.y+5, text, {fontSize: '10px', fill: '#000', wordWrap: true, wordWrapWidth: aTemp.width-25});
 
 
     }
-    mTemp.add(atemp);
+
+    aTemp.scale.y = tTemp.height/aTemp.height;
+    aTemp.y = this.frame.height-40-aTemp.height;
+    tTemp.y = aTemp.y +5;
+
+    mTemp.add(aTemp);
     mTemp.add(tTemp);
 
-    //this.add(this.messageContainer);
+    var addedHeights = 0;
 
-    //var m = new Fashion.Message();
+
+    this.messageArray.forEach(function(item)
+    {
+        item.y -= (aTemp.height +10);
+        addedHeights += item.height;
+
+    });
+
+
+    //console.log("frame height: " + this.frame.height + " | mTemp y: "+ mTemp.y + " | mTemp height:" + mTemp.height);
+    while(addedHeights+mTemp.height > this.frame.height)
+    {
+        addedHeights-=this.messageArray[0].height;
+        this.messageArray[0].destroy();
+    }
 
     this.messageArray.push(mTemp);
     this.messageContainer.add(mTemp);
+
+    console.log("addedHeights: " + addedHeights + " | frame height: " + this.frame.height + " | mTemp y: "+ mTemp.y + " | mTemp height:" + mTemp.height);
+
 };
 /**
  * Destroys this group.

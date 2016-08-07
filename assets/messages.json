@@ -1,86 +1,86 @@
 {
   "preMessages":
   {
-    "preMessage01":
+    "message01":
     {
       "text": "a friend of your cousin just said that"
     },
-	"preMessage02":
+	"message02":
     {
       "text": "the mother of a friend told me that"
     },
-	"preMessage03":
+	"message03":
     {
       "text": "i heard from trustworthy sources that"
     },
-	"preMessage04":
+	"message04":
     {
       "text": "my brother-in-law told me that"
     },
-	"preMessage05":
+	"message05":
     {
       "text": "Your cousin has informed me that"
     },
-	"preMessage06":
+	"message06":
     {
       "text": "our neighbour talked to a friend in the army."
     },
-	"preMessage07":
+	"message07":
     {
       "text": "your brother called and told me"
     },
-	"preMessage08":
+	"message08":
     {
       "text": "someone told me that"
     },
-	"preMessage09":
+	"message09":
     {
       "text": "i heard that"
     },
-	"preMessage10":
+	"message10":
     {
       "text": "i just listened to the radio. They said that"
     },
-	"preMessage11":
+	"message11":
     {
       "text": "the national television claims that"
     },
-	"preMessage12":
+	"message12":
     {
       "text": "your father wants you to know that"
     },
-	"preMessage13":
+	"message13":
     {
       "text": "your cousin saw a tweet that claimed that"
     },
-	"preMessage14":
+	"message14":
     {
       "text": "i heard a woman on the market say that"
     },
-	"preMessage15":
+	"message15":
     {
       "text": "your brother read a message that might be relevant for you."
     },
-	"preMessage16":
+	"message16":
     {
       "text": "there's a video shot in an area near you. apparently"
     },
-	"preMessage17":
+	"message17":
     {
       "text": "it seems that"
     },
-	"preMessage18":
+	"message18":
     {
       "text": "your brother called."
     },
-	"preMessage19":
+	"message19":
     {
       "text": "your cousin's friend wants you to know that"
     },
-	"preMessage20":
+	"message20":
     {
       "text": "your friend's father heard from a journalist that"
-    },
+    }
   },
 
   "messages":
@@ -503,40 +503,80 @@
 
   "hintMessages":
   {
-    "hintMessage01":
+    "message01":
     {
       "factions": "ISIS",
-      "text": "make sure that your whole body is covered when you are held up by a fanatic checkpoint",
+      "text": "make sure that your whole body is covered when you are held up by a fanatic checkpoint"
     },
-	"hintMessage02":
+	"message02":
     {
       "factions": "ISIS",
-      "text": "never wear military clothing when you are approached by fanatics",
+      "text": "never wear military clothing when you are approached by fanatics"
     },
-	"hintMessage03":
+	"message03":
     {
       "factions": "Government",
-      "text": "try to look casual when you run into Government forces",
+      "text": "try to look casual when you run into Government forces"
     },
-	"hintMessage04":
+	"message04":
     {
       "factions": "Government",
-      "text": "do not wear military clothing when you run into Government guards",
+      "text": "do not wear military clothing when you run into Government guards"
     },
-	"hintMessage05":
+	"message05":
     {
       "factions": "Marxists",
-      "text": "Be sure to dress up completely in military clothing when you are approached by marxists",
+      "text": "Be sure to dress up completely in military clothing when you are approached by marxists"
     },
-	"hintMessage06":
+	"message06":
     {
       "factions": "Rebels",
-      "text": "your hair must be covered when you are approached by rebel soldiers",
+      "text": "your hair must be covered when you are approached by rebel soldiers"
     },
-	"hintMessage07":
+	"message07":
     {
       "factions": "Marxists",
-      "text": "the marxists won't let you pass for free if you have your head and face covered",
+      "text": "the marxists won't let you pass for free if you have your head and face covered"
     },
+	"message08":
+    {
+      "factions": "Rebels",
+      "text": "you do not need to cover your eyes when you are approached by rebels"
+    },
+	"message09":
+    {
+      "factions": "Rebels",
+      "text": "do not wear too many strict clothes when you are approached by rebels. they might think that you are a fanatic"
+    },
+	"message10":
+    {
+      "factions": "Rebels",
+      "text": "do not wear too many casual clothes when you are approached by rebels. they may not be fanatics but are still conservative"
+    },
+	"message11":
+    {
+      "factions": ["Rebels","ISIS"],
+      "text": "the burka is considered strict"
+    },
+	"message12":
+    {
+      "factions": ["Rebels","ISIS"],
+      "text": "neither rebels nor fanatics will let you pass with casual or military clothes"
+    },
+	"message13":
+    {
+      "factions": "ISIS",
+      "text": "fanatics will not accept bribes"
+    },
+	"message14":
+    {
+      "factions": "Marxists",
+      "text": "if you dress with military clothes, the marxists will treat you as an equal"
+    },
+	"message15":
+    {
+      "factions": "Government",
+      "text": "sunglasses and make-up are considered casual"
+    }
   }
 }

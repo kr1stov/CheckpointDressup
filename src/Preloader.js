@@ -81,6 +81,7 @@ Fashion.Preloader.prototype = {
         this.load.json('config', Fashion.PATH_ASSETS + 'config.json');
         this.load.json('content', Fashion.PATH_ASSETS + 'content.json');
         this.load.json('translations', Fashion.translationPath);
+        this.load.json('messages', Fashion.PATH_ASSETS + 'messages.json');
         //-----------------------------------
         // Atlases
         //-----------------------------------
@@ -116,6 +117,8 @@ Fashion.Preloader.prototype = {
             throw "Failed to initialize game: Invalid content data!";
 
         Fashion.initTranslations(this.cache.getJSON('translations'));
+
+        Fashion.messages = this.cache.getJSON('messages');
 
     },
 

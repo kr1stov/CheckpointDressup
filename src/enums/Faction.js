@@ -11,3 +11,10 @@ Fashion.Faction = {
     REBELS : 'rebels',
     MARXISTS : 'marxists'
 };
+
+Fashion.Faction.All = [
+    Fashion.Faction.FANATICS,
+    Fashion.Faction.GOVERNMENT,
+    Fashion.Faction.REBELS,
+    Fashion.Faction.MARXISTS
+];

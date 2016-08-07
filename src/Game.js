@@ -128,10 +128,11 @@ Fashion.Game.prototype = {
             this.game,
             Fashion.Asset.TextureAtlas.GAME,
             Fashion.content.dropZones,
-            Fashion.content.garments
+            Fashion.content.dressCodes
         );
         this.gameLayer.add(this.dressUpSpace);
         this.dressUpSpace.y = this.game.world.height - this.dressUpSpace.height;
+        this.dressUpSpace.setup(Fashion.content.garments);
         //-----------------------------------
         // Alert (& Overlay)
         //-----------------------------------

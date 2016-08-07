@@ -30,6 +30,11 @@ Fashion.Character = function (game, x, y, key, dropZones)
      */
     this.blockedBodyParts = [];
     /**
+     * @property {array} garments -
+     * @private
+     */
+    this.garments = [];
+    /**
      * @property {object} coverage -
      */
     this.coverage = {};
@@ -44,19 +49,12 @@ Fashion.Character = function (game, x, y, key, dropZones)
         zone = dropZones[key];
         this.dropZones[key] = new Phaser.Rectangle(zone.x, zone.y, zone.width, zone.height);
     }
+    this.initCoverage();
 
-    // init coverage
-    var n = Fashion.BodyPart.Parts.length;
-    var i;
-    for (i = n; --i >= 0;)
-    {
-        this.coverage[Fashion.BodyPart.Parts[i]] = Fashion.ClothingStyle.EXPOSED;
-    }
-
-    if (Fashion.debug)
-    {
-        this.drawDropZones();
-    }
+    //if (Fashion.debug)
+    //{
+    //    this.drawDropZones();
+    //}
 };
 
 // extend class Phaser.Sprite
@@ -123,8 +121,10 @@ Fashion.Character.prototype.wearGarment = function (garment)
 {
     if (this.isCoveragePossible(garment))
     {
+        garment.isWorn = true;
         this.positionGarment(garment);
-        Log.debug("is top layer " + garment.isTopLayer);
+        this.stackGarment(garment);
+        this.updateCoverage();
         if (garment.isTopLayer)
         {
             this.blockBodyParts(garment);
@@ -132,6 +132,21 @@ Fashion.Character.prototype.wearGarment = function (garment)
         return true;
     }
     return false;
+};
+/**
+ *
+ *
+ * @method Fashion.Character#takeOffGarment
+ * @memberof Fashion.Character
+ */
+Fashion.Character.prototype.takeOffGarment = function (garment)
+{
+    garment.isWorn = false;
+
+    this.removeGarment(garment);
+    this.updateCoverage();
+
+    this.unblockBodyParts(garment);
 };
 //============================================================
 // Private methods
@@ -170,8 +185,8 @@ Fashion.Character.prototype.positionGarment = function (garment)
 {
     if (garment)
     {
-        garment.x = this.x + garment.imageOffsetX;
-        garment.y = this.y + garment.imageOffsetY;
+        garment.x = this.x + (garment.imageOffsetX) * Fashion.scaleFactorCharacter;
+        garment.y = this.y + (garment.imageOffsetY) * Fashion.scaleFactorCharacter + garment.height / 2;
     }
 };
 /**
@@ -197,7 +212,20 @@ Fashion.Character.prototype.blockBodyParts = function (garment)
  */
 Fashion.Character.prototype.unblockBodyParts = function (garment)
 {
-
+    for (var key in garment.coverage)
+    {
+        var n = this.blockedBodyParts.length;
+        var i;
+        var part;
+        for (i = n; --i >= 0;)
+        {
+            part = this.blockedBodyParts[i];
+            if (this.blockedBodyParts[i] == key)
+            {
+                this.blockedBodyParts.splice(i,1);
+            }
+        }
+    }
 };
 /**
  *
@@ -213,7 +241,6 @@ Fashion.Character.prototype.isCoveragePossible = function (garment)
         var i;
         for (i = n; --i >= 0;)
         {
-            Log.debug("check " + this.blockedBodyParts[i]);
             if (key == this.blockedBodyParts[i])
             {
                 Log.error("Cannot place garment '" + garment.garmentName + "' becuase body part " + key + " is already blocked.");
@@ -223,7 +250,113 @@ Fashion.Character.prototype.isCoveragePossible = function (garment)
     }
     return true;
 };
+
+/**
+ * 
+ *
+ * @method Fashion.Character#stackGarment
+ * @memberof Fashion.Character
+ * @private
+ */
+Fashion.Character.prototype.stackGarment = function (garment)
+{
+    var n = this.garments.length;
+    var i;
+    for (i = 0; i < n; i++)
+    {
+        if (garment == this.garments[i])
+        {
+            return;
+        }
+    }
+    this.garments.push(garment);
+};
+/**
+ *
+ *
+ * @method Fashion.Character#removeGarment
+ * @memberof Fashion.Character
+ * @private
+ */
+Fashion.Character.prototype.removeGarment = function (garment)
+{
+    var n = this.garments.length;
+    var i;
+    for (i = n; --i >= 0;)
+    {
+        if (garment == this.garments[i])
+        {
+            this.garments.splice(i,1);
+            return true;
+        }
+    }
+    return false;
+};
+/**
+ *
+ *
+ * @method Fashion.Character#initCoverage
+ * @memberof Fashion.Character
+ * @private
+ */
+Fashion.Character.prototype.initCoverage = function ()
+{
+    // init coverage
+    var n = Fashion.BodyPart.Parts.length;
+    var i;
+    for (i = n; --i >= 0;)
+    {
+        this.coverage[Fashion.BodyPart.Parts[i]] = Fashion.ClothingStyle.EXPOSED;
+    }
+};
+/**
+ *
+ *
+ * @method Fashion.Character#updateCoverage
+ * @memberof Fashion.Character
+ * @private
+ */
+Fashion.Character.prototype.updateCoverage = function ()
+{
+    this.initCoverage();
+
+    var n = this.garments.length;
+    var i;
+    var coverage;
+    for (i = 0; i < n; i++)
+    {
+        coverage = this.garments[i].coverage;
+        for (var key in coverage)
+        {
+            this.coverage[key] = coverage[key];
+        }
+    }
+
+    if (Fashion.debug)
+    {
+        Fashion.Character.dumpCoverage(this.coverage);
+    }
+};
 //============================================================
 // Implicit getters and setters
 //============================================================
 
+/**
+ *
+ *
+ * @method Fashion.Character#dumpCoverage
+ * @memberof Fashion.Character
+ * @static
+ */
+Fashion.Character.dumpCoverage = function (coverage)
+{
+    if (!coverage) return;
+
+    Log.debug("-------");
+    Log.debug("Current coverage is: ");
+    for (var key in coverage)
+    {
+        Log.debug(key + ": " + coverage[key]);
+    }
+    Log.debug("-------");
+};

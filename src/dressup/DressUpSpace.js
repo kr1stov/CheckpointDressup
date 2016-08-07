@@ -17,7 +17,7 @@
  * @param {boolean} [enableBody=false] - If true all Sprites created with {@link #create} or {@link #createMulitple} will have a physics body created on them. Change the body type with {@link #physicsBodyType}.
  * @param {integer} [physicsBodyType=0] - The physics body type to use when physics bodies are automatically added. See {@link #physicsBodyType} for values.
  */
-Fashion.DressUpSpace = function (game, key, dropZones, garments, parent, name, addToStage, enableBody, physicsBodyType)
+Fashion.DressUpSpace = function (game, key, dropZones, dressCodes, parent, name, addToStage, enableBody, physicsBodyType)
 {
     // call super constructor
     Phaser.Group.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
@@ -29,7 +29,12 @@ Fashion.DressUpSpace = function (game, key, dropZones, garments, parent, name, a
      * @property {Fashion.Truck} truck -
      * @private
      */
-    this.truck = new Fashion.Truck(game, key, dropZones, garments);
+    this.truck = new Fashion.Truck(game, key, dropZones);
+    /**
+     * @property {object} dressCodes -
+     * @private
+     */
+    this.dressCodes = dressCodes;
     //-----------------------------------
     // Init
     //-----------------------------------
@@ -38,6 +43,7 @@ Fashion.DressUpSpace = function (game, key, dropZones, garments, parent, name, a
 
     this.truck.x = Math.round((this.bg.width - this.truck.width) / 2);
     this.truck.y = Math.round((this.bg.height - this.truck.height) / 2);
+
 };
 
 // extend class Phaser.Group
@@ -47,7 +53,113 @@ Fashion.DressUpSpace.prototype.constructor = Fashion.DressUpSpace;
 //============================================================
 // Public interface
 //============================================================
+/**
+ * 
+ *
+ * @method Fashion.DressUpSpace#initialize
+ * @memberof Fashion.DressUpSpace
+ */
+Fashion.DressUpSpace.prototype.setup = function (garments)
+{
+    this.truck.setup(garments);
 
+    this.game.time.events.repeat(Phaser.Timer.SECOND * 2, 1, this.checkPointTest, this);
+};
+/**
+ *
+ *
+ * @method Fashion.DressUpSpace#checkPointTest
+ * @memberof Fashion.DressUpSpace
+ * @private
+ */
+Fashion.DressUpSpace.prototype.checkPointTest = function ()
+{
+    //var f = Fashion.Faction.All[Math.round(this.game.rnd.frac() * (Fashion.Faction.All.length - 1))];
+    this.performDressCodeCheck(Fashion.Faction.MARXISTS);
+};
+/**
+ *
+ *
+ * @method Fashion.DressUpSpace#performDressCodeCheck
+ * @memberof Fashion.DressUpSpace
+ */
+Fashion.DressUpSpace.prototype.performDressCodeCheck = function (faction)
+{
+    Log.debug("DRESS CODE CHECK BY: " + faction);
+    var coverage = this.truck.getCharacterCoverage();
+    if (Fashion.debug)
+    {
+        Fashion.Character.dumpCoverage(coverage);
+    }
+
+    var dressCode = this.dressCodes[faction];
+    Log.debug(dressCode);
+    var errorsCoverage = 0;
+
+    var styleCount = {};
+    styleCount[Fashion.ClothingStyle.EXPOSED] = 0;
+    styleCount[Fashion.ClothingStyle.MILITARY] = 0;
+    styleCount[Fashion.ClothingStyle.MODERATE] = 0;
+    styleCount[Fashion.ClothingStyle.RELAXED] = 0;
+    styleCount[Fashion.ClothingStyle.STRICT] = 0;
+
+    for (var part in coverage)
+    {
+        styleCount[coverage[part]]++;
+
+        if (dressCode.must[part] && dressCode.must[part] != coverage[part])
+        {
+            errorsCoverage++;
+        }
+        if (dressCode.mustNot[part] && dressCode.mustNot[part] == coverage[part])
+        {
+            errorsCoverage++;
+        }
+    }
+    Log.debug(styleCount);
+    var num;
+    var errorsLimits = 0;
+    for (var style in styleCount)
+    {
+        if (!isNaN(dressCode.maxStyle[style]))
+        {
+            num = styleCount[style] - dressCode.maxStyle[style];
+            Log.debug(style + ": " + num);
+            errorsLimits += (num < 0) ? 0 : num;
+        }
+        if (!isNaN(dressCode.minStyle[style]))
+        {
+            num = dressCode.minStyle[style] - styleCount[style];
+            Log.debug(style + ": " + num);
+            errorsLimits += (num < 0) ? 0 : num;
+        }
+    }
+
+    Log.debug("Errors coverage: "+ errorsCoverage);
+    Log.debug("Errors limits: "+ errorsLimits);
+
+    var errors = Math.max(errorsCoverage, errorsLimits);
+    Log.debug("Max error: " + errors);
+    errors -= dressCode.failTolerance;
+    errors = (errors < 0 ) ? 0 : errors;
+    Log.debug("Max error after tolerance: " + errors);
+
+    var penalty = errors * dressCode.penaltyPerFail;
+    Log.debug("Penalty: " + penalty);
+
+    if (penalty > dressCode.penaltyLimit)
+    {
+        Log.debug("YOU SHALL NOT PASS!!");
+    }
+    else
+    {
+        Log.debug("YOU SHALL PASS");
+        if (penalty > 0)
+        {
+            Log.debug("... IF YOU GIVE ME " + penalty + " MONEY!");
+        }
+    }
+};
 /**
  * Destroys this group.
  *
