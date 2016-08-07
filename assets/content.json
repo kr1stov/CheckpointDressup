@@ -425,25 +425,16 @@
         "relaxed": 1
       },
       "must": {
-        "strict": [
-          "hair"
-        ],
-        "exposed": [
-          "face",
-          "eyes"
-        ]
+        "hair": "strict",
+        "face": "exposed",
+        "eyes": "exposed"
       },
       "mustNot": {
-        "exposed": [
-          "torso",
-          "arms",
-          "thighs",
-          "calves",
-          "feet"
-        ],
-        "relaxed": [
-          "feet"
-        ]
+        "torso": "exposed",
+        "arms": "exposed",
+        "thighs": "exposed",
+        "calves": "exposed",
+        "feet": "exposed"
       }
     },
     "government": {
@@ -461,11 +452,9 @@
       },
       "must": {},
       "mustNot": {
-        "exposed": [
-          "torso",
-          "thighs",
-          "calves"
-        ]
+        "torso": "exposed",
+        "thighs": "exposed",
+        "calves": "exposed"
       }
     },
     "marxists": {
