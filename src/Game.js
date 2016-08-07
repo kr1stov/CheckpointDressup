@@ -418,14 +418,21 @@ Fashion.Game.prototype = {
         var roadConfig = Fashion.content.gameConfig.road;
         this.road.startRolling(roadConfig.scrollSpeed);
         this.loadNextCheckpoint();
-        
-        this.startNewMessageTimer(1, "Mom Message 1", this.postNewIncomingMessage, this);
-        this.startNewMessageTimer(3, "Mom Message 2", this.postNewIncomingMessage, this);
-        this.startNewMessageTimer(5, "Mom Message 3", this.postNewIncomingMessage, this);
+
+        this.startNewMessageTimer(1, "My dearest child, the situation here is getting too dangerous for you. Your uncle agreed to bring you to safety with his truck.", this.postNewIncomingMessage, this);
+        this.startNewMessageTimer(3, "I gave him a bag of clothes for you. There will be many different checkpoints on the road. Each one will require different clothes!", this.postNewIncomingMessage, this);
+        this.startNewMessageTimer(5, "I will try to send you as many helpful messages as possible! Lots of love, your mother.", this.postNewIncomingMessage, this);
 
         this.game.time.events.repeat(7, 1, this.startNewGameDelayed, this);
     },
 
+    /**
+     *
+     *
+     * @method Fashion.Game#startNewGameDelayed
+     * @memberof Fashion.Game
+     * @private
+     */
     startNewGameDelayed: function (data)
     {
        this.road.startRolling(roadConfig.scrollSpeed);
@@ -462,7 +469,7 @@ Fashion.Game.prototype = {
         var msgTime;
         for (i = 0; i < totalMessages; i++)
         {
-            msgTime = (i + 1 + this.game.rnd.frac()) * timePerSegement;
+            msgTime = (i + 1 + this.game.rnd.frac()) * timePerSegment;
             this.startNewMessageTimer(msgTime, messageTexts[i], this.postNewIncomingMessage, this);
         }
     },

@@ -87,415 +87,416 @@
   {
     "message01":
     {
-      "factions": "fanatics",
+      "factions": [ "fanatics" ],
       "message": "a man was stoned in the village ahead",
       "certainty": 100
     },
 	"message02":
     {
-      "factions": "fanatics",
+      "factions": [ "fanatics" ],
       "message": "a black flag has been raised over a mosque in the town ahead",
       "certainty": 100
     },
 	"message03":
     {
-      "factions": "fanatics,rebels",
+      "factions": [ "fanatics","rebels" ],
       "message": "government forces have been executed in the area ahead of you",
       "certainty": 50
     },
 	"message04":
     {
-      "factions": "fanatics,rebels,government",
+      "factions": [ "fanatics","rebels","government" ],
       "message": "marxistss are shelling nearby positions",
       "certainty": 30
     },
 	"message05":
     {
-      "factions": "marxists,rebels,government",
+      "factions": [ "marxists","rebels","government" ],
       "message": "fanatics are conducting artillery strikes near you",
       "certainty": 30
     },
 	"message06":
     {
-      "factions": "rebels,fanatics,marxists",
+      "factions": [ "fanatics","rebels","marxists" ],
       "message": "government forces are launching air strikes near you",
       "certainty": 30
     },
 	"message07":
     {
-      "factions": "marxists,fanatics,government",
+      "factions": [ "fanatics","fanatics","government" ],
       "message": "rebels are shooting with mortars at units ahead of you",
       "certainty": 30
     },
 	"message08":
     {
-      "factions": "government",
+      "factions": [ "government" ],
       "message": "rebels have been seen in the area ahead of you",
       "certainty": 30
     },
 	"message09":
     {
-      "factions": "marxists,fanatics,government,rebels",
+      "factions": [ "fanatics","fanatics","government","rebels" ],
       "message": "american warplanes are bombing the area ahead of you",
       "certainty": 0
     },
 	"message10":
     {
-      "factions": "marxists,fanatics,government,rebels",
+      "factions": [ "fanatics","fanatics","government","rebels" ],
       "message": "US bombers have accidently destroyed a humanitarian aid station ahead of you",
       "certainty": 0
     },
 	"message11":
     {
-      "factions": "marxists,fanatics,government,rebels",
+      "factions": [ "fanatics","fanatics","government","rebels" ],
       "message": "the danish airforce is conducting heroic strikes",
       "certainty": 0
     },
 	"message12":
     {
-      "factions": "marxists,fanatics,government,rebels",
+      "factions": [ "fanatics","fanatics","government","rebels" ],
       "message": "british airplaines are dropping bombs to fight global terrorism",
       "certainty": 0
     },
 	"message13":
     {
-      "factions": "marxists,fanatics,government,rebels",
+      "factions": [ "fanatics","fanatics","government","rebels" ],
       "message": "the EU has announced a new task force to bring peace to the region",
       "certainty": 0
     },
 	"message14":
     {
-      "factions": "marxists,fanatics,government,rebels",
+      "factions": [ "fanatics","fanatics","government","rebels" ],
       "message": "peace talks moderated by the international community have ended without result",
       "certainty": 0
     },
 	"message15":
     {
-      "factions": "marxists,fanatics,government,rebels",
+      "factions": [ "fanatics","fanatics","government","rebels" ],
       "message": "the UN is withdrawing its observers from the province",
       "certainty": 0
     },
 	"message16":
     {
-      "factions": "marxists,fanatics,government,rebels",
+      "factions": [ "fanatics","fanatics","government","rebels" ],
       "message": "the russian foreign ministry announces new humanitarian missions",
       "certainty": 0
     },
 	"message17":
     {
-      "factions": "marxists,fanatics,government,rebels",
+      "factions": [ "fanatics","fanatics","government","rebels" ],
       "message": "top russian military brass have been spoted in the capital",
       "certainty": 0
     },
 	"message18":
     {
-      "factions": "marxists,fanatics,government,rebels",
+      "factions": [ "fanatics","fanatics","government","rebels" ],
       "message": "the international community is protesting against atrocities commited in a nearby town",
       "certainty": 0
     },
 	"message19":
     {
-      "factions": "marxists,fanatics,government,rebels",
+      "factions": [ "fanatics","fanatics","government","rebels" ],
       "message": "the EU has expressed their worries over war crimes in the region",
       "certainty": 0
     },
 	"message20":
     {
-      "factions": "fanatics,rebels,marxists",
+      "factions": [ "fanatics","fanatics","rebels" ],
       "message": "government radio reports great progress in taking back province",
       "certainty": 30
     },
 	"message21":
     {
+      "factions": [ "government","rebels","marxists" ],
       "factions": "government,rebels,marxists",
       "message": "fanatics press their attack with great force",
       "certainty": 30
     },
 	"message22":
     {
-      "factions": "marxists",
+      "factions": [ "marxists" ],
       "message": "a new video about marxists triumph near you was published",
       "certainty": 80
     },
 	"message23":
     {
-      "factions": "rebels",
+      "factions": [ "rebels" ],
       "message": "rebels tweet about relentless efforts to hold terrain",
       "certainty": 80
     },
 	"message24":
     {
-      "factions": "marxists",
+      "factions": [ "marxists" ],
       "message": "female special forces are holding parades in the next town",
       "certainty": 100
     },
 	"message25":
     {
-      "factions": "government",
+      "factions": [ "government" ],
       "message": "army forces in your area are on the edge of defeat",
       "certainty": 30
     },
 	"message26":
     {
-      "factions": "fanatics",
+      "factions": [ "fanatics" ],
       "message": "fanatics in your area are on the edge of destruction",
       "certainty": 30
     },
 	"message27":
     {
-      "factions": "marxists",
-      "message": "marxistss in your area are retreating",
+      "factions": [ "marxists" ],
+      "message": "marxists in your area are retreating",
       "certainty": 30
     },
 	"message28":
     {
-      "factions": "rebels",
+      "factions": [ "rebels" ],
       "message": "rebels in your area are almost defeated",
       "certainty": 30
     },
 	"message29":
     {
-      "factions": "fanatics",
+      "factions": [ "fanatics" ],
       "message": "black flags have been raised in the towns ahead of you",
       "certainty": 30
     },
 	"message30":
     {
-      "factions": "marxists",
+      "factions": [ "marxists" ],
       "message": "a yellow flag with a red star has been raised on a nearby hillside",
       "certainty": 80
     },
 	"message31":
     {
-      "factions": "rebels",
+      "factions": [ "rebels" ],
       "message": "a green rebel flag has been raised in the settlement ahead",
       "certainty": 80
     },
 	"message33":
     {
-      "factions": "government",
+      "factions": [ "government" ],
       "message": "the national flags are still flying high in the region ahead",
       "certainty": 80
     },
 	"message34":
     {
-      "factions": "marxists",
+      "factions": [ "marxists" ],
       "message": "armed women in uniform have been seen",
       "certainty": 50
     },
 	"message35":
     {
-      "factions": "fanatics",
+      "factions": [ "fanatics" ],
       "message": "black clad fanatics are roaming the area",
       "certainty": 50
     },
 	"message36":
     {
-      "factions": "rebels",
+      "factions": [ "rebels" ],
       "message": "rebels on pickup trucks are operating nearby",
       "certainty": 50
     },
 	"message37":
     {
-      "factions": "government",
+      "factions": [ "government" ],
       "message": "there's a large tank convoy moving into the province",
       "certainty": 50
     },
 	"message38":
     {
-      "factions": "government,rebels,marxists",
+      "factions": [ "marxists","government","rebels" ],
       "message": "fanatics have pulled out of the area",
       "certainty": 30
     },
 	"message39":
     {
-      "factions": "government,rebels,marxists",
+      "factions": [ "marxists","government","rebels" ],
       "message": "fanatics have abandoned their positions",
       "certainty": 30
     },
 	"message40":
     {
-      "factions": "government,rebels,marxists",
+      "factions": [ "marxists","government","rebels" ],
       "message": "fanatics were forced to flee",
       "certainty": 30
     },
 	"message41":
     {
-      "factions": "government,fanatics,marxists",
+      "factions": [ "marxists","government","fanatics" ],
       "message": "rebels announced their withdrawl from the area",
       "certainty": 30
     },
 	"message42":
     {
-      "factions": "government,fanatics,marxists",
+      "factions": [ "marxists","government","fanatics" ],
       "message": "rebels are pulling back their forces",
       "certainty": 30
     },
 	"message43":
     {
-      "factions": "government,fanatics,rebels",
+      "factions": [ "rebels","government","fanatics" ],
       "message": "revolutionary forces ordered a tactical retreat",
       "certainty": 30
     },
 	"message44":
     {
-      "factions": "government,fanatics,rebels",
+      "factions": [ "rebels","government","fanatics" ],
       "message": "marxists battle groups have given up their positions",
       "certainty": 30
     },
 	"message45":
     {
-      "factions": "government,fanatics,rebels",
+      "factions": [ "rebels","government","fanatics" ],
       "message": "female special forces have given up a nearby stronghold after fierce fights",
       "certainty": 30
     },
 	"message46":
     {
-      "factions": "marxists,fanatics,rebels",
+      "factions": [ "rebels","marxists","fanatics" ],
       "message": "the army has fled from their previous positions",
       "certainty": 30
     },
 	"message47":
     {
-      "factions": "marxists,fanatics,rebels",
+      "factions": [ "rebels","marxists","fanatics" ],
       "message": "government forces are in disarray",
       "certainty": 30
     },
 	"message48":
     {
-      "factions": "marxists,fanatics,rebels",
+      "factions": [ "rebels","marxists","fanatics" ],
       "message": "national radio reports the army's retreat",
       "certainty": 30
     },
 	"message49":
     {
-      "factions": "marxists,government,rebels",
+      "factions": [ "rebels","marxists","government" ],
       "message": "local media announced the defeat of religious fanatics",
       "certainty": 30
     },
 	"message50":
     {
-      "factions": "marxists,government,rebels",
+      "factions": [ "rebels","marxists","government" ],
       "message": "The local national radio center has been destroyed",
       "certainty": 30
     },
 	"message51":
     {
-      "factions": "marxists,government,fanatics",
+      "factions": [ "fanatics","marxists","government" ],
       "message": "rebel soldiers have been seen roaming the area",
       "certainty": 50
     },
 	"message52":
     {
-      "factions": "marxists,government,rebels",
+      "factions": [ "rebels","marxists","government" ],
       "message": "Fanatics have been seen roaming the area",
       "certainty": 50
     },
 	"message53":
     {
-      "factions": "fanatics,rebels",
+      "factions": [ "fanatics","rebels" ],
       "message": "government forces have been executed in the area ahead of you",
       "certainty": 50
     },
 	"message54":
     {
-      "factions": "fanatics",
+      "factions": [ "fanatics" ],
       "message": "fanatics troops are holding your area",
       "certainty": 100
     },
 	"message55":
     {
-      "factions": "fanatics,government,marxists,rebels",
+      "factions": [ "fanatics", "rebels","marxists","government" ],
       "message": "a maternity hospital was hit by air strikes",
       "certainty": 0
     },
 	"message56":
     {
-      "factions": "fanatics",
+      "factions": [ "fanatics" ],
       "message": "civilians trying to escape were captured by fanatic forces",
       "certainty": 75
     },
 	"message57":
     {
-      "factions": "rebels,government,marxists",
+      "factions": [ "rebels","marxists","government" ],
       "message": "the Fanatics network is spreading over your area",
       "certainty": 30
     },
 	"message58":
     {
-      "factions": "fanatics,government,marxists",
+      "factions": [ "fanatics", "marxists","government" ],
       "message": "rebel shelling killed 28 civilians in your area",
       "certainty": 30
     },
 	"message59":
     {
-      "factions": "fanatics,government,marxists,rebels",
+      "factions": [ "fanatics", "rebels","marxists","government" ],
       "message": "the local water supply has been destroyed",
       "certainty": 0
     },
 	"message60":
     {
-      "factions": "fanatics,government,marxists,rebels",
+      "factions": [ "fanatics", "rebels","marxists","government" ],
       "message": "people have been forced to eat roots and grass",
       "certainty": 0
     },
 	"message61":
     {
-      "factions": "fanatics,government,marxists,rebels",
+      "factions": [ "fanatics", "rebels","marxists","government" ],
       "message": "there has been a cholera outbreak in your area",
       "certainty": 0
     },
 	"message62":
     {
-      "factions": "government,marxists,rebels",
+      "factions": [ "rebels","marxists","government" ],
       "message": "fanatics claim responsibility for a bomb attack nearby",
       "certainty": 30
     },
 	"message63":
     {
-      "factions": "government,rebels",
+      "factions": [ "rebels","government" ],
       "message": "a suicide blast killed 14 people",
       "certainty": 50
     },
 	"message64":
     {
-      "factions": "rebels",
+      "factions": [ "rebels" ],
       "message": "rebel fighters have decapitated a young man in the town ahead of you",
       "certainty": 100
     },
 	"message65":
     {
-      "factions": "rebels",
+      "factions": [ "rebels" ],
       "message": "control of road was seized by Rebel fighters",
       "certainty": 100
     },
 	"message66":
     {
-      "factions": "government",
+      "factions": [ "government" ],
       "message": "attacks on a governmental prison has freed hundreds of militants",
       "certainty": 50
     },
 	"message67":
     {
-      "factions": "fanatics,rebels",
+      "factions": [ "rebels","fanatics" ],
       "message": "an army helicopter was shot down in the area ahead of us",
       "certainty": 50
     },
 	"message68":
     {
-      "factions": "rebels",
+      "factions": [ "rebels" ],
       "message": "a Rebel leader was killed in a missile strike",
       "certainty": 50
     },
 	"message69":
     {
-      "factions": "marxists",
+      "factions": [ "marxists" ],
       "message": "marxists forces hold the town ahead of us",
       "certainty": 100
     },
 	"message70":
     {
-      "factions": "rebels",
+      "factions": [ "rebels" ],
       "message": "rebel forces hold the town ahead of us",
       "certainty": 100
     }
@@ -505,77 +506,77 @@
   {
     "message01":
     {
-      "factions": "fanatics",
+      "factions": [ "fanatics" ],
       "message": "make sure that your whole body is covered when you are held up by a fanatic checkpoint"
     },
 	"message02":
     {
-      "factions": "fanatics",
+      "factions": [ "fanatics" ],
       "message": "never wear military clothing when you are approached by fanatics"
     },
 	"message03":
     {
-      "factions": "government",
+      "factions": [ "government" ],
       "message": "try to look casual when you run into government forces"
     },
 	"message04":
     {
-      "factions": "government",
+      "factions": [ "government" ],
       "message": "do not wear military clothing when you run into government guards"
     },
 	"message05":
     {
-      "factions": "marxistss",
+      "factions": [ "marxists" ],
       "message": "Be sure to dress up completely in military clothing when you are approached by marxistss"
     },
 	"message06":
     {
-      "factions": "rebels",
+      "factions": [ "rebels" ],
       "message": "your hair must be covered when you are approached by rebel soldiers"
     },
 	"message07":
     {
-      "factions": "marxistss",
+      "factions": [ "marxists" ],
       "message": "the marxistss won't let you pass for free if you have your head and face covered"
     },
 	"message08":
     {
-      "factions": "rebels",
+      "factions": [ "rebels" ],
       "message": "you do not need to cover your eyes when you are approached by rebels"
     },
 	"message09":
     {
-      "factions": "rebels",
+      "factions": [ "rebels" ],
       "message": "do not wear too many strict clothes when you are approached by rebels. they might think that you are a fanatic"
     },
 	"message10":
     {
-      "factions": "rebels",
+      "factions": [ "rebels" ],
       "message": "do not wear too many casual clothes when you are approached by rebels. they may not be fanatics but are still conservative"
     },
 	"message11":
     {
-      "factions": "rebels,fanatics",
+      "factions": [ "rebels","fanatics" ],
       "message": "the burka is considered strict"
     },
 	"message12":
     {
-      "factions": "rebels,fanatics",
+      "factions": [ "rebels","fanatics" ],
       "message": "neither rebels nor fanatics will let you pass with casual or military clothes"
     },
 	"message13":
     {
-      "factions": "fanatics",
+      "factions": [ "fanatics" ],
       "message": "fanatics will not accept bribes"
     },
 	"message14":
     {
-      "factions": "marxistss",
+      "factions": [ "marxists" ],
       "message": "if you dress with military clothes, the marxistss will treat you as an equal"
     },
 	"message15":
     {
-      "factions": "government",
+      "factions": [ "government" ],
       "message": "sunglasses and make-up are considered casual"
     }
   }
