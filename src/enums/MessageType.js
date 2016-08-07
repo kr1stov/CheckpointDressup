@@ -5,7 +5,7 @@
 /**
  * @namespace Fashion.MessageType
  */
-Fashion.MessagType = {
+Fashion.MessageType = {
     INCOMING : 'incoming',
     OUTGOING : 'outgoing'
 };

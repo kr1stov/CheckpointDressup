@@ -22,7 +22,11 @@ Fashion.Asset.AtlasPath = {
 
     UI: 'ui/',
     GARMENTS : 'truck/garments/',
-    PHONE: 'phone/'
+    PHONE: 'phone/',
+    ROAD: 'road/',
+    TRUCK: 'truck/',
+    DRESS_UP_SPACE: 'dress-up-space/',
+    CHARACTER: 'truck/character/'
 
 };
 /**
@@ -42,7 +46,25 @@ Fashion.Asset.Image = {
     // Phones
     //-----------------------------------
     PHONE_BG: Fashion.Asset.AtlasPath.PHONE + 'bg-phone.png',
-    MESSAGE_BACKGROUND_INCOMING: Fashion.Asset.AtlasPath.PHONE + 'message-bg-incoming.png'
+    PHONE_FRAME: Fashion.Asset.AtlasPath.PHONE + 'frame.png',
+    MESSAGE_INCOMING: Fashion.Asset.AtlasPath.PHONE + 'message-incoming.png',
+    MESSAGE_OUTGOING: Fashion.Asset.AtlasPath.PHONE + 'message-outgoing.png',
+    //-----------------------------------
+    // ROAD
+    //-----------------------------------
+    ROAD_BG: Fashion.Asset.AtlasPath.ROAD  + 'bg-road.png',
+    //-----------------------------------
+    // Dress up space
+    //-----------------------------------
+    DRESS_UP_BG: Fashion.Asset.AtlasPath.DRESS_UP_SPACE + 'bg.png',
+    //-----------------------------------
+    // Truck
+    //-----------------------------------
+    TRUCK_BG: Fashion.Asset.AtlasPath.TRUCK + 'bg-truck.png',
+    //-----------------------------------
+    // Character
+    //-----------------------------------
+    CHARACTER_BASE: Fashion.Asset.AtlasPath.CHARACTER + 'heroine.png'
 };
 /**
  * @namespace Fashion.Asset.Animation

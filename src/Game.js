@@ -117,6 +117,17 @@ Fashion.Game.prototype = {
         this.phone.x = this.game.world.width - this.phone.width;
         this.phone.y = this.game.world.height - this.phone.height;
         //-----------------------------------
+        // Road
+        //-----------------------------------
+        this.road = new Fashion.Road(this.game, Fashion.Asset.TextureAtlas.GAME);
+        this.gameLayer.add(this.road);
+        //-----------------------------------
+        // Truck
+        //-----------------------------------
+        this.dressUpSpace = new Fashion.DressUpSpace(this.game, Fashion.Asset.TextureAtlas.GAME, Fashion.content.dropZones);
+        this.gameLayer.add(this.dressUpSpace);
+        this.dressUpSpace.y = this.game.world.height - this.dressUpSpace.height;
+        //-----------------------------------
         // Alert (& Overlay)
         //-----------------------------------
         //this.overlayAlert = new Fashion.Overlay(this.game, 0, 0);
