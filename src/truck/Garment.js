@@ -14,7 +14,7 @@
  * @param {string|Phaser.RenderTexture|Phaser.BitmapData|PIXI.Texture} key - The texture used by the Image during rendering. It can be a string which is a reference to the Cache entry, or an instance of a RenderTexture, BitmapData or PIXI.Texture.
  * @param {string|number} frame - If this Image is using part of a sprite sheet or texture atlas you can specify the exact frame to use by giving a string or numeric index.
  */
-Fashion.Garment = function (game, x, y, key, garmentName, dropZones)
+Fashion.Garment = function (game, x, y, key, garmentName, dropZones, coverage, blockedBodyParts)
 {
     // call super constructor
     Phaser.Image.call(this, game, x, y, key, Fashion.Asset.AtlasPath.GARMENTS + garmentName + ".png");
@@ -27,17 +27,24 @@ Fashion.Garment = function (game, x, y, key, garmentName, dropZones)
      * @property {array} targetDropZones - Array of Fashion.DropZone
      * @private
      */
-    this.targetDropZones = dropZones;
-    // TODO implement these
-    // coverage: {BodyPart: ClothingStyle} assoc array
-    // bodyPartsBlocked: [BodyPart]
+    this.targetDropZones = Fashion.DropZone.validateZones(dropZones, "Garment");
+    /**
+     * @property {object} coverage -
+     * @private
+     */
+    this.coverage = coverage;
+    /**
+     * @property {array} blockedBodyParts -
+     * @private
+     */
+    this.blockedBodyParts = Fashion.BodyPart.validateParts(blockedBodyParts, "Garment");
+
     // ? DressDuration
     // ? UndressDuration
 
     //-----------------------------------
     // Init
     //-----------------------------------
-    this.validateDropZones(this.targetDropZones);
 };
 
 // extend class Phaser.Image
@@ -79,27 +86,7 @@ Fashion.Garment.prototype.destroy = function (destroyChildren)
 //============================================================
 // Private methods
 //============================================================
-/**
- *
- *
- * @method Fashion.Garment#validateDropZones
- * @memberof Fashion.Garment
- * @private
- */
-Fashion.Garment.prototype.validateDropZones = function (dropZones)
-{
-    var n = dropZones.length;
-    var i;
-    var zone;
-    for (i = n; --i >= 0;)
-    {
-        zone = dropZones[i];
-        if (!Fashion.DropZone.validate(zone))
-        {
-            Log.error("Invalid target drop zone detected in garment '" + this.garmentName + "': " + zone);
-        }
-    }
-};
+
 //============================================================
 // Implicit getters and setters
 //============================================================

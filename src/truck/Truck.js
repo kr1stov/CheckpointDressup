@@ -94,7 +94,9 @@ Fashion.Truck.prototype.renderGarments = function (garments)
             0,0,
             Fashion.Asset.TextureAtlas.GAME,
             key,
-            data.dropZones
+            data.dropZones,
+            data.coverage,
+            data.bodyPartsBlocked
         );
         this.garments[key] = garment;
         this.addChild(garment);
