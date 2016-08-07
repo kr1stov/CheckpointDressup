@@ -116,25 +116,6 @@ Fashion.MessageCenter.prototype.buildPool = function () {
         var temp = new Fashion.PreMessage(data.factions, data.message);
         this.hintTextPool.push(temp);
     }
-
-
-    /*var message, data;
-
-    for (var key in garments)
-    {
-        data = garments[key];
-        garment = new Fashion.Garment(
-            this.game,
-            0,0,
-            Fashion.Asset.TextureAtlas.GAME,
-            key,
-            data.imageOffset.x,
-            data.imageOffset.y,
-            data.dropZones,
-            data.coverage,
-            data.bodyPartsBlocked
-        );*/
-
 };
 //============================================================
 // Private methods
