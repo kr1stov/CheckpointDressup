@@ -14,30 +14,37 @@
  * @param {string|Phaser.RenderTexture|Phaser.BitmapData|PIXI.Texture} key - The texture used by the Image during rendering. It can be a string which is a reference to the Cache entry, or an instance of a RenderTexture, BitmapData or PIXI.Texture.
  * @param {string|number} frame - If this Image is using part of a sprite sheet or texture atlas you can specify the exact frame to use by giving a string or numeric index.
  */
-Fashion.Garment = function (game, x, y, key, garmentName, dropZones, coverage, blockedBodyParts)
+Fashion.Garment = function (game, x, y, key, garmentName, imageOffsetX, imageOffsetY, dropZones, coverage, blockedBodyParts)
 {
     // call super constructor
     Phaser.Image.call(this, game, x, y, key, Fashion.Asset.AtlasPath.GARMENTS + garmentName + ".png");
     /**
      * @property {string} garmentName - The name of the garment.
-     * @private
      */
     this.garmentName = garmentName;
     /**
      * @property {array} targetDropZones - Array of Fashion.DropZone
-     * @private
      */
     this.targetDropZones = Fashion.DropZone.validateZones(dropZones, "Garment");
     /**
      * @property {object} coverage -
-     * @private
      */
     this.coverage = coverage;
     /**
      * @property {array} blockedBodyParts -
-     * @private
      */
     this.blockedBodyParts = Fashion.BodyPart.validateParts(blockedBodyParts, "Garment");
+
+    /**
+     * @property {number} imageOffsetX -
+     * @private
+     */
+    this.imageOffsetX = imageOffsetX || 0;
+    /**
+     * @property {number} imageOffsetY - 
+     * @private
+     */
+    this.imageOffsetY = imageOffsetY || 0;
 
     // ? DressDuration
     // ? UndressDuration

@@ -94,18 +94,23 @@ Fashion.Truck.prototype.renderGarments = function (garments)
             0,0,
             Fashion.Asset.TextureAtlas.GAME,
             key,
+            data.imageOffset.x,
+            data.imageOffset.y,
             data.dropZones,
             data.coverage,
             data.bodyPartsBlocked
         );
-        this.garments[key] = garment;
-        this.addChild(garment);
+        garment.anchor.setTo(0.5, 0);
         // make garments dragable
         garment.inputEnabled = true;
         garment.input.enableDrag();
+
         garment.events.onDragStart.add(this.startGarmentDrag, this);
         garment.events.onDragStop.add(this.stopGarmentDrag, this);
-        // TODO limit drag bounds to truck
+
+        this.addChild(garment);
+
+        this.garments[key] = garment;
     }
     this.character.bringToTop();
 };
@@ -116,10 +121,9 @@ Fashion.Truck.prototype.renderGarments = function (garments)
  * @memberof Fashion.Truck
  * @private
  */
-Fashion.Truck.prototype.startGarmentDrag = function (target)
+Fashion.Truck.prototype.startGarmentDrag = function (garment)
 {
-    Log.debug(target.garmentName);
-    target.bringToTop();
+    garment.bringToTop();
 };
 /**
  *
@@ -128,13 +132,63 @@ Fashion.Truck.prototype.startGarmentDrag = function (target)
  * @memberof Fashion.Truck
  * @private
  */
-Fashion.Truck.prototype.stopGarmentDrag = function (target, pointer)
+Fashion.Truck.prototype.stopGarmentDrag = function (garment, pointer)
 {
-    // TODO make hit tests
-    //Log.debug(pointer.x, pointer.y);
-    //this.character.hitsDropZone(pointer.x, pointer.y, Fashion.DropZone.UPPER_BODY);
-    //Log.debug(p.x, p.y);
+    var localPoint = this.character.toLocal(new Phaser.Point(pointer.x, pointer.y));
+    var zone = this.hitTestCharacter(garment, localPoint);
+    if (zone)
+    {
+        Log.debug("garment hits valid zone " + zone);
+        this.character.positionGarment(garment);
+    }
+    else
+    {
+        this.setRandomGarmentPosition(garment);
+        // move behind character
+        this.setChildIndex(garment, this.getIndex(this.character) - 1);
+    }
+};
+/**
+ *
+ *
+ * @method Fashion.Truck#hitTestCharacter
+ * @memberof Fashion.Truck
+ * @private
+ */
+Fashion.Truck.prototype.hitTestCharacter = function (target, localPoint)
+{
+    if (!target.targetDropZones)
+    {
+        Log.error("Invalid drop zones on garment " + target.garmentName);
+        return;
+    }
 
+    var n = target.targetDropZones.length;
+    var i;
+    var zone;
+    for (i = n; --i >= 0;)
+    {
+        zone = target.targetDropZones[i];
+        if (this.character.hitsDropZone(localPoint, zone))
+        {
+            return zone;
+        }
+    }
+    return null;
+};
+/**
+ *
+ *
+ * @method Fashion.Truck#setRandomGarmentPosition
+ * @memberof Fashion.Truck
+ * @private
+ */
+Fashion.Truck.prototype.setRandomGarmentPosition = function (garment)
+{
+    if (!garment) return;
+
+    garment.x = 0;
+    garment.y = 0;
 };
 //============================================================
 // Implicit getters and setters

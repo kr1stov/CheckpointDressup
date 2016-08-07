@@ -85,18 +85,31 @@ Fashion.Character.prototype.destroy = function (destroyChildren)
  * @method Fashion.Character#hitsDropZone
  * @memberof Fashion.Character
  */
-Fashion.Character.prototype.hitsDropZone = function (x, y, zone)
+Fashion.Character.prototype.hitsDropZone = function (point, zone)
 {
-    var p = this.toLocal(new Phaser.Point(x, y));
     for (var key in this.dropZones)
     {
-        if (key == zone && Phaser.Rectangle.containsPoint(this.dropZones[key], p))
+        if (key == zone && Phaser.Rectangle.containsPoint(this.dropZones[key], point))
         {
-            Log.debug("zone hit " + zone);
             return true;
         }
     }
     return false;
+};
+/**
+ *
+ *
+ * @method Fashion.Character#positionGarment
+ * @memberof Fashion.Character
+ */
+Fashion.Character.prototype.positionGarment = function (garment)
+{
+    if (garment)
+    {
+        garment.x = this.x + garment.imageOffsetX;
+        garment.y = this.y + garment.imageOffsetY;
+    }
+
 };
 //============================================================
 // Private methods
@@ -116,7 +129,7 @@ Fashion.Character.prototype.drawDropZones = function ()
     {
         rect = this.dropZones[key];
         zone = this.game.make.graphics(rect.x, rect.y);
-        Log.debug("zone key: " + key, rect.x, rect.y, rect.width, rect.height);
+        //Log.debug("zone key: " + key, rect.x, rect.y, rect.width, rect.height);
 
         zone.beginFill(0xff0000, 0.5);
         zone.drawRect(0, 0, rect.width, rect.height);
