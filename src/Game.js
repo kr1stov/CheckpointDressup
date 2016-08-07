@@ -140,9 +140,9 @@ Fashion.Game.prototype = {
         this.dressUpSpace.setup(Fashion.content.garments);
 
         // test button
-        var btn = this.game.add.image(-80,80, Fashion.Asset.TextureAtlas.MENU, Fashion.Asset.Image.MENU_BTN);
-        btn.inputEnabled = true;
-        btn.events.onInputDown.add(this.performDressCheck, this);
+        //var btn = this.game.add.image(-80,80, Fashion.Asset.TextureAtlas.MENU, Fashion.Asset.Image.MENU_BTN);
+        //btn.inputEnabled = true;
+        //btn.events.onInputDown.add(this.performDressCheck, this);
         //-----------------------------------
         // Alert (& Overlay)
         //-----------------------------------
