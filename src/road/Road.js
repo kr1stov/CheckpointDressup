@@ -26,13 +26,25 @@ Fashion.Road = function (game, key, parent, name, addToStage, enableBody, physic
     /**
      * @property {Phaser.BitmapText} bg - Background
      */
-    this.bg = this.game.make.image(0, 0, key, Fashion.Asset.Image.ROAD_BG);
+    //this.bg = this.game.make.image(0, 0, key, Fashion.Asset.Image.ROAD_BG);
+    this.bg = this.game.make.tileSprite(0, 0, this.game.world.width, 75, key, Fashion.Asset.Image.ROAD_BG);
+
+    this.vehicle = new Fashion.Vehicle(game, 30,0, Fashion.Asset.TextureAtlas.GAME, Fashion.Asset.Image.MAIN_CHAR_VEHICLE);
+    /**
+     * @property {number} speed -
+     * @private
+     */
+    this.speed = 0;
+    /**
+     * @property {boolean} _rolling - 
+     * @private
+     */
+    this.rolling = false;
     //-----------------------------------
     // Init
     //-----------------------------------
     this.add(this.bg);
 
-    this.vehicle=new Fashion.Vehicle(game, 0,0, Fashion.Asset.TextureAtlas.GAME, Fashion.Asset.Image.MAIN_CHAR_VEHICLE);
     this.add(this.vehicle);
 };
 
@@ -43,7 +55,42 @@ Fashion.Road.prototype.constructor = Fashion.Road;
 //============================================================
 // Public interface
 //============================================================
+/**
+ *
+ *
+ * @method Fashion.Road#roll
+ * @memberof Fashion.Road
+ */
+Fashion.Road.prototype.startRolling = function (speed)
+{
+    if (this.rolling) return;
 
+    this.speed = speed || this.speed;
+    this.rolling = true;
+};
+
+/**
+ *
+ *
+ * @method Fashion.Road#stopRolling
+ * @memberof Fashion.Road
+ */
+Fashion.Road.prototype.stopRolling = function ()
+{
+    if (!this.rolling) return;
+
+    this.rolling = false;
+};
+
+Fashion.Road.prototype.update = function ()
+{
+    Phaser.Group.prototype.update.call(this);
+
+    if (this.rolling)
+    {
+        this.bg.tilePosition.x += this.speed;
+    }
+};
 /**
  * Destroys this group.
  *
