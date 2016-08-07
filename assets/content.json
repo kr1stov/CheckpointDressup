@@ -160,8 +160,8 @@
     "strict-abaya": {
       "imageKey": "strict-abaya",
       "imageOffset": {
-        "x": -1,
-        "y": 110
+        "x": -2,
+        "y": 109
       },
       "dropZones": [
         "upperBody",
@@ -295,7 +295,7 @@
     "relaxed-shirt": {
       "imageKey": "relaxed-shirt",
       "imageOffset": {
-        "x": 0,
+        "x": -1,
         "y": 112
       },
       "dropZones": [

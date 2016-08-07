@@ -44,6 +44,7 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
 
     this.messageArray = new Array();
 
+    this.key = key;
 
     //-----------------------------------
     // Init
@@ -61,11 +62,11 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
     this.messageContainer.add(this.messageMask);
     this.messageContainer.mask = this.messageMask;
 
-    this.addMessage(key, Fashion.MessageType.INCOMING, "1 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
-    this.addMessage(key, Fashion.MessageType.OUTGOING, "2 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
-    this.addMessage(key, Fashion.MessageType.INCOMING, "3 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
-    this.addMessage(key, Fashion.MessageType.OUTGOING, "4 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
-    this.addMessage(key, Fashion.MessageType.INCOMING, "5 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    this.addMessage(Fashion.MessageType.INCOMING, "1 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    this.addMessage(Fashion.MessageType.OUTGOING, "2 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    this.addMessage(Fashion.MessageType.INCOMING, "3 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    this.addMessage(Fashion.MessageType.OUTGOING, "4 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    this.addMessage(Fashion.MessageType.INCOMING, "5 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
 
 };
 
@@ -84,23 +85,21 @@ Fashion.Phone.prototype.constructor = Fashion.Phone;
  * @method Fashion.Phone#addMessage
  * @memberof Fashion.Phone
  */
-Fashion.Phone.prototype.addMessage = function (key, type, text)
+Fashion.Phone.prototype.addMessage = function (type, text)
 {
     var mTemp = this.game.make.group();
     var aTemp;
     var tTemp;
 
     if(type == Fashion.MessageType.INCOMING) {
-        aTemp = this.game.make.image(this.frame.x + 20, this.frame.height - 170, key, Fashion.Asset.Image.MESSAGE_INCOMING);
+        aTemp = this.game.make.image(this.frame.x + 20, this.frame.height - 170, this.key, Fashion.Asset.Image.MESSAGE_INCOMING);
         //aTemp.scale.y = 1;
         tTemp = this.game.add.text(aTemp.x+25, aTemp.y+5, text, {fontSize: '10px', fill: '#000', wordWrap: true, wordWrapWidth: aTemp.width-30});
     }
     else {
-        aTemp = this.game.make.image(this.frame.x + 50, this.frame.height - 170, key, Fashion.Asset.Image.MESSAGE_OUTGOING);
+        aTemp = this.game.make.image(this.frame.x + 50, this.frame.height - 170, this.key, Fashion.Asset.Image.MESSAGE_OUTGOING);
         //aTemp.scale.y = 0.5;
         tTemp = this.game.add.text(aTemp.x+10, aTemp.y+5, text, {fontSize: '10px', fill: '#000', wordWrap: true, wordWrapWidth: aTemp.width-25});
-
-
     }
 
     aTemp.scale.y = tTemp.height/aTemp.height;
@@ -155,4 +154,3 @@ Fashion.Phone.prototype.destroy = function (destroyChildren, soft) {
 //============================================================
 // Implicit getters and setters
 //============================================================
-
