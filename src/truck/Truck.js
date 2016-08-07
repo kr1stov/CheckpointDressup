@@ -43,8 +43,8 @@ Fashion.Truck = function (game, key, dropZones, parent, name, addToStage, enable
 
     this.character.anchor.setTo(0.5, 0);
 
-    this.character.x = this.bg.width - this.character.width / 2 * 1.1;
-    this.character.y = this.bg.height * 0.2;
+    this.character.x = this.bg.width - this.character.width / 2 * 1.5;
+    this.character.y = this.bg.height * 0.3;
     this.bg.alpha = 0;
 };
 
