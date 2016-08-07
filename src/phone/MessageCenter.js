@@ -116,6 +116,8 @@ Fashion.MessageCenter.prototype.buildPool = function () {
         var temp = new Fashion.PreMessage(data.factions, data.message);
         this.hintTextPool.push(temp);
     }
+
+
 };
 //============================================================
 // Private methods
