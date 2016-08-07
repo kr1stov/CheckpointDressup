@@ -82,6 +82,13 @@ Fashion.MessageCenter.prototype.destroy = function (destroyChildren, soft) {
  */
 Fashion.MessageCenter.prototype.buildPool = function () {
 
+    var messages = Fashion.content.messages;
+
+    var preMessages = messages['preMessages'];
+    var mainMessages = messages['messages'];
+    var hintMessages = messages['hintMessages'];
+
+
     /*var message, data;
 
     for (var key in garments)
