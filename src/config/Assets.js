@@ -56,6 +56,7 @@ Fashion.Asset.Image = {
     ROAD_BG: Fashion.Asset.AtlasPath.ROAD  + 'bg.png',
     MAIN_CHAR_VEHICLE: Fashion.Asset.AtlasPath.ROAD  + 'maincharacter.png',
     CHECK_POINT_PREFIX: Fashion.Asset.AtlasPath.ROAD + 'checkpoint-',
+    CHECK_POINT_FLAG: Fashion.Asset.AtlasPath.ROAD + 'flag-',
     //-----------------------------------
     // Dress up space
     //-----------------------------------
