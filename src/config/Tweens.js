@@ -9,10 +9,15 @@ Fashion.Tween = {};
 /**
  * @namespace Fashion.Tween.Card
  */
-Fashion.Tween.ExampleObject = {
+Fashion.Tween.Garment = {
 
-    FADE_IN_AFTER_USE: {
-        duration: 400,
+    SNAP_ON_DROP: {
+        duration: 100,
+        easing: Phaser.Easing.Quadratic.Out
+    },
+
+    SNAP_TO_POS: {
+        duration: 100,
         easing: Phaser.Easing.Quadratic.Out
     }
 };
