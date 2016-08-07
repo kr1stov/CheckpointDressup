@@ -21,16 +21,23 @@ Fashion.Message = function (game, parent, name, addToStage, enableBody, physicsB
     // call super constructor
     Phaser.Group.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
 
-    
+    /**
+     * @property {string } mainText - second part of message text
+     * @private
+     */
+    this.text = "";
+
+    /**
+     * @property {Fashion.MessageType} type - type of message (incoming, outgoing)
+     * @private
+     */
+    this.type = null;
+
 };
 
 // extend class Phaser.Group
 Fashion.Message.prototype = Object.create(Phaser.Group.prototype);
 Fashion.Message.prototype.constructor = Fashion.Message;
-
-var type;
-var text;
-var pretext;
 
 //============================================================
 // Public interface
@@ -63,13 +70,13 @@ Fashion.Message.prototype.setType = function (type) {
 };
 
 /**
- * sets text of message
+ * sets preText of message
  *
  * @method Fashion.Message#setText
  * @memberof Fashion.Message
  */
-Fashion.Message.prototype.setText = function (text) {
-    this.text = text;
+Fashion.Message.prototype.setText = function (preText, mainText) {
+    this.text = preText + ": "  + mainText;
 };
 //============================================================
 // Private methods

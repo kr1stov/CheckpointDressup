@@ -24,7 +24,29 @@ Fashion.MessageCenter = function (game, parent, name, addToStage, enableBody, ph
     // call super constructor
     Phaser.Group.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
 
-    // build message pools
+    /**
+     * @property {string[]} mainTextPool - pool of main text elements
+     * @private
+     */
+    this.mainTextPool = [];
+
+    /**
+     * @property {string[]} preTextPool - pool of pre text elements
+     * @private
+     */
+    this.preTextPool = [];
+
+    /**
+     * @property {Fashion.Faction} currentFaction - current faction in the area
+     * @private
+     */
+    this.currentFaction = null;
+
+    /**
+     * @property {int} certainty - certainty with which message will occur
+     * @private
+     */
+    this.certainty = 100;
 
 };
 
@@ -33,11 +55,7 @@ Fashion.MessageCenter.prototype = Object.create(Phaser.Group.prototype);
 Fashion.MessageCenter.prototype.constructor = Fashion.MessageCenter;
 
 
-var textPool;
-var pretextPool;
-var currentFaction;
-var certainty;
-//============================================================
+//=============================================
 // Public interface
 //============================================================
 
@@ -63,6 +81,7 @@ Fashion.MessageCenter.prototype.destroy = function (destroyChildren, soft) {
  * @memberof Fashion.MessageCenter
  */
 Fashion.MessageCenter.prototype.buildPool = function (src, dest) {
+
     for(var i = 0; i < src.length; i++)
     {
         dest[i] = src[i];
