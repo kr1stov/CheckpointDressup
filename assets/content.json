@@ -15,7 +15,7 @@
   "checks":
   [
     {
-      "duration": 60,
+      "duration": 20,
       "numHelpMessages": 2,
       "numFactionMessages": 4,
       "precisionFactionMessages":
@@ -25,7 +25,7 @@
       }
     },
     {
-      "duration": 30,
+      "duration": 20,
       "numHelpMessages": 1,
       "numFactionMessages": 4,
       "precisionFactionMessages":
@@ -35,7 +35,7 @@
       }
     },
     {
-      "duration": 30,
+      "duration": 20,
       "numHelpMessages": 1,
       "numFactionMessages": 3,
       "precisionFactionMessages":
@@ -45,7 +45,7 @@
       }
     },
     {
-      "duration": 30,
+      "duration": 20,
       "numHelpMessages": 0,
       "numFactionMessages": 3,
       "precisionFactionMessages":
@@ -55,7 +55,7 @@
       }
     },
     {
-      "duration": 30,
+      "duration": 20,
       "numHelpMessages": 0,
       "numFactionMessages": 3,
       "precisionFactionMessages":
@@ -65,7 +65,7 @@
       }
     },
     {
-      "duration": 30,
+      "duration": 20,
       "numHelpMessages": 0,
       "numFactionMessages": 2,
       "precisionFactionMessages":
@@ -75,7 +75,7 @@
       }
     },
     {
-      "duration": 30,
+      "duration": 20,
       "numHelpMessages": 0,
       "numFactionMessages": 2,
       "precisionFactionMessages":
