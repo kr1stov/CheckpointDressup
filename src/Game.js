@@ -507,9 +507,9 @@ Fashion.Game.prototype = {
     {
         //this.showScreen(Fashion.Game.Screen.INTRO); // FIXME uncomment this and comment handleIntroClose
         Fashion.playSound(Fashion.Asset.Sound.MUSIC, 0.5, true);
-        var roadConfig = Fashion.content.gameConfig.road;
-        this.road.startRolling(roadConfig.scrollSpeed);
-        this.loadNextCheckpoint();
+        //var roadConfig = Fashion.content.gameConfig.road;
+        //this.road.startRolling(roadConfig.scrollSpeed);
+        //this.loadNextCheckpoint();
 
         this.startNewMessageTimer(1, "My dearest child, the situation here is getting too dangerous for you. Your uncle agreed to bring you to safety with his truck.", this.postNewIncomingMessage, this);
         this.startNewMessageTimer(3, "I gave him a bag of clothes for you. There will be many different checkpoints on the road. Each one will require different clothes!", this.postNewIncomingMessage, this);
