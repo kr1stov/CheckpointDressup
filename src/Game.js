@@ -67,6 +67,11 @@ Fashion.Game = function (game) {
      * @private
      */
     //this.overlayAlert = null;
+    /**
+     * @property {number} checkPointIndex -
+     * @private
+     */
+    this.checkPointIndex = 0;
 };
 
 Fashion.Game.prototype = {
@@ -270,6 +275,8 @@ Fashion.Game.prototype = {
                 Log.debug("... IF YOU GIVE ME " + penalty + " MONEY!");
             }
         }
+        // continue
+        this.loadNextCheckpoint();
     },
     /**
      *
@@ -404,6 +411,39 @@ Fashion.Game.prototype = {
     {
         //this.showScreen(Fashion.Game.Screen.INTRO); // FIXME uncomment this and comment handleIntroClose
         Fashion.playSound(Fashion.Asset.Sound.MUSIC, 0.5, true);
+
+        this.loadNextCheckpoint();
+
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#loadNextCheckpoint
+     * @memberof Fashion.Game
+     * @private
+     */
+    loadNextCheckpoint: function ()
+    {
+        var checks = Fashion.content.checks;
+        if (this.checkPointIndex >= checks.length) return;
+
+        var checkPoint = checks[this.checkPointIndex];
+        this.checkPointIndex++;
+
+        this.startCheckPointTimer(checkPoint.duration);
+        // TODO eval messages here
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#startCheckPointTimer
+     * @memberof Fashion.Game
+     * @private
+     */
+    startCheckPointTimer: function (duration)
+    {
+        Log.debug("New checkpoint in " + duration + " seconds!");
+        this.game.time.events.repeat(duration, 1, this.performDressCheck, this);
     },
     //-----------------------------------
     // Screen handler
@@ -429,6 +469,8 @@ Fashion.Game.prototype = {
     handleIntroClose: function ()
     {
         this.currentScreen.hide();
+
+        // TODO this is where the game starts.
     },
     /**
      *
