@@ -443,7 +443,7 @@ Fashion.Game.prototype = {
     startCheckPointTimer: function (duration)
     {
         Log.debug("New checkpoint in " + duration + " seconds!");
-        this.game.time.events.repeat(duration, 1, this.performDressCheck, this);
+        this.game.time.events.repeat(duration * 1000, 1, this.performDressCheck, this);
     },
     //-----------------------------------
     // Screen handler
