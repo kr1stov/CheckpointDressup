@@ -90,7 +90,7 @@ Fashion.Road.prototype.spawnCheckpoint = function (duration, speed, faction)
 
     frameName = Fashion.Asset.Image.CHECK_POINT_FLAG + faction + ".png";
     Log.debug(frameName);
-    var flag = this.game.make.image(dist, 0, Fashion.Asset.TextureAtlas.GAME, frameName);
+    var flag = this.game.make.image(dist + 10, 0, Fashion.Asset.TextureAtlas.GAME, frameName);
     this.add(flag);
     this.flags.push(flag);
 
@@ -126,7 +126,6 @@ Fashion.Road.prototype.stopRolling = function ()
 Fashion.Road.prototype.update = function ()
 {
     Phaser.Group.prototype.update.call(this);
-
 
     if (this.rolling)
     {
