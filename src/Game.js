@@ -198,6 +198,8 @@ Fashion.Game.prototype = {
      */
     performDressCheck: function ()
     {
+        this.road.stopRolling();
+
         var faction = (Fashion.debug) ? Fashion.content.gameConfig.dressTest.faction : Fashion.Faction.All[Math.round(this.game.rnd.frac() * (Fashion.Faction.All.length - 1))];
         Log.debug(" ");
         Log.debug("DRESS CODE CHECK BY: " + faction);
@@ -275,8 +277,10 @@ Fashion.Game.prototype = {
                 Log.debug("... IF YOU GIVE ME " + penalty + " MONEY!");
             }
         }
+        // TODO put timer here
         // continue
         this.loadNextCheckpoint();
+        this.road.startRolling();
     },
     /**
      *
@@ -411,7 +415,8 @@ Fashion.Game.prototype = {
     {
         //this.showScreen(Fashion.Game.Screen.INTRO); // FIXME uncomment this and comment handleIntroClose
         Fashion.playSound(Fashion.Asset.Sound.MUSIC, 0.5, true);
-
+        var roadConfig = Fashion.content.gameConfig.road;
+        this.road.startRolling(roadConfig.scrollSpeed);
         this.loadNextCheckpoint();
 
     },
