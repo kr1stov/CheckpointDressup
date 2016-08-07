@@ -44,12 +44,6 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
 
     this.messageArray = new Array();
 
-    /**
-     * @property {integer} currentOffset - 
-     * @private
-     */
-    this.currentOffset = 0;
-
 
     //-----------------------------------
     // Init
@@ -67,12 +61,11 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
     this.messageContainer.add(this.messageMask);
     this.messageContainer.mask = this.messageMask;
 
-    this.addMessage(key, Fashion.MessageType.INCOMING, "your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
-    this.addMessage(key, Fashion.MessageType.OUTGOING, "Bacon ipsum dolor amet ham pork pig.");
-    //this.addMessage(key, Fashion.MessageType.INCOMING, "Bacon ipsum dolor amet ham pork pig.");
-    //this.addMessage(key, Fashion.MessageType.OUTGOING, "Bacon ipsum dolor amet ham pork pig.");
-
-    this.currentOffset = 0;
+    this.addMessage(key, Fashion.MessageType.INCOMING, "1 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    this.addMessage(key, Fashion.MessageType.OUTGOING, "2 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    this.addMessage(key, Fashion.MessageType.INCOMING, "3 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    this.addMessage(key, Fashion.MessageType.OUTGOING, "4 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    this.addMessage(key, Fashion.MessageType.INCOMING, "5 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
 
 };
 
@@ -101,13 +94,11 @@ Fashion.Phone.prototype.addMessage = function (key, type, text)
         aTemp = this.game.make.image(this.frame.x + 20, this.frame.height - 170, key, Fashion.Asset.Image.MESSAGE_INCOMING);
         //aTemp.scale.y = 1;
         tTemp = this.game.add.text(aTemp.x+25, aTemp.y+5, text, {fontSize: '10px', fill: '#000', wordWrap: true, wordWrapWidth: aTemp.width-30});
-        //Fashion.LabelUtil.setLabelWithStyle(tTemp, "lorem ipsum", Fashion.Asset.FontStyle.PHONE_MESSAGE);
     }
     else {
         aTemp = this.game.make.image(this.frame.x + 50, this.frame.height - 170, key, Fashion.Asset.Image.MESSAGE_OUTGOING);
         //aTemp.scale.y = 0.5;
         tTemp = this.game.add.text(aTemp.x+10, aTemp.y+5, text, {fontSize: '10px', fill: '#000', wordWrap: true, wordWrapWidth: aTemp.width-25});
-        //Fashion.LabelUtil.setLabelWithStyle(tTemp, "lorem ipsum", Fashion.Asset.FontStyle.PHONE_MESSAGE);
 
 
     }
@@ -119,27 +110,29 @@ Fashion.Phone.prototype.addMessage = function (key, type, text)
     mTemp.add(aTemp);
     mTemp.add(tTemp);
 
-    //this.add(this.messageContainer);
-
-    //var m = new Fashion.Message();
+    var addedHeights = 0;
 
 
     this.messageArray.forEach(function(item)
     {
         item.y -= (aTemp.height +10);
+        addedHeights += item.height;
+
     });
 
-   /* for(var i=0; i<this.messageArray.length-1; i++)
+
+    //console.log("frame height: " + this.frame.height + " | mTemp y: "+ mTemp.y + " | mTemp height:" + mTemp.height);
+    while(addedHeights+mTemp.height > this.frame.height)
     {
-        this.messageArray[i].aTemp.y -= this.currentOffset;
-
-    }*/
-
-    console.log("frame height: " + this.frame.height + " | mTemp y: "+ mTemp.y + " | mTemp height:" + mTemp.height);
-
+        addedHeights-=this.messageArray[0].height;
+        this.messageArray[0].destroy();
+    }
 
     this.messageArray.push(mTemp);
     this.messageContainer.add(mTemp);
+
+    console.log("addedHeights: " + addedHeights + " | frame height: " + this.frame.height + " | mTemp y: "+ mTemp.y + " | mTemp height:" + mTemp.height);
+
 };
 /**
  * Destroys this group.
