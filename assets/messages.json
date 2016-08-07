@@ -53,6 +53,34 @@
     {
       "text": "your cousin saw a tweet that claimed that"
     },
+	"preMessage14":
+    {
+      "text": "i heard a woman on the market say that"
+    },
+	"preMessage15":
+    {
+      "text": "your brother read a message that might be relevant for you."
+    },
+	"preMessage16":
+    {
+      "text": "there's a video shot in an area near you. apparently"
+    },
+	"preMessage17":
+    {
+      "text": "it seems that"
+    },
+	"preMessage18":
+    {
+      "text": "your brother called."
+    },
+	"preMessage19":
+    {
+      "text": "your cousin's friend wants you to know that"
+    },
+	"preMessage20":
+    {
+      "text": "your friend's father heard from a journalist that"
+    },
   },
 
   "messages":
