@@ -277,7 +277,18 @@ Fashion.Game.prototype = {
                 Log.debug("... IF YOU GIVE ME " + penalty + " MONEY!");
             }
         }
-        // TODO put timer here
+
+        this.continueJourney();
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#continueJourney
+     * @memberof Fashion.Game
+     * @private
+     */
+    continueJourney: function ()
+    {
         // continue
         this.loadNextCheckpoint();
         this.road.startRolling();
@@ -449,7 +460,7 @@ Fashion.Game.prototype = {
         var msgTime;
         for (i = 0; i < totalMessages; i++)
         {
-            msgTime = (i + 1 + this.game.rnd.frac()) * timePerSegement;
+            msgTime = (i + 1 + this.game.rnd.frac()) * timePerSegment;
             this.startNewMessageTimer(msgTime, messageTexts[i], this.postNewIncomingMessage, this);
         }
     },
