@@ -457,5 +457,47 @@
       "text": "a suicide blast killed 14 people",
       "certainty": 50
     },
+	"message64":
+    {
+      "factions": "Rebels",
+      "text": "rebel fighters have decapitated a young man in the town ahead of you",
+      "certainty": 100
+    },
+	"message65":
+    {
+      "factions": "Rebels",
+      "text": "control of road was seized by Rebel fighters",
+      "certainty": 100
+    },
+	"message66":
+    {
+      "factions": "Government",
+      "text": "attacks on a governmental prison has freed hundreds of militants",
+      "certainty": 50
+    },
+	"message67":
+    {
+      "factions": ["ISIS","Rebels"],
+      "text": "an army helicopter was shot down in the area ahead of us",
+      "certainty": 50
+    },
+	"message68":
+    {
+      "factions": "Rebels",
+      "text": "a Rebel leader was killed in a missile strike",
+      "certainty": 50
+    },
+	"message69":
+    {
+      "factions": "Marxist",
+      "text": "marxist forces hold the town ahead of us",
+      "certainty": 100
+    },
+	"message70":
+    {
+      "factions": "Rebels",
+      "text": "rebel forces hold the town ahead of us",
+      "certainty": 100
+    },
   }
 }
