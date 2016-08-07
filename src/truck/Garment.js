@@ -14,15 +14,21 @@
  * @param {string|Phaser.RenderTexture|Phaser.BitmapData|PIXI.Texture} key - The texture used by the Image during rendering. It can be a string which is a reference to the Cache entry, or an instance of a RenderTexture, BitmapData or PIXI.Texture.
  * @param {string|number} frame - If this Image is using part of a sprite sheet or texture atlas you can specify the exact frame to use by giving a string or numeric index.
  */
-Fashion.Garment = function (game, x, y, key, garmentName)
+Fashion.Garment = function (game, x, y, key, garmentName, dropZones)
 {
-    var f = Fashion.Asset.AtlasPath.GARMENTS + garmentName + ".png";
-    Log.debug(f);
     // call super constructor
-    Phaser.Image.call(this, game, x, y, key, f);
-
+    Phaser.Image.call(this, game, x, y, key, Fashion.Asset.AtlasPath.GARMENTS + garmentName + ".png");
+    /**
+     * @property {string} garmentName - The name of the garment.
+     * @private
+     */
+    this.garmentName = garmentName;
+    /**
+     * @property {array} targetDropZones - Array of Fashion.DropZone
+     * @private
+     */
+    this.targetDropZones = dropZones;
     // TODO implement these
-    // targetDropZones: [DropZone]
     // coverage: {BodyPart: ClothingStyle} assoc array
     // bodyPartsBlocked: [BodyPart]
     // ? DressDuration
@@ -31,11 +37,7 @@ Fashion.Garment = function (game, x, y, key, garmentName)
     //-----------------------------------
     // Init
     //-----------------------------------
-    this.inputEnabled = true;
-    this.input.enableDrag();
-
-    this.events.onDragStart.add(this.handleDragStart, this);
-    this.events.onDragStop.add(this.handleDragStop, this);
+    this.validateDropZones(this.targetDropZones);
 };
 
 // extend class Phaser.Image
@@ -80,24 +82,23 @@ Fashion.Garment.prototype.destroy = function (destroyChildren)
 /**
  *
  *
- * @method Fashion.Garment#handleDragStart
+ * @method Fashion.Garment#validateDropZones
  * @memberof Fashion.Garment
  * @private
  */
-Fashion.Garment.prototype.handleDragStart = function ()
+Fashion.Garment.prototype.validateDropZones = function (dropZones)
 {
-    Log.debug("drag start");
-};
-/**
- *
- *
- * @method Fashion.Garment#handleDragStop
- * @memberof Fashion.Garment
- * @private
- */
-Fashion.Garment.prototype.handleDragStop = function ()
-{
-    Log.debug("drag stop");
+    var n = dropZones.length;
+    var i;
+    var zone;
+    for (i = n; --i >= 0;)
+    {
+        zone = dropZones[i];
+        if (!Fashion.DropZone.validate(zone))
+        {
+            Log.error("Invalid target drop zone detected in garment '" + this.garmentName + "': " + zone);
+        }
+    }
 };
 //============================================================
 // Implicit getters and setters
