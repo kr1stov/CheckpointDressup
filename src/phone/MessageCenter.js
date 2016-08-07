@@ -115,7 +115,7 @@ Fashion.MessageCenter.prototype.getCheckMessages = function (checkpoint) {
         r = game.rnd.integerInRange(0, this.preTextPool.length);
         var mTemp2 = this.preTextPool[r];
 
-        messages.push(mTemp2 + mTemp);
+        messages.push(mTemp2.text + mTemp.text);
     }
 
     return messages;
@@ -164,7 +164,7 @@ Fashion.MessageCenter.prototype.buildPool = function () {
     for(var key in hintMessages)
     {
         data = hintMessages[key];
-        var temp = new Fashion.PreMessage(data.factions, data.message);
+        var temp = new Fashion.HintMessage(data.factions, data.message);
         this.hintTextPool.push(temp);
     }
 
