@@ -41,6 +41,9 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
      * @private
      */
     this.messageMask = this.game.make.graphics(0, 0);
+
+
+
     //-----------------------------------
     // Init
     //-----------------------------------
@@ -56,6 +59,13 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
 
     this.messageContainer.add(this.messageMask);
     this.messageContainer.mask = this.messageMask;
+
+    //this.addNewMessage(messageContainer.x, messageContainer.y, key, Fashion.Asset.Image.MESSAGE_INCOMING);
+
+   this.addMessage(this.frame.x+32, this.frame.height-170, key, Fashion.Asset.Image.MESSAGE_INCOMING)
+    this.addMessage(this.frame.x+32, this.frame.height-300, key, Fashion.Asset.Image.MESSAGE_INCOMING)
+
+
 };
 
 
@@ -73,11 +83,15 @@ Fashion.Phone.prototype.constructor = Fashion.Phone;
  * @method Fashion.Phone#addMessage
  * @memberof Fashion.Phone
  */
-Fashion.Phone.prototype.addMessage = function (type, text)
+Fashion.Phone.prototype.addMessage = function (xPos, yPos, key, asset)
 {
-    var m = new Fashion.Message();
+    var temp =  this.game.make.image(xPos, yPos, key, asset);
 
-    this.messageContainer.add(m);
+    //this.add(this.messageContainer);
+
+    //var m = new Fashion.Message();
+
+    this.messageContainer.add(temp);
 };
 /**
  * Destroys this group.
