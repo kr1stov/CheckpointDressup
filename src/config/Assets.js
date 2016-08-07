@@ -121,5 +121,6 @@ Fashion.Asset.Font = {
 Fashion.Asset.FontStyle = {
 
     MENU_BTN_ACTIVE: "menuBtnActive",
-    MENU_BTN_DISABLED: "menuBtnActive"
+    MENU_BTN_DISABLED: "menuBtnActive",
+    PHONE_MESSAGE: "phoneMessage"
 };
