@@ -45,6 +45,7 @@ Fashion.Truck = function (game, key, dropZones, parent, name, addToStage, enable
 
     this.character.x = this.bg.width - this.character.width / 2 * 1.1;
     this.character.y = this.bg.height * 0.2;
+    this.bg.alpha = 0;
 };
 
 // extend class Phaser.Group
@@ -64,6 +65,16 @@ Fashion.Truck.prototype.setup = function (garments)
 {
     // render all of the garments
     this.renderGarments(garments);
+};
+/**
+ *
+ *
+ * @method Fashion.Truck#getCharacterCoverage
+ * @memberof Fashion.Truck
+ */
+Fashion.Truck.prototype.getCharacterCoverage = function ()
+{
+    return this.character.coverage;
 };
 /**
  * Destroys this group.
