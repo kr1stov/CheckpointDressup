@@ -73,8 +73,8 @@
     "strict-abaya": {
       "imageKey": "strict-abaya",
       "imageOffset": {
-        "x": 0,
-        "y": 112
+        "x": -1,
+        "y": 110
       },
       "dropZones": [
         "upperBody",
