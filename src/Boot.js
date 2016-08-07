@@ -15,6 +15,7 @@ Fashion = {
     runsOnDesktop: false,
 
     debug: true,
+    scaleFactorCharacter: 0.75,
 
     config: null,
 

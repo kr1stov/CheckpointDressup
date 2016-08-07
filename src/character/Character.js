@@ -18,6 +18,7 @@ Fashion.Character = function (game, x, y, key, dropZones)
 {
     // call super constructor
     Phaser.Sprite.call(this, game, x, y, key, Fashion.Asset.Image.CHARACTER_BASE);
+    this.scale.setTo(Fashion.scaleFactorCharacter);
     /**
      * @property {Object} dropZones -
      * @private
@@ -28,6 +29,10 @@ Fashion.Character = function (game, x, y, key, dropZones)
      * @private
      */
     this.blockedBodyParts = [];
+    /**
+     * @property {object} coverage -
+     */
+    this.coverage = {};
     //-----------------------------------
     // Init
     //-----------------------------------
@@ -38,6 +43,14 @@ Fashion.Character = function (game, x, y, key, dropZones)
     {
         zone = dropZones[key];
         this.dropZones[key] = new Phaser.Rectangle(zone.x, zone.y, zone.width, zone.height);
+    }
+
+    // init coverage
+    var n = Fashion.BodyPart.Parts.length;
+    var i;
+    for (i = n; --i >= 0;)
+    {
+        this.coverage[Fashion.BodyPart.Parts[i]] = Fashion.ClothingStyle.EXPOSED;
     }
 
     if (Fashion.debug)
