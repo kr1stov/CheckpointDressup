@@ -10,21 +10,71 @@
       {
         "duration": 60,
         "numHelpMessages": 2,
-        "numFactionMessages": 2,
+        "numFactionMessages": 4,
         "precisionFactionMessages":
         {
-          "min": 2,
-          "max": 5
+          "min": 60,
+          "max": 100
         }
       },
       {
         "duration": 60,
-        "numHelpMessages": 2,
+        "numHelpMessages": 1,
+        "numFactionMessages": 4,
+        "precisionFactionMessages":
+        {
+          "min": 52,
+          "max": 86
+        }
+      },
+	  {
+        "duration": 60,
+        "numHelpMessages": 1,
+        "numFactionMessages": 3,
+        "precisionFactionMessages":
+        {
+          "min": 43,
+          "max": 73
+        }
+      },
+	  {
+        "duration": 60,
+        "numHelpMessages": 0,
+        "numFactionMessages": 3,
+        "precisionFactionMessages":
+        {
+          "min": 35,
+          "max": 60
+        }
+      },
+	  {
+        "duration": 60,
+        "numHelpMessages": 0,
+        "numFactionMessages": 3,
+        "precisionFactionMessages":
+        {
+          "min": 27,
+          "max": 47
+        }
+      },
+	  {
+        "duration": 60,
+        "numHelpMessages": 0,
         "numFactionMessages": 2,
         "precisionFactionMessages":
         {
-          "min": 2,
-          "max": 5
+          "min": 19,
+          "max": 33
+        }
+      },
+	  {
+        "duration": 60,
+        "numHelpMessages": 0,
+        "numFactionMessages": 2,
+        "precisionFactionMessages":
+        {
+          "min": 10,
+          "max": 20
         }
       }
     ]
