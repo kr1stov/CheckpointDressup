@@ -96,6 +96,21 @@ Fashion.Character.prototype.hitsDropZone = function (point, zone)
     }
     return false;
 };
+/**
+ *
+ *
+ * @method Fashion.Character#positionGarment
+ * @memberof Fashion.Character
+ */
+Fashion.Character.prototype.positionGarment = function (garment)
+{
+    if (garment)
+    {
+        garment.x = this.x + garment.imageOffsetX;
+        garment.y = this.y + garment.imageOffsetY;
+    }
+
+};
 //============================================================
 // Private methods
 //============================================================
