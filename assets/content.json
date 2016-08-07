@@ -1,8 +1,7 @@
 {
-  "garments":
-  {
-    "burka": {
-      "imageKey": "burka",
+  "garments": {
+    "strict-burka": {
+      "imageKey": "strict-burka",
       "imageOffset": {
         "x": 0,
         "y": 0
@@ -26,8 +25,8 @@
       "dressDuration": 1000,
       "undressDuration": 1000
     },
-    "gloves": {
-      "imageKey": "gloves",
+    "strict-gloves": {
+      "imageKey": "strict-gloves",
       "imageOffset": {
         "x": 0,
         "y": 0
@@ -44,8 +43,8 @@
       "dressDuration": 1000,
       "undressDuration": 1000
     },
-    "niqab": {
-      "imageKey": "gloves",
+    "strict-niqab": {
+      "imageKey": "strict-niqab",
       "imageOffset": {
         "x": 0,
         "y": 0
@@ -64,8 +63,8 @@
       "dressDuration": 1000,
       "undressDuration": 1000
     },
-    "veil": {
-      "imageKey": "veil",
+    "strict-veil": {
+      "imageKey": "strict-veil",
       "imageOffset": {
         "x": 0,
         "y": 0
@@ -82,8 +81,8 @@
       "dressDuration": 1000,
       "undressDuration": 1000
     },
-    "black-shoes": {
-      "imageKey": "black-shoes",
+    "strict-shoes": {
+      "imageKey": "strict-shoes",
       "imageOffset": {
         "x": 0,
         "y": 0
@@ -100,8 +99,8 @@
       "dressDuration": 1000,
       "undressDuration": 1000
     },
-    "makeup": {
-      "imageKey": "makeup",
+    "relaxed-makeup": {
+      "imageKey": "relaxed-makeup",
       "imageOffset": {
         "x": 0,
         "y": 0
@@ -118,8 +117,8 @@
       "dressDuration": 1000,
       "undressDuration": 1000
     },
-    "sunglasses": {
-      "imageKey": "sunglasses",
+    "relaxed-sunglasses": {
+      "imageKey": "relaxed-sunglasses",
       "imageOffset": {
         "x": 0,
         "y": 0
@@ -136,8 +135,8 @@
       "dressDuration": 1000,
       "undressDuration": 1000
     },
-    "chinos": {
-      "imageKey": "chinos",
+    "relaxed-chinos": {
+      "imageKey": "relaxed-chinos",
       "imageOffset": {
         "x": 0,
         "y": 0
@@ -156,8 +155,8 @@
       "dressDuration": 1000,
       "undressDuration": 1000
     },
-    "shirt": {
-      "imageKey": "shirt",
+    "relaxed-shirt": {
+      "imageKey": "relaxed-shirt",
       "imageOffset": {
         "x": 0,
         "y": 0
@@ -176,8 +175,8 @@
       "dressDuration": 1000,
       "undressDuration": 1000
     },
-    "sneakers": {
-      "imageKey": "sneakers",
+    "relaxed-sneakers": {
+      "imageKey": "relaxed-sneakers",
       "imageOffset": {
         "x": 0,
         "y": 0
@@ -194,8 +193,8 @@
       "dressDuration": 1000,
       "undressDuration": 1000
     },
-    "espandrillos": {
-      "imageKey": "espandrillos",
+    "relaxed-espandrillos": {
+      "imageKey": "relaxed-espandrillos",
       "imageOffset": {
         "x": 0,
         "y": 0
@@ -288,8 +287,8 @@
       "dressDuration": 1000,
       "undressDuration": 1000
     },
-    "hijab": {
-      "imageKey": "hijab",
+    "moderate-hijab": {
+      "imageKey": "moderate-hijab",
       "imageOffset": {
         "x": 0,
         "y": 0
@@ -346,8 +345,8 @@
       "dressDuration": 1000,
       "undressDuration": 1000
     },
-    "flats": {
-      "imageKey": "flats",
+    "moderate-flats": {
+      "imageKey": "moderate-flats",
       "imageOffset": {
         "x": 0,
         "y": 0
@@ -365,126 +364,92 @@
       "undressDuration": 1000
     }
   },
-
-  "dressCodes":
-  {
-    "fanatics":
-    {
+  "dressCodes": {
+    "fanatics": {
       "failTolerance": 0,
       "penaltyPerFail": 1,
       "penaltyLimit": 0,
       "corruptibility": false,
       "greed": 0,
-
-      "minStyle":
-      {
-
-      },
-
-      "maxStyle":
-      {
+      "minStyle": {},
+      "maxStyle": {
         "exposed": 0,
         "relaxed": 0,
         "moderate": 0,
         "military": 0
       },
-
-      "must":
-      {
-
-      },
-      "mustNot":
-      {
-
-      }
-
+      "must": {},
+      "mustNot": {}
     },
-    "rebels":
-    {
+    "rebels": {
       "failTolerance": 1,
       "penaltyPerFail": 1,
       "penaltyLimit": 10,
       "corruptibility": true,
       "greed": 0.2,
-
-      "minStyle":
-      {
-
-      },
-
-      "maxStyle":
-      {
+      "minStyle": {},
+      "maxStyle": {
         "strict": 2,
         "relaxed": 1
       },
-
-      "must":
-      {
-        "strict": ["hair"],
-        "exposed": ["face", "eyes"]
+      "must": {
+        "strict": [
+          "hair"
+        ],
+        "exposed": [
+          "face",
+          "eyes"
+        ]
       },
-      "mustNot":
-      {
-        "exposed": ["torso", "arms", "thighs", "calves", "feet"],
-        "relaxed": ["feet"]
+      "mustNot": {
+        "exposed": [
+          "torso",
+          "arms",
+          "thighs",
+          "calves",
+          "feet"
+        ],
+        "relaxed": [
+          "feet"
+        ]
       }
-
     },
-    "government":
-    {
+    "government": {
       "failTolerance": 1,
       "penaltyPerFail": 1,
       "penaltyLimit": 10,
       "corruptibility": true,
       "greed": 0.1,
-
-      "minStyle":
-      {
+      "minStyle": {
         "relaxed": 2
       },
-
-      "maxStyle":
-      {
+      "maxStyle": {
         "strict": 0,
         "military": 0
       },
-
-      "must":
-      {
-
-      },
-      "mustNot":
-      {
-        "exposed": ["torso", "thighs", "calves"]
+      "must": {},
+      "mustNot": {
+        "exposed": [
+          "torso",
+          "thighs",
+          "calves"
+        ]
       }
-
     },
-    "marxists":
-    {
+    "marxists": {
       "failTolerance": 1,
       "penaltyPerFail": 2,
       "penaltyLimit": 10,
       "corruptibility": true,
       "greed": 0.05,
-
-      "minStyle":
-      {
+      "minStyle": {
         "military": 5
       },
-
-      "maxStyle":
-      {
+      "maxStyle": {
         "strict": 0
       },
-
-      "must":
-      {
-
-      },
-      "mustNot":
-      {
-
-      }
+      "must": {},
+      "mustNot": {}
     }
   }
 }
