@@ -1,6 +1,5 @@
 {
-  "dropZones":
-  {
+  "dropZones": {
     "head": {
       "x": -60,
       "y": -10,
@@ -33,49 +32,6 @@
     }
   },
   "garments": {
-    "strict-abaya": {
-      "imageKey": "strict-abaya",
-      "imageOffset": {
-        "x": 0,
-        "y": 0
-      },
-      "dropZones": [
-        "upperBody",
-        "lowerBody"
-      ],
-      "coverage": {
-        "torso": "strict",
-        "arms": "strict",
-        "thighs": "strict",
-        "calves": "strict"
-      },
-      "bodyPartsBlocked": [
-        "torso",
-        "arms",
-        "thighs",
-        "calves"
-      ],
-      "dressDuration": 1000,
-      "undressDuration": 1000
-    },
-    "strict-gloves": {
-      "imageKey": "strict-gloves",
-      "imageOffset": {
-        "x": 0,
-        "y": 0
-      },
-      "dropZones": [
-        "hands"
-      ],
-      "coverage": {
-        "hands": "strict"
-      },
-      "bodyPartsBlocked": [
-        "hands"
-      ],
-      "dressDuration": 1000,
-      "undressDuration": 1000
-    },
     "strict-niqab": {
       "imageKey": "strict-niqab",
       "imageOffset": {
@@ -110,6 +66,49 @@
       },
       "bodyPartsBlocked": [
         "eyes"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "strict-abaya": {
+      "imageKey": "strict-abaya",
+      "imageOffset": {
+        "x": 0,
+        "y": 112
+      },
+      "dropZones": [
+        "upperBody",
+        "lowerBody"
+      ],
+      "coverage": {
+        "torso": "strict",
+        "arms": "strict",
+        "thighs": "strict",
+        "calves": "strict"
+      },
+      "bodyPartsBlocked": [
+        "torso",
+        "arms",
+        "thighs",
+        "calves"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "strict-gloves": {
+      "imageKey": "strict-gloves",
+      "imageOffset": {
+        "x": 0,
+        "y": 200
+      },
+      "dropZones": [
+        "hands"
+      ],
+      "coverage": {
+        "hands": "strict"
+      },
+      "bodyPartsBlocked": [
+        "hands"
       ],
       "dressDuration": 1000,
       "undressDuration": 1000
@@ -154,7 +153,7 @@
       "imageKey": "relaxed-sunglasses",
       "imageOffset": {
         "x": 0,
-        "y": 0
+        "y": 20
       },
       "dropZones": [
         "head"
@@ -172,7 +171,7 @@
       "imageKey": "relaxed-chinos",
       "imageOffset": {
         "x": 0,
-        "y": 0
+        "y": 238
       },
       "dropZones": [
         "lowerBody"
@@ -192,7 +191,7 @@
       "imageKey": "relaxed-shirt",
       "imageOffset": {
         "x": 0,
-        "y": 0
+        "y": 112
       },
       "dropZones": [
         "upperBody"
@@ -212,7 +211,7 @@
       "imageKey": "relaxed-sneakers",
       "imageOffset": {
         "x": 0,
-        "y": 0
+        "y": 343
       },
       "dropZones": [
         "feet"
@@ -230,7 +229,7 @@
       "imageKey": "relaxed-espandrillos",
       "imageOffset": {
         "x": 0,
-        "y": 0
+        "y": 343
       },
       "dropZones": [
         "feet"
@@ -244,22 +243,20 @@
       "dressDuration": 1000,
       "undressDuration": 1000
     },
-    "military-pants": {
-      "imageKey": "military-pants",
+    "military-bandana": {
+      "imageKey": "military-bandana",
       "imageOffset": {
         "x": 0,
-        "y": 0
+        "y": -5
       },
       "dropZones": [
-        "lowerBody"
+        "head"
       ],
       "coverage": {
-        "thighs": "military",
-        "calves": "military"
+        "hair": "military"
       },
       "bodyPartsBlocked": [
-        "thighs",
-        "calves"
+        "hair"
       ],
       "dressDuration": 1000,
       "undressDuration": 1000
@@ -267,8 +264,8 @@
     "military-top": {
       "imageKey": "military-top",
       "imageOffset": {
-        "x": 0,
-        "y": 0
+        "x": -2,
+        "y": 112
       },
       "dropZones": [
         "upperBody"
@@ -284,11 +281,31 @@
       "dressDuration": 1000,
       "undressDuration": 1000
     },
+    "military-pants": {
+      "imageKey": "military-pants",
+      "imageOffset": {
+        "x": 0,
+        "y": 238
+      },
+      "dropZones": [
+        "lowerBody"
+      ],
+      "coverage": {
+        "thighs": "military",
+        "calves": "military"
+      },
+      "bodyPartsBlocked": [
+        "thighs",
+        "calves"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
     "military-boots": {
       "imageKey": "military-boots",
       "imageOffset": {
         "x": 0,
-        "y": 0
+        "y": 343
       },
       "dropZones": [
         "feet"
@@ -298,24 +315,6 @@
       },
       "bodyPartsBlocked": [
         "feet"
-      ],
-      "dressDuration": 1000,
-      "undressDuration": 1000
-    },
-    "military-bandana": {
-      "imageKey": "military-bandana",
-      "imageOffset": {
-        "x": 0,
-        "y": 0
-      },
-      "dropZones": [
-        "head"
-      ],
-      "coverage": {
-        "hair": "military"
-      },
-      "bodyPartsBlocked": [
-        "hair"
       ],
       "dressDuration": 1000,
       "undressDuration": 1000
@@ -342,7 +341,7 @@
       "imageKey": "moderate-top",
       "imageOffset": {
         "x": 0,
-        "y": 0
+        "y": 112
       },
       "dropZones": [
         "upperBody"
@@ -362,7 +361,7 @@
       "imageKey": "moderate-skirt",
       "imageOffset": {
         "x": 0,
-        "y": 0
+        "y": 238
       },
       "dropZones": [
         "lowerBody"
@@ -381,8 +380,8 @@
     "moderate-flats": {
       "imageKey": "moderate-flats",
       "imageOffset": {
-        "x": 0,
-        "y": 0
+        "x": 2,
+        "y": 343
       },
       "dropZones": [
         "feet"
