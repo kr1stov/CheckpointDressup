@@ -62,8 +62,6 @@ Fashion.DressUpSpace.prototype.constructor = Fashion.DressUpSpace;
 Fashion.DressUpSpace.prototype.setup = function (garments)
 {
     this.truck.setup(garments);
-
-    //this.game.time.events.repeat(Phaser.Timer.SECOND * 2, 1, this.checkPointTest, this);
 };
 /**
  *
