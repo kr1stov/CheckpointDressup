@@ -65,6 +65,7 @@ Fashion.Truck.prototype.setup = function (garments)
 {
     // render all of the garments
     this.renderGarments(garments);
+    Fashion.playSound(Fashion.Asset.Sound.TRUCK, 1, true);
 };
 /**
  *
@@ -88,7 +89,7 @@ Fashion.Truck.prototype.getCharacterCoverage = function ()
  */
 Fashion.Truck.prototype.destroy = function (destroyChildren, soft)
 {
-
+    Fashion.stopSound(Fashion.Asset.Sound.TRUCK);
     Phaser.Group.prototype.destroy.call(this, destroyChildren, soft);
 };
 //============================================================
@@ -150,6 +151,8 @@ Fashion.Truck.prototype.startGarmentDrag = function (garment, pointer)
     {
         this.character.takeOffGarment(garment);
     }
+
+    Fashion.playSound(Fashion.Asset.Sound.CLOTHES_PICKUP);
 };
 /**
  *
@@ -162,13 +165,15 @@ Fashion.Truck.prototype.stopGarmentDrag = function (garment, pointer)
 {
     var localPoint = this.character.toLocal(new Phaser.Point(pointer.x, pointer.y));
     var zone = this.hitTestCharacter(garment, localPoint);
+
     if (zone && this.character.wearGarment(garment))
     {
-        Log.debug("garment hits valid zone " + zone);
-
+        Log.debug("garment hits right zone " + zone + " and can be worn.");
+        Fashion.playSound(Fashion.Asset.Sound.CLOTHES_DROP_CHAR);
     }
-    else
+    else if (zone)
     {
+        Log.debug("garment hits right zone " + zone + " but CANNOT be worn.");
         var angle = this.game.rnd.frac() * 180,
             p = this.setRandomGarmentPosition(garment);
 
@@ -181,6 +186,14 @@ Fashion.Truck.prototype.stopGarmentDrag = function (garment, pointer)
 
         // move behind character
         this.setChildIndex(garment, this.getIndex(this.character) - 1);
+        Fashion.playSound(Fashion.Asset.Sound.CLOTHES_ERROR);
+    }
+    else {
+        Log.debug("garment hits floor. Drop it.");
+
+        // move behind character
+        this.setChildIndex(garment, this.getIndex(this.character) - 1);
+        Fashion.playSound(Fashion.Asset.Sound.CLOTHES_DROP_FLOOR);
     }
 };
 /**
@@ -231,4 +244,3 @@ Fashion.Truck.prototype.setRandomGarmentPosition = function (garment)
 //============================================================
 // Implicit getters and setters
 //============================================================
-

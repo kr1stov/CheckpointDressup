@@ -165,6 +165,17 @@ Fashion.Game.prototype = {
             // TODO check addSound signature for details: soundName, volume, loop
             // Buttons
             Fashion.addSound(Fashion.Asset.Sound.BTN_CLICK, 1.5);
+            Fashion.addSound(Fashion.Asset.Sound.CLOTHES_DROP_CHAR, 1);
+            Fashion.addSound(Fashion.Asset.Sound.CLOTHES_DROP_FLOOR, 1);
+            Fashion.addSound(Fashion.Asset.Sound.CLOTHES_ERROR, 1);
+            Fashion.addSound(Fashion.Asset.Sound.CLOTHES_PICKUP, 1);
+            Fashion.addSound(Fashion.Asset.Sound.MINE_EXPLOSION, 1);
+            Fashion.addSound(Fashion.Asset.Sound.MONEY_LOSE, 1);
+            Fashion.addSound(Fashion.Asset.Sound.MUSIC, 1);
+            Fashion.addSound(Fashion.Asset.Sound.TRUCK_CRASH, 1);
+            Fashion.addSound(Fashion.Asset.Sound.TRUCK_IDLE, 1);
+            Fashion.addSound(Fashion.Asset.Sound.TRUCK_START, 1);
+            Fashion.addSound(Fashion.Asset.Sound.TRUCK, 1);
         }
         //-----------------------------------
         // Kickoff
@@ -325,7 +336,7 @@ Fashion.Game.prototype = {
         }
 
         if (this.currentScreen) this.currentScreen.hide();
-        
+
         switch (id)
         {
             //-----------------------------------
@@ -385,7 +396,7 @@ Fashion.Game.prototype = {
     {
         this.overlayAlert.hide();
     },
-    
+
     //-----------------------------------
     // Menu Screen
     //-----------------------------------
@@ -399,6 +410,7 @@ Fashion.Game.prototype = {
     startNewGame: function ()
     {
         //this.showScreen(Fashion.Game.Screen.INTRO); // FIXME uncomment this and comment handleIntroClose
+        Fashion.playSound(Fashion.Asset.Sound.MUSIC, 1, true);
 
         this.loadNextCheckpoint();
 

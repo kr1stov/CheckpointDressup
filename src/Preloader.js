@@ -7,7 +7,7 @@ Fashion.Preloader = function (game) {
 	this.preloadLabel = null;
 
 	this.ready = false;
-    
+
 };
 
 Fashion.Preloader.prototype = {
@@ -97,8 +97,18 @@ Fashion.Preloader.prototype = {
         //-----------------------------------
         if (this.game.device.webAudio)
         {
-            // TODO load audios here. Example:
             this.load.audio(Fashion.Asset.Sound.BTN_CLICK, [Fashion.PATH_SFX + 'btn-default' + Fashion.AUDIO_FORMAT]);
+            this.load.audio(Fashion.Asset.Sound.CLOTHES_DROP_CHAR, [Fashion.PATH_SFX + 'clothes-drop-char' + Fashion.AUDIO_FORMAT]);
+            this.load.audio(Fashion.Asset.Sound.CLOTHES_DROP_FLOOR, [Fashion.PATH_SFX + 'clothes-drop-floor' + Fashion.AUDIO_FORMAT]);
+            this.load.audio(Fashion.Asset.Sound.CLOTHES_ERROR, [Fashion.PATH_SFX + 'clothes-error' + Fashion.AUDIO_FORMAT]);
+            this.load.audio(Fashion.Asset.Sound.CLOTHES_PICKUP, [Fashion.PATH_SFX + 'clothes-pickup' + Fashion.AUDIO_FORMAT]);
+            this.load.audio(Fashion.Asset.Sound.MINE_EXPLOSION, [Fashion.PATH_SFX + 'mine-explosion' + Fashion.AUDIO_FORMAT]);
+            this.load.audio(Fashion.Asset.Sound.MONEY_LOSE, [Fashion.PATH_SFX + 'money-lose' + Fashion.AUDIO_FORMAT]);
+            this.load.audio(Fashion.Asset.Sound.MUSIC, [Fashion.PATH_SFX + 'music' + Fashion.AUDIO_FORMAT]);
+            this.load.audio(Fashion.Asset.Sound.TRUCK_CRASH, [Fashion.PATH_SFX + 'truck-crash' + Fashion.AUDIO_FORMAT]);
+            this.load.audio(Fashion.Asset.Sound.TRUCK_IDLE, [Fashion.PATH_SFX + 'truck-idle' + Fashion.AUDIO_FORMAT]);
+            this.load.audio(Fashion.Asset.Sound.TRUCK_START, [Fashion.PATH_SFX + 'truck-start' + Fashion.AUDIO_FORMAT]);
+            this.load.audio(Fashion.Asset.Sound.TRUCK, [Fashion.PATH_SFX + 'truck' + Fashion.AUDIO_FORMAT]);
         }
     },
 
@@ -129,7 +139,7 @@ Fashion.Preloader.prototype = {
 		//	You can jump right into the menu if you want and still play the music, but you'll have a few
 		//	seconds of delay while the mp3 decodes - so if you need your music to be in-sync with your menu
 		//	it's best to wait for it to decode here first, then carry on.
-		
+
 		//	If you don't have any music in your game then put the game.state.start line into the create function and delete
 		//	the update function completely.
 		//
