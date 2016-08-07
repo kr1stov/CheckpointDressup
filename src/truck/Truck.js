@@ -136,10 +136,9 @@ Fashion.Truck.prototype.stopGarmentDrag = function (garment, pointer)
 {
     var localPoint = this.character.toLocal(new Phaser.Point(pointer.x, pointer.y));
     var zone = this.hitTestCharacter(garment, localPoint);
-    if (zone)
+    if (zone && this.character.wearGarment(garment))
     {
         Log.debug("garment hits valid zone " + zone);
-        this.character.positionGarment(garment);
     }
     else
     {
