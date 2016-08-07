@@ -437,6 +437,9 @@ Fashion.Game.prototype = {
 
         var duration = checkPoint.duration * 1000;
         this.startCheckPointTimer(duration);
+        this.road.spawnCheckpoint(duration, Fashion.content.gameConfig.road.scrollSpeed);
+
+
         var totalMessages = checkPoint.numHelpMessages + checkPoint.numFactionMessages;
         var mTime = Math.round(duration / totalMessages);
         // TODO round around
