@@ -99,27 +99,111 @@
     },
 	"message03":
     {
-      "factions": "ISIS","Rebels",
+      "factions": ["ISIS","Rebels"],
       "text": "government forces have been executed in the area ahead of you",
       "certainty": 50
     },
 	"message04":
     {
-      "factions": "ISIS","Rebels","Government",
+      "factions": ["ISIS","Rebels","Government"],
       "text": "marxists are shelling nearby positions",
       "certainty": 30
     },
 	"message05":
     {
-      "factions": "Marxist","Rebels","Government",
+      "factions": ["Marxist","Rebels","Government"],
       "text": "fanatics are conducting artillery strikes near you",
       "certainty": 30
     },
 	"message06":
     {
-      "factions": "Marxist","ISIS","Government",
+      "factions": ["Rebels","ISIS","Marxist"],
+      "text": "government forces are launching air strikes near you",
+      "certainty": 30
+    },
+	"message07":
+    {
+      "factions": ["Marxist","ISIS","Government"],
       "text": "rebels are shooting with mortars at units ahead of you",
       "certainty": 30
+    },
+	"message08":
+    {
+      "factions": "Government",
+      "text": "rebels have been seen in the area ahead of you",
+      "certainty": 30
+    },
+	"message09":
+    {
+      "factions": ["Marxist","ISIS","Government","Rebels"],
+      "text": "american warplanes are bombing the area ahead of you",
+      "certainty": 0
+    },
+	"message10":
+    {
+      "factions": ["Marxist","ISIS","Government","Rebels"],
+      "text": "US bombers have accidently destroyed a humanitarian aid station ahead of you",
+      "certainty": 0
+    },
+	"message11":
+    {
+      "factions": ["Marxist","ISIS","Government","Rebels"],
+      "text": "the danish airforce is conducting heroic strikes",
+      "certainty": 0
+    },
+	"message12":
+    {
+      "factions": ["Marxist","ISIS","Government","Rebels"],
+      "text": "british airplaines are dropping bombs to fight global terrorism",
+      "certainty": 0
+    },
+	"message13":
+    {
+      "factions": ["Marxist","ISIS","Government","Rebels"],
+      "text": "the EU has announced a new task force to bring peace to the region",
+      "certainty": 0
+    },
+	"message14":
+    {
+      "factions": ["Marxist","ISIS","Government","Rebels"],
+      "text": "peace talks moderated by the international community have ended without result",
+      "certainty": 0
+    },
+	"message15":
+    {
+      "factions": ["Marxist","ISIS","Government","Rebels"],
+      "text": "the UN is withdrawing its observers from the province",
+      "certainty": 0
+    },
+	"message16":
+    {
+      "factions": ["Marxist","ISIS","Government","Rebels"],
+      "text": "the russian foreign ministry announces new humanitarian missions",
+      "certainty": 0
+    },
+	"message17":
+    {
+      "factions": ["Marxist","ISIS","Government","Rebels"],
+      "text": "top russian military brass have been spoted in the capital",
+      "certainty": 0
+    },
+	"message18":
+    {
+      "factions": ["Marxist","ISIS","Government","Rebels"],
+      "text": "the international community is protesting against atrocities commited in a nearby town",
+      "certainty": 0
+    },
+	"message19":
+    {
+      "factions": ["Marxist","ISIS","Government","Rebels"],
+      "text": "the EU has expressed their worries over war crimes in the region",
+      "certainty": 0
+    },
+	"message20":
+    {
+      "factions": "Government",
+      "text": "government radio reports great progress in taking back province",
+      "certainty": 80
     },
   }
 }
