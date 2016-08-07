@@ -277,7 +277,18 @@ Fashion.Game.prototype = {
                 Log.debug("... IF YOU GIVE ME " + penalty + " MONEY!");
             }
         }
-        // TODO put timer here
+
+        this.continueJourney();
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#continueJourney
+     * @memberof Fashion.Game
+     * @private
+     */
+    continueJourney: function ()
+    {
         // continue
         this.loadNextCheckpoint();
         this.road.startRolling();
@@ -460,14 +471,18 @@ Fashion.Game.prototype = {
 
         var duration = checkPoint.duration * 1000;
         this.startCheckPointTimer(duration);
+        this.road.spawnCheckpoint(duration, Fashion.content.gameConfig.road.scrollSpeed);
+
+
 
         var messageTexts = this.phone.messageCenter.getCheckMessages(checkPoint);
         var totalMessages = checkPoint.numHelpMessages + checkPoint.numFactionMessages;
         var timePerSegment = Math.round(duration / ( totalMessages + 2 ));
-
+        Log.debug(totalMessages);
+        Log.debug(messageTexts.length);
+        var n = messageTexts.length;
         var i;
-        var msgTime;
-        for (i = 0; i < totalMessages; i++)
+        for (i = 0; i < n; i++)
         {
             msgTime = (i + 1 + this.game.rnd.frac()) * timePerSegment;
             this.startNewMessageTimer(msgTime, messageTexts[i], this.postNewIncomingMessage, this);

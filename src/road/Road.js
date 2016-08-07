@@ -29,7 +29,7 @@ Fashion.Road = function (game, key, parent, name, addToStage, enableBody, physic
     //this.bg = this.game.make.image(0, 0, key, Fashion.Asset.Image.ROAD_BG);
     this.bg = this.game.make.tileSprite(0, 0, this.game.world.width, 75, key, Fashion.Asset.Image.ROAD_BG);
 
-    this.vehicle = new Fashion.Vehicle(game, 30,0, Fashion.Asset.TextureAtlas.GAME, Fashion.Asset.Image.MAIN_CHAR_VEHICLE);
+    this.vehicle = new Fashion.Vehicle(game, 0, 0, Fashion.Asset.TextureAtlas.GAME, Fashion.Asset.Image.MAIN_CHAR_VEHICLE);
     /**
      * @property {number} speed -
      * @private
@@ -40,12 +40,19 @@ Fashion.Road = function (game, key, parent, name, addToStage, enableBody, physic
      * @private
      */
     this.rolling = false;
+    /**
+     * @property {array} checkPoints -
+     * @private
+     */
+    this.checkPoints = [];
     //-----------------------------------
     // Init
     //-----------------------------------
     this.add(this.bg);
 
     this.add(this.vehicle);
+    this.vehicle.anchor.setTo(1,0);
+    this.vehicle.x = this.vehicle.width + 30;
 };
 
 // extend class Phaser.Group
@@ -55,6 +62,23 @@ Fashion.Road.prototype.constructor = Fashion.Road;
 //============================================================
 // Public interface
 //============================================================
+
+/**
+ * 
+ *
+ * @method Fashion.Road#spawnCheckpoint
+ * @memberof Fashion.Road
+ */
+Fashion.Road.prototype.spawnCheckpoint = function (duration, speed)
+{
+    var dist = this.vehicle.x + (duration / 1000) * speed;
+    var frameName = Fashion.Asset.Image.CHECK_POINT_PREFIX + (Math.round(this.game.rnd.frac() * 3) + 1) + '.png';
+    var point = this.game.make.image(dist, 0, Fashion.Asset.TextureAtlas.GAME, frameName);
+    point.anchor.setTo(0,0);
+    this.add(point);
+    this.checkPoints.push(point);
+    this.vehicle.bringToTop();
+};
 /**
  *
  *
@@ -86,9 +110,28 @@ Fashion.Road.prototype.update = function ()
 {
     Phaser.Group.prototype.update.call(this);
 
+
     if (this.rolling)
     {
-        this.bg.tilePosition.x += this.speed;
+        var deltaSpeed = this.speed * this.game.time.elapsed / 1000;
+        this.bg.tilePosition.x -= deltaSpeed;
+
+        var n = this.checkPoints.length;
+        var i;
+        var point;
+        for (i = n; --i >= 0;)
+        {
+            point = this.checkPoints[i];
+            if (point.x < -point.width)
+            {
+                this.checkPoints.splice(i,1);
+                this.remove(point);
+            }
+            else
+            {
+                point.x -= deltaSpeed;
+            }
+        }
     }
 };
 /**

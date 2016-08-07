@@ -28,19 +28,19 @@ Fashion.MessageCenter = function (game, parent, name, addToStage, enableBody, ph
      * @property {Array} mainTextPool - pool of main text elements
      * @private
      */
-    this.mainTextPool = {};
+    this.mainTextPool = [];
 
     /**
      * @property {Array} preTextPool - pool of pre text elements
      * @private
      */
-    this.preTextPool = {};
+    this.preTextPool = [];
 
     /**
      * @property {Array} hintTextPool - pool of hint text elements
      * @private
      */
-    this.hintTextPool = {};
+    this.hintTextPool = [];
 
     /**
      * @property {Fashion.Faction} currentFaction - current faction in the area
@@ -90,7 +90,7 @@ Fashion.MessageCenter.prototype.destroy = function (destroyChildren, soft) {
  */
 Fashion.MessageCenter.prototype.getCheckMessages = function (checkpoint) {
 
-    var messages = {};
+    var messages = [];
     /*"duration": 60,
         "numHelpMessages": 2,
         "numFactionMessages": 4,
@@ -102,20 +102,20 @@ Fashion.MessageCenter.prototype.getCheckMessages = function (checkpoint) {
 
     for(var i=0; i<checkpoint.numHelpMessages; i++)
     {
-        var r = game.rnd.integerInRange(0, this.hintTextPool.length)
+        var r = this.game.rnd.integerInRange(0, this.hintTextPool.length);
         var mTemp = this.hintTextPool[r];
-        messages.push(mTemp);
+        messages.push(mTemp.text);
     }
 
     for(var i=0; i<checkpoint.numFactionsMessages; i++)
     {
-        var r = game.rnd.integerInRange(0, this.mainTextPool.length)
+        var r = this.game.rnd.integerInRange(0, this.mainTextPool.length);
         var mTemp = this.mainTextPool[r];
 
-        r = game.rnd.integerInRange(0, this.preTextPool.length)
+        r = this.game.rnd.integerInRange(0, this.preTextPool.length);
         var mTemp2 = this.preTextPool[r];
 
-        messages.push(mTemp2 + mTemp);
+        messages.push(mTemp2.text + mTemp.text);
     }
 
     return messages;
@@ -139,7 +139,7 @@ Fashion.MessageCenter.prototype.createMessage = function (currentFactions) {
  */
 Fashion.MessageCenter.prototype.buildPool = function () {
 
-    var messages = Fashion.content.messages;
+    var messages = Fashion.messages;
 
     var preMessages = messages['preMessages'];
     var mainMessages = messages['messages'];
@@ -156,15 +156,15 @@ Fashion.MessageCenter.prototype.buildPool = function () {
 
     for(var key in mainMessages)
     {
-        data = preMessages[key];
+        data = mainMessages[key];
         var temp = new Fashion.MainMessage(data.factions, data.message, data.certainty);
         this.mainTextPool.push(temp);
     }
 
     for(var key in hintMessages)
     {
-        data = preMessages[key];
-        var temp = new Fashion.PreMessage(data.factions, data.message);
+        data = hintMessages[key];
+        var temp = new Fashion.HintMessage(data.factions, data.message);
         this.hintTextPool.push(temp);
     }
 

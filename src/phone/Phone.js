@@ -37,6 +37,11 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
      */
     this.messageContainer = this.game.make.group();
     /**
+     * @property {number} messageCenter -
+     * @private
+     */
+    this.messageCenter = new Fashion.MessageCenter(this.game);
+    /**
      * @property {Phaser.Graphics} messageMask - The message mask.
      * @private
      */
@@ -121,11 +126,11 @@ Fashion.Phone.prototype.addMessage = function (type, text)
 
 
     //console.log("frame height: " + this.frame.height + " | mTemp y: "+ mTemp.y + " | mTemp height:" + mTemp.height);
-    while(addedHeights+mTemp.height > this.frame.height)
-    {
-        addedHeights-=this.messageArray[0].height;
-        this.messageArray[0].destroy();
-    }
+    //while(addedHeights+mTemp.height > this.frame.height)
+    //{
+    //    addedHeights-=this.messageArray[0].height;
+    //    this.messageArray[0].destroy();
+    //}
 
     this.messageArray.push(mTemp);
     this.messageContainer.add(mTemp);
