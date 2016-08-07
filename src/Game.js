@@ -140,7 +140,7 @@ Fashion.Game.prototype = {
         this.dressUpSpace.setup(Fashion.content.garments);
 
         // test button
-        var btn = this.game.add.image(0,60, Fashion.Asset.TextureAtlas.MENU, Fashion.Asset.Image.MENU_BTN);
+        var btn = this.game.add.image(-80,80, Fashion.Asset.TextureAtlas.MENU, Fashion.Asset.Image.MENU_BTN);
         btn.inputEnabled = true;
         btn.events.onInputDown.add(this.performDressCheck, this);
         //-----------------------------------
@@ -430,8 +430,56 @@ Fashion.Game.prototype = {
         var checkPoint = checks[this.checkPointIndex];
         this.checkPointIndex++;
 
-        this.startCheckPointTimer(checkPoint.duration);
+        var duration = checkPoint.duration * 1000;
+        this.startCheckPointTimer(duration);
+        var totalMessages = checkPoint.numHelpMessages + checkPoint.numFactionMessages;
+        var mTime = Math.round(duration / totalMessages);
+        // TODO round around
+
         // TODO eval messages here
+        var n = totalMessages;
+        var i;
+        for (i = 0; i < n; i++)
+        {
+            if (i % 2)
+                this.startNewMessageTimer(mTime, "Hello blabla", this.postNewHelpMessage, this);
+            else
+                this.startNewMessageTimer(mTime, "Hello blabla", this.postNewFactionMessage, this);
+        }
+    },
+
+    /**
+     *
+     *
+     * @method Fashion.Game#startNewMessageTimer
+     * @memberof Fashion.Game
+     * @private
+     */
+    startNewMessageTimer: function (duration, data, handler, context)
+    {
+        this.game.time.events.repeat(duration, 1, handler, context, data);
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#postNewMessage
+     * @memberof Fashion.Game
+     * @private
+     */
+    postNewHelpMessage: function (data)
+    {
+        Log.debug("NEW HELP MESSAGE: " + data);
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#postNewMessage
+     * @memberof Fashion.Game
+     * @private
+     */
+    postNewFactionMessage: function (data)
+    {
+        Log.debug("NEW FACTION MESSAGE: " + data);
     },
     /**
      *
@@ -442,8 +490,8 @@ Fashion.Game.prototype = {
      */
     startCheckPointTimer: function (duration)
     {
-        Log.debug("New checkpoint in " + duration + " seconds!");
-        this.game.time.events.repeat(duration * 1000, 1, this.performDressCheck, this);
+        Log.debug("New checkpoint in " + duration /1000 + " seconds!");
+        this.game.time.events.repeat(duration, 1, this.performDressCheck, this);
     },
     //-----------------------------------
     // Screen handler
