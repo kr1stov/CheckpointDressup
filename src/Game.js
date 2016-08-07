@@ -487,7 +487,7 @@ Fashion.Game.prototype = {
     postNewOutgoingMessage: function (data)
     {
         Log.debug("OUTGOING MESSAGE: " + data);
-        this.phone.addMessage(Fashion.MessageType.OUTGOING, data.text);
+        this.phone.addMessage(Fashion.MessageType.OUTGOING, data);
     },
     /**
      *
@@ -499,7 +499,7 @@ Fashion.Game.prototype = {
     postNewIncomingMessage: function (data)
     {
         Log.debug("INCOMING MESSAGE: " + data);
-        this.phone.addMessage(Fashion.MessageType.INCOMING, data.text);
+        this.phone.addMessage(Fashion.MessageType.INCOMING, data);
     },
     /**
      *
