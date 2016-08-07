@@ -17,7 +17,7 @@
  * @param {boolean} [enableBody=false] - If true all Sprites created with {@link #create} or {@link #createMulitple} will have a physics body created on them. Change the body type with {@link #physicsBodyType}.
  * @param {integer} [physicsBodyType=0] - The physics body type to use when physics bodies are automatically added. See {@link #physicsBodyType} for values.
  */
-Fashion.Truck = function (game, key, dropZones, parent, name, addToStage, enableBody, physicsBodyType)
+Fashion.Truck = function (game, key, dropZones, garments, parent, name, addToStage, enableBody, physicsBodyType)
 {
     // call super constructor
     Phaser.Group.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
@@ -30,6 +30,11 @@ Fashion.Truck = function (game, key, dropZones, parent, name, addToStage, enable
      * @private
      */
     this.character = new Fashion.Character(game, 0, 0, key, dropZones);
+    /**
+     * @property {array} garments - All of the garments
+     * @private
+     */
+    this.garments = {};
     //-----------------------------------
     // Init
     //-----------------------------------
@@ -40,6 +45,9 @@ Fashion.Truck = function (game, key, dropZones, parent, name, addToStage, enable
 
     this.character.x = this.bg.width / 2;
     this.character.y = this.bg.height * 0.1;
+
+    // render all of the garments
+    this.renderGarments(garments);
 };
 
 // extend class Phaser.Group
@@ -68,7 +76,30 @@ Fashion.Truck.prototype.destroy = function (destroyChildren, soft)
 //============================================================
 // Private methods
 //============================================================
-
+/**
+ *
+ *
+ * @method Fashion.Truck#renderGarments
+ * @memberof Fashion.Truck
+ * @private
+ */
+Fashion.Truck.prototype.renderGarments = function (garments)
+{
+    var garment, data;
+    for (var key in garments)
+    {
+        data = garments[key];
+        garment = new Fashion.Garment(
+            this.game,
+            0,0,
+            Fashion.Asset.TextureAtlas.GAME,
+            key
+        );
+        this.addChild(garment);
+        // TODO add listener
+        this.garments[key] = garment;
+    }
+};
 //============================================================
 // Implicit getters and setters
 //============================================================
