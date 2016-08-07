@@ -118,23 +118,6 @@ Fashion.MessageCenter.prototype.buildPool = function () {
     }
 
 
-    /*var message, data;
-
-    for (var key in garments)
-    {
-        data = garments[key];
-        garment = new Fashion.Garment(
-            this.game,
-            0,0,
-            Fashion.Asset.TextureAtlas.GAME,
-            key,
-            data.imageOffset.x,
-            data.imageOffset.y,
-            data.dropZones,
-            data.coverage,
-            data.bodyPartsBlocked
-        );*/
-
 };
 //============================================================
 // Private methods
