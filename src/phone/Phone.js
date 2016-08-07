@@ -113,7 +113,7 @@ Fashion.Phone.prototype.addMessage = function (key, type, text)
     }
 
     aTemp.scale.y = tTemp.height/aTemp.height;
-    aTemp.y = this.frame.height-50-aTemp.height;
+    aTemp.y = this.frame.height-40-aTemp.height;
     tTemp.y = aTemp.y +5;
 
     mTemp.add(aTemp);
