@@ -216,9 +216,8 @@ Fashion.Game.prototype = {
     {
         this.road.stopRolling();
 
-        var faction = (Fashion.debug) ? Fashion.content.gameConfig.dressTest.faction : Fashion.Faction.All[Math.round(this.game.rnd.frac() * (Fashion.Faction.All.length - 1))];
         Log.debug(" ");
-        Log.debug("DRESS CODE CHECK BY: " + faction);
+        Log.debug("DRESS CODE CHECK BY: " + this.currentFaction);
 
         var coverage = this.dressUpSpace.getCharacterCoverage();
         if (Fashion.debug)
@@ -226,7 +225,7 @@ Fashion.Game.prototype = {
             Fashion.Character.dumpCoverage(coverage);
         }
 
-        var dressCode = Fashion.content.dressCodes[faction];
+        var dressCode = Fashion.content.dressCodes[this.currentFaction];
         Log.debug(dressCode);
         var errorsCoverage = 0;
 
@@ -553,8 +552,11 @@ Fashion.Game.prototype = {
         this.checkPointIndex++;
 
         var duration = checkPoint.duration * 1000;
+        // (Fashion.debug) ? Fashion.content.gameConfig.dressTest.faction :
+        this.currentFaction = Fashion.Faction.All[Math.round(this.game.rnd.frac() * (Fashion.Faction.All.length - 1))];
+
         this.startCheckPointTimer(duration);
-        this.road.spawnCheckpoint(duration, Fashion.content.gameConfig.road.scrollSpeed);
+        this.road.spawnCheckpoint(duration, Fashion.content.gameConfig.road.scrollSpeed, this.currentFaction);
 
 
 
