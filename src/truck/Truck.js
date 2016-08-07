@@ -135,6 +135,10 @@ Fashion.Truck.prototype.renderGarments = function (garments)
 Fashion.Truck.prototype.startGarmentDrag = function (garment, pointer)
 {
     garment.angle = 0;
+    if (garment.isWorn)
+    {
+        this.character.takeOffGarment(garment);
+    }
 };
 /**
  *

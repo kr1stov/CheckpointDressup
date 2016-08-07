@@ -129,9 +129,22 @@ Fashion.Character.prototype.wearGarment = function (garment)
         {
             this.blockBodyParts(garment);
         }
+        garment.isWorn = true;
         return true;
     }
     return false;
+};
+/**
+ *
+ *
+ * @method Fashion.Character#takeOffGarment
+ * @memberof Fashion.Character
+ */
+Fashion.Character.prototype.takeOffGarment = function (garment)
+{
+    garment.isWorn = false;
+
+    this.unblockBodyParts(garment);
 };
 //============================================================
 // Private methods
@@ -197,7 +210,20 @@ Fashion.Character.prototype.blockBodyParts = function (garment)
  */
 Fashion.Character.prototype.unblockBodyParts = function (garment)
 {
-
+    for (var key in garment.coverage)
+    {
+        var n = this.blockedBodyParts.length;
+        var i;
+        var part;
+        for (i = n; --i >= 0;)
+        {
+            part = this.blockedBodyParts[i];
+            if (this.blockedBodyParts[i] == key)
+            {
+                this.blockedBodyParts.splice(i,1);
+            }
+        }
+    }
 };
 /**
  *
