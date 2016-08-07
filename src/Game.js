@@ -149,6 +149,12 @@ Fashion.Game.prototype = {
         this.bubble.y = 100;
         this.bubble.visible = false;
 
+        var style = Fashion.config.getFontStyle(Fashion.Asset.FontStyle.GUARD_ANSWER);
+        this.bubbleLabel = this.game.add.text(0, 0, "Hello there!", style);
+        this.bubbleLabel.x = this.bubble.x + 100;
+        this.bubbleLabel.y = this.bubble.y + 30;
+        this.bubbleLabel.visible = false;
+
         // test button
         //var btn = this.game.add.image(-80,80, Fashion.Asset.TextureAtlas.MENU, Fashion.Asset.Image.MENU_BTN);
         //btn.inputEnabled = true;
@@ -277,14 +283,21 @@ Fashion.Game.prototype = {
 
         if (penalty > dressCode.penaltyLimit)
         {
-            Log.debug("YOU SHALL NOT PASS!!");
+            this.bubbleLabel.text = "You may not pass!";
+            //Log.debug("YOU SHALL NOT PASS!!");
         }
         else
         {
             Log.debug("YOU SHALL PASS");
             if (penalty > 0)
             {
-                Log.debug("... IF YOU GIVE ME " + penalty + " MONEY!");
+                this.bubbleLabel.text = "You may pass!\nBut you must pay " + penalty + ".";
+                //Log.debug("... IF YOU GIVE ME " + penalty + " MONEY!");
+            }
+            else
+            {
+
+                this.bubbleLabel.text = "Save journey!";
             }
         }
 
@@ -317,6 +330,7 @@ Fashion.Game.prototype = {
     {
         Log.debug("onSendInComplete");
         this.bubble.visible = true;
+        this.bubbleLabel.visible = true;
     },
     /**
      *
@@ -328,6 +342,7 @@ Fashion.Game.prototype = {
     handleBubbleClick: function ()
     {
         this.bubble.visible = false;
+        this.bubbleLabel.visible = false;
 
         var t = Fashion.Tween.create(this.game, this.guard,
             { y: this.game.world.height},
