@@ -127,7 +127,8 @@ Fashion.Game.prototype = {
         this.dressUpSpace = new Fashion.DressUpSpace(
             this.game,
             Fashion.Asset.TextureAtlas.GAME,
-            Fashion.content.dropZones
+            Fashion.content.dropZones,
+            Fashion.content.dressCodes
         );
         this.gameLayer.add(this.dressUpSpace);
         this.dressUpSpace.y = this.game.world.height - this.dressUpSpace.height;
