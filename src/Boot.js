@@ -23,6 +23,8 @@ Fashion = {
 
     translationPath: null,
 
+    messages : null,
+
     initTranslations: function(content) {
         GTLib.LangUtil.setTranslationContent(content);
     },
