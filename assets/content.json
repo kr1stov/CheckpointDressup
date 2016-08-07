@@ -213,6 +213,24 @@
       "dressDuration": 1000,
       "undressDuration": 1000
     },
+    "relaxed-hijab": {
+      "imageKey": "relaxed-hijab",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "head"
+      ],
+      "coverage": {
+        "hair": "relaxed"
+      },
+      "bodyPartsBlocked": [
+        "hair"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
     "relaxed-makeup": {
       "imageKey": "relaxed-makeup",
       "imageOffset": {
