@@ -50,6 +50,11 @@ Fashion.Road = function (game, key, parent, name, addToStage, enableBody, physic
      * @private
      */
     this.flags = [];
+    /**
+     * @property {number} lastTick -
+     * @private
+     */
+    this.lastTick = 0;
     //-----------------------------------
     // Init
     //-----------------------------------
@@ -159,6 +164,8 @@ Fashion.Road.prototype.update = function ()
                 flag.x -= deltaSpeed;
             }
         }
+
+        this.vehicle.y += this.lastTick = (this.lastTick > 0) ? -1 : 1;
     }
 };
 /**
