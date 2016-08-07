@@ -17,6 +17,12 @@
       "font": "Lato-Bold",
       "fill": "#000",
       "fontSize": 12
+    },
+    "guardAnswer":
+    {
+      "font": "Lato-Bold",
+      "fill": "#000",
+      "fontSize": 32
     }
   }
 }
