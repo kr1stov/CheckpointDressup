@@ -66,8 +66,8 @@ Fashion.BodyPart.validateParts = function (parts, callee)
         if (!Fashion.BodyPart.validate(part))
         {
             Log.error("Invalid body part detected in '" + callee + "': " + part);
-            return false;
+            return null;
         }
     }
-    return true;
+    return parts;
 };
