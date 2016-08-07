@@ -60,8 +60,8 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
     this.messageContainer.add(this.messageMask);
     this.messageContainer.mask = this.messageMask;
 
-    this.addMessage(key, Fashion.MessageType.INCOMING);
-    this.addMessage(key, Fashion.MessageType.OUTGOING);
+    this.addMessage(key, Fashion.MessageType.INCOMING, "Bacon ipsum dolor amet ham pork pig.");
+    this.addMessage(key, Fashion.MessageType.OUTGOING, "Bacon ipsum dolor amet ham pork pig.");
 };
 
 
@@ -79,7 +79,7 @@ Fashion.Phone.prototype.constructor = Fashion.Phone;
  * @method Fashion.Phone#addMessage
  * @memberof Fashion.Phone
  */
-Fashion.Phone.prototype.addMessage = function (key, type)
+Fashion.Phone.prototype.addMessage = function (key, type, text)
 {
     for(var i=0; i<this.messageArray.length; i++)
     {
@@ -87,16 +87,23 @@ Fashion.Phone.prototype.addMessage = function (key, type)
     }
 
     var mTemp = this.game.make.group();
-    var temp;
+    var atemp;
+    var tTemp;
 
-    if(type == Fashion.MessageType.INCOMING)
-        temp =  this.game.make.image(this.frame.x+20, this.frame.height-170, key,  Fashion.Asset.Image.MESSAGE_INCOMING);
-    else
-        temp =  this.game.make.image(this.frame.x+50, this.frame.height-170, key,  Fashion.Asset.Image.MESSAGE_OUTGOING);
+    if(type == Fashion.MessageType.INCOMING) {
+        atemp = this.game.make.image(this.frame.x + 20, this.frame.height - 170, key, Fashion.Asset.Image.MESSAGE_INCOMING);
+        tTemp = this.game.add.text(atemp.x+25, atemp.y+10, text, {fontSize: '12px', fill: '#000', wordWrap: true, wordWrapWidth: atemp.width-30});
+        //Fashion.LabelUtil.setLabelWithStyle(tTemp, "lorem ipsum", Fashion.Asset.FontStyle.PHONE_MESSAGE);
 
-    mTemp.add(temp);
+    }
+    else {
+        atemp = this.game.make.image(this.frame.x + 50, this.frame.height - 170, key, Fashion.Asset.Image.MESSAGE_OUTGOING);
+        tTemp = this.game.add.text(atemp.x+10, atemp.y+10, text, {fontSize: '12px', fill: '#000', wordWrap: true, wordWrapWidth: atemp.width-25});
+        //Fashion.LabelUtil.setLabelWithStyle(tTemp, "lorem ipsum", Fashion.Asset.FontStyle.PHONE_MESSAGE);
 
-    var tTemp = this.game.add.text(this.frame.x+20, this.frame.height-170, "lorem ipsum", {fontSize: '32px', fill: '#000'});
+
+    }
+    mTemp.add(atemp);
     mTemp.add(tTemp);
 
     //this.add(this.messageContainer);

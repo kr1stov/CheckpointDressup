@@ -103,7 +103,7 @@ Fashion.Truck.prototype.renderGarments = function (garments)
         garment.anchor.setTo(0.5, 0);
         // make garments dragable
         garment.inputEnabled = true;
-        garment.input.enableDrag();
+        garment.input.enableDrag(true, true, true);
 
         garment.events.onDragStart.add(this.startGarmentDrag, this);
         garment.events.onDragStop.add(this.stopGarmentDrag, this);
@@ -121,9 +121,9 @@ Fashion.Truck.prototype.renderGarments = function (garments)
  * @memberof Fashion.Truck
  * @private
  */
-Fashion.Truck.prototype.startGarmentDrag = function (garment)
+Fashion.Truck.prototype.startGarmentDrag = function (garment, pointer)
 {
-    garment.bringToTop();
+    
 };
 /**
  *
@@ -136,10 +136,9 @@ Fashion.Truck.prototype.stopGarmentDrag = function (garment, pointer)
 {
     var localPoint = this.character.toLocal(new Phaser.Point(pointer.x, pointer.y));
     var zone = this.hitTestCharacter(garment, localPoint);
-    if (zone)
+    if (zone && this.character.wearGarment(garment))
     {
         Log.debug("garment hits valid zone " + zone);
-        this.character.positionGarment(garment);
     }
     else
     {

@@ -11,6 +11,12 @@
       "font": "Lato-Bold",
       "fill": "#c6c6bd",
       "fontSize": 22
+    },
+    "phoneMessage":
+    {
+      "font": "Lato-Bold",
+      "fill": "#000",
+      "fontSize": 12
     }
   }
 }
