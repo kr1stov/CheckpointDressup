@@ -481,7 +481,7 @@
     "fanatics": {
       "failTolerance": 0,
       "penaltyPerFail": 1,
-      "penaltyLimit": 0,
+      "penaltyLimit": 1,
       "corruptibility": false,
       "greed": 0,
       "minStyle": {},
@@ -497,7 +497,7 @@
     "rebels": {
       "failTolerance": 1,
       "penaltyPerFail": 1,
-      "penaltyLimit": 10,
+      "penaltyLimit": 3,
       "corruptibility": true,
       "greed": 0.2,
       "minStyle": {},
@@ -506,11 +506,11 @@
         "relaxed": 1
       },
       "must": {
-        "hair": "strict",
         "face": "exposed",
         "eyes": "exposed"
       },
       "mustNot": {
+		"hair":	"exposed"
         "torso": "exposed",
         "arms": "exposed",
         "thighs": "exposed",
@@ -521,9 +521,9 @@
     "government": {
       "failTolerance": 1,
       "penaltyPerFail": 1,
-      "penaltyLimit": 10,
+      "penaltyLimit": 5,
       "corruptibility": true,
-      "greed": 0.1,
+      "greed": 0.3,
       "minStyle": {
         "relaxed": 2
       },
@@ -541,7 +541,7 @@
     "marxists": {
       "failTolerance": 1,
       "penaltyPerFail": 2,
-      "penaltyLimit": 10,
+      "penaltyLimit": 3,
       "corruptibility": true,
       "greed": 0.05,
       "minStyle": {
