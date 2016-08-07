@@ -26,7 +26,8 @@ Fashion.Asset.AtlasPath = {
     ROAD: 'road/',
     TRUCK: 'truck/',
     DRESS_UP_SPACE: 'dress-up-space/',
-    CHARACTER: 'truck/character/'
+    CHARACTER: 'truck/character/',
+    GARMENTS: 'truck/garments/'
 
 };
 /**

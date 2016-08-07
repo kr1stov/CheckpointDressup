@@ -47,8 +47,9 @@ module.exports = function(grunt) {
                 "src/screens/IntroScreen.js",
 
                 "src/road/Road.js",
-                "src/truck/Truck.js",
                 "src/character/Character.js",
+                "src/truck/Garment.js",
+                "src/truck/Truck.js",
                 "src/dressup/DressUpSpace.js",
 
                 "src/utils/FormatUtil.js",
