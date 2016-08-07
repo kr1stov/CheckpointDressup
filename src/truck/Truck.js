@@ -43,7 +43,7 @@ Fashion.Truck = function (game, key, dropZones, parent, name, addToStage, enable
 
     this.character.anchor.setTo(0.5, 0);
 
-    this.character.x = this.bg.width - this.character.width / 2;
+    this.character.x = this.bg.width - this.character.width / 2 * 1.1;
     this.character.y = this.bg.height * 0.2;
 };
 
@@ -208,8 +208,8 @@ Fashion.Truck.prototype.setRandomGarmentPosition = function (garment)
     if (!garment) return;
 
     return new Phaser.Point(
-        garment.width / 2 + this.x + this.game.rnd.frac() * (this.bg.width - garment.width - this.character.width),
-        garment.height / 2 + this.y + this.game.rnd.frac() * (this.bg.height - garment.height)
+        garment.width / 2 + this.x + this.game.rnd.frac() * (this.bg.width - garment.width - this.character.width * 1.3),
+        garment.height / 2 + this.y + this.game.rnd.frac() * (this.bg.height - garment.height * 1.2)
     );
 };
 
