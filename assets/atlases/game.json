@@ -26,7 +26,7 @@
 },
 {
 	"filename": "phone/message-incoming.png",
-	"frame": {"x":1470,"y":707,"w":164,"h":127},
+	"frame": {"x":535,"y":722,"w":164,"h":127},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":164,"h":127},
@@ -34,7 +34,7 @@
 },
 {
 	"filename": "phone/message-outgoing.png",
-	"frame": {"x":701,"y":722,"w":164,"h":127},
+	"frame": {"x":700,"y":722,"w":164,"h":127},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":164,"h":127},
@@ -50,7 +50,7 @@
 },
 {
 	"filename": "road/bumper-1.png",
-	"frame": {"x":1720,"y":887,"w":46,"h":75},
+	"frame": {"x":1700,"y":781,"w":46,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":75},
@@ -58,7 +58,7 @@
 },
 {
 	"filename": "road/bumper-2.png",
-	"frame": {"x":1776,"y":440,"w":46,"h":75},
+	"frame": {"x":1700,"y":857,"w":46,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":75},
@@ -66,7 +66,7 @@
 },
 {
 	"filename": "road/bumper-3.png",
-	"frame": {"x":1764,"y":751,"w":46,"h":75},
+	"frame": {"x":1747,"y":740,"w":46,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":75},
@@ -74,7 +74,7 @@
 },
 {
 	"filename": "road/checkpoint-1.png",
-	"frame": {"x":701,"y":850,"w":160,"h":75},
+	"frame": {"x":197,"y":881,"w":160,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":160,"h":75},
@@ -82,7 +82,7 @@
 },
 {
 	"filename": "road/checkpoint-2.png",
-	"frame": {"x":669,"y":926,"w":160,"h":75},
+	"frame": {"x":367,"y":872,"w":160,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":160,"h":75},
@@ -90,7 +90,7 @@
 },
 {
 	"filename": "road/checkpoint-3.png",
-	"frame": {"x":862,"y":883,"w":160,"h":75},
+	"frame": {"x":1639,"y":557,"w":160,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":160,"h":75},
@@ -98,7 +98,7 @@
 },
 {
 	"filename": "road/checkpoint-4.png",
-	"frame": {"x":1638,"y":675,"w":160,"h":75},
+	"frame": {"x":1639,"y":633,"w":160,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":160,"h":75},
@@ -106,7 +106,7 @@
 },
 {
 	"filename": "road/flag-fanatic.png",
-	"frame": {"x":1715,"y":440,"w":60,"h":75},
+	"frame": {"x":1639,"y":781,"w":60,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":75},
@@ -114,7 +114,7 @@
 },
 {
 	"filename": "road/flag-gov.png",
-	"frame": {"x":1759,"y":516,"w":60,"h":75},
+	"frame": {"x":1639,"y":857,"w":60,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":75},
@@ -122,7 +122,7 @@
 },
 {
 	"filename": "road/flag-marxist.png",
-	"frame": {"x":1759,"y":592,"w":60,"h":75},
+	"frame": {"x":1747,"y":816,"w":60,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":75},
@@ -130,7 +130,7 @@
 },
 {
 	"filename": "road/flag-rebels.png",
-	"frame": {"x":1767,"y":827,"w":60,"h":75},
+	"frame": {"x":1747,"y":892,"w":60,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":75},
@@ -138,7 +138,7 @@
 },
 {
 	"filename": "road/maincharacter.png",
-	"frame": {"x":1715,"y":364,"w":96,"h":75},
+	"frame": {"x":1715,"y":295,"w":96,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":75},
@@ -162,7 +162,7 @@
 },
 {
 	"filename": "truck/character/heroine.png",
-	"frame": {"x":1273,"y":557,"w":196,"h":413},
+	"frame": {"x":1442,"y":557,"w":196,"h":413},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":196,"h":413},
@@ -170,7 +170,7 @@
 },
 {
 	"filename": "truck/garments/military-bandana.png",
-	"frame": {"x":1638,"y":557,"w":120,"h":117},
+	"frame": {"x":865,"y":722,"w":120,"h":117},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":117},
@@ -178,7 +178,7 @@
 },
 {
 	"filename": "truck/garments/military-boots.png",
-	"frame": {"x":1635,"y":751,"w":128,"h":67},
+	"frame": {"x":886,"y":840,"w":128,"h":67},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":67},
@@ -186,15 +186,15 @@
 },
 {
 	"filename": "truck/garments/military-pants.png",
-	"frame": {"x":1715,"y":148,"w":95,"h":107},
+	"frame": {"x":1715,"y":148,"w":96,"h":146},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":95,"h":107},
-	"sourceSize": {"w":95,"h":107}
+	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":146},
+	"sourceSize": {"w":96,"h":146}
 },
 {
 	"filename": "truck/garments/military-top.png",
-	"frame": {"x":365,"y":722,"w":167,"h":149},
+	"frame": {"x":367,"y":722,"w":167,"h":149},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":167,"h":149},
@@ -202,15 +202,7 @@
 },
 {
 	"filename": "truck/garments/moderate-flats.png",
-	"frame": {"x":1635,"y":819,"w":128,"h":67},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":67},
-	"sourceSize": {"w":128,"h":67}
-},
-{
-	"filename": "truck/garments/moderate-flats2.png",
-	"frame": {"x":1273,"y":501,"w":131,"h":42},
+	"frame": {"x":197,"y":957,"w":131,"h":42},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":131,"h":42},
@@ -218,7 +210,7 @@
 },
 {
 	"filename": "truck/garments/moderate-hijab.png",
-	"frame": {"x":1470,"y":835,"w":120,"h":160},
+	"frame": {"x":535,"y":850,"w":120,"h":160},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":160},
@@ -226,15 +218,7 @@
 },
 {
 	"filename": "truck/garments/moderate-skirt.png",
-	"frame": {"x":1715,"y":256,"w":95,"h":107},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":95,"h":107},
-	"sourceSize": {"w":95,"h":107}
-},
-{
-	"filename": "truck/garments/moderate-skirt2.png",
-	"frame": {"x":197,"y":881,"w":108,"h":142},
+	"frame": {"x":777,"y":850,"w":108,"h":142},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":142},
@@ -242,15 +226,7 @@
 },
 {
 	"filename": "truck/garments/moderate-top.png",
-	"frame": {"x":1470,"y":557,"w":167,"h":149},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":167,"h":149},
-	"sourceSize": {"w":167,"h":149}
-},
-{
-	"filename": "truck/garments/moderate-top2.png",
-	"frame": {"x":191,"y":722,"w":173,"h":158},
+	"frame": {"x":193,"y":722,"w":173,"h":158},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":173,"h":158},
@@ -266,15 +242,23 @@
 },
 {
 	"filename": "truck/garments/relaxed-espandrillos.png",
-	"frame": {"x":0,"y":976,"w":128,"h":30},
+	"frame": {"x":886,"y":966,"w":128,"h":30},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":30},
 	"sourceSize": {"w":128,"h":30}
 },
 {
+	"filename": "truck/garments/relaxed-handbag.png",
+	"frame": {"x":1715,"y":371,"w":90,"h":151},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":151},
+	"sourceSize": {"w":90,"h":151}
+},
+{
 	"filename": "truck/garments/relaxed-hijab.png",
-	"frame": {"x":866,"y":722,"w":120,"h":160},
+	"frame": {"x":656,"y":850,"w":120,"h":160},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":160},
@@ -282,7 +266,7 @@
 },
 {
 	"filename": "truck/garments/relaxed-makeup.png",
-	"frame": {"x":1273,"y":971,"w":98,"h":40},
+	"frame": {"x":1639,"y":740,"w":98,"h":40},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":98,"h":40},
@@ -290,67 +274,67 @@
 },
 {
 	"filename": "truck/garments/relaxed-shirt.png",
-	"frame": {"x":0,"y":722,"w":190,"h":181},
+	"frame": {"x":0,"y":722,"w":192,"h":181},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":190,"h":181},
-	"sourceSize": {"w":190,"h":181}
+	"spriteSourceSize": {"x":0,"y":0,"w":192,"h":181},
+	"sourceSize": {"w":192,"h":181}
 },
 {
 	"filename": "truck/garments/relaxed-sneakers.png",
-	"frame": {"x":1591,"y":887,"w":128,"h":67},
+	"frame": {"x":1639,"y":709,"w":128,"h":30},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":67},
-	"sourceSize": {"w":128,"h":67}
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":30},
+	"sourceSize": {"w":128,"h":30}
 },
 {
 	"filename": "truck/garments/relaxed-sunglasses.png",
-	"frame": {"x":306,"y":881,"w":120,"h":117},
+	"frame": {"x":1639,"y":933,"w":102,"h":31},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":117},
-	"sourceSize": {"w":120,"h":117}
+	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":31},
+	"sourceSize": {"w":102,"h":31}
 },
 {
-	"filename": "truck/garments/strict-burka.png",
-	"frame": {"x":533,"y":722,"w":167,"h":149},
+	"filename": "truck/garments/strict-abaya.png",
+	"frame": {"x":1273,"y":501,"w":168,"h":289},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":167,"h":149},
-	"sourceSize": {"w":167,"h":149}
+	"spriteSourceSize": {"x":0,"y":0,"w":168,"h":289},
+	"sourceSize": {"w":168,"h":289}
 },
 {
 	"filename": "truck/garments/strict-gloves.png",
-	"frame": {"x":0,"y":904,"w":196,"h":71},
+	"frame": {"x":0,"y":904,"w":196,"h":90},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":196,"h":71},
-	"sourceSize": {"w":196,"h":71}
+	"spriteSourceSize": {"x":0,"y":0,"w":196,"h":90},
+	"sourceSize": {"w":196,"h":90}
 },
 {
 	"filename": "truck/garments/strict-niqab.png",
-	"frame": {"x":427,"y":872,"w":120,"h":117},
+	"frame": {"x":1273,"y":791,"w":140,"h":190},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":117},
-	"sourceSize": {"w":120,"h":117}
+	"spriteSourceSize": {"x":0,"y":0,"w":140,"h":190},
+	"sourceSize": {"w":140,"h":190}
 },
 {
 	"filename": "truck/garments/strict-shoes.png",
-	"frame": {"x":1591,"y":955,"w":128,"h":67},
+	"frame": {"x":886,"y":908,"w":136,"h":57},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":67},
-	"sourceSize": {"w":128,"h":67}
+	"spriteSourceSize": {"x":0,"y":0,"w":136,"h":57},
+	"sourceSize": {"w":136,"h":57}
 },
 {
 	"filename": "truck/garments/strict-veil.png",
-	"frame": {"x":548,"y":872,"w":120,"h":117},
+	"frame": {"x":1715,"y":523,"w":88,"h":29},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":117},
-	"sourceSize": {"w":120,"h":117}
+	"spriteSourceSize": {"x":0,"y":0,"w":88,"h":29},
+	"sourceSize": {"w":88,"h":29}
 },
 {
 	"filename": "ui/menu-btn-disabled.png",
@@ -373,8 +357,8 @@
 	"version": "1.0",
 	"image": "game.png",
 	"format": "RGBA8888",
-	"size": {"w":1832,"h":1023},
+	"size": {"w":1811,"h":1010},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:bf60dfc75a5ec286863ddb4203e4d64f:d9427a54d2f22352fdd0f1b8aba6d61d:fc2835210f98bae8e8c1b7f0a84c9321$"
+	"smartupdate": "$TexturePacker:SmartUpdate:81eaa729f98115045adfe2bbe178be3a:8a1eddba1e4ffc25caf2595bce3950a4:fc2835210f98bae8e8c1b7f0a84c9321$"
 }
 }

@@ -17,7 +17,7 @@
  * @param {boolean} [enableBody=false] - If true all Sprites created with {@link #create} or {@link #createMulitple} will have a physics body created on them. Change the body type with {@link #physicsBodyType}.
  * @param {integer} [physicsBodyType=0] - The physics body type to use when physics bodies are automatically added. See {@link #physicsBodyType} for values.
  */
-Fashion.DressUpSpace = function (game, key, dropZones, garments, parent, name, addToStage, enableBody, physicsBodyType)
+Fashion.DressUpSpace = function (game, key, dropZones, parent, name, addToStage, enableBody, physicsBodyType)
 {
     // call super constructor
     Phaser.Group.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
@@ -29,7 +29,7 @@ Fashion.DressUpSpace = function (game, key, dropZones, garments, parent, name, a
      * @property {Fashion.Truck} truck -
      * @private
      */
-    this.truck = new Fashion.Truck(game, key, dropZones, garments);
+    this.truck = new Fashion.Truck(game, key, dropZones);
     //-----------------------------------
     // Init
     //-----------------------------------
@@ -47,7 +47,16 @@ Fashion.DressUpSpace.prototype.constructor = Fashion.DressUpSpace;
 //============================================================
 // Public interface
 //============================================================
-
+/**
+ * 
+ *
+ * @method Fashion.DressUpSpace#initialize
+ * @memberof Fashion.DressUpSpace
+ */
+Fashion.DressUpSpace.prototype.setup = function (garments)
+{
+    this.truck.setup(garments);
+};
 /**
  * Destroys this group.
  *

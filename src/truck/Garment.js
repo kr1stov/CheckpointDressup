@@ -45,6 +45,11 @@ Fashion.Garment = function (game, x, y, key, garmentName, imageOffsetX, imageOff
      * @private
      */
     this.imageOffsetY = imageOffsetY || 0;
+    /**
+     * @property {boolean} isWorn -
+     * @private
+     */
+    this.isWorn = false;
 
     // ? DressDuration
     // ? UndressDuration

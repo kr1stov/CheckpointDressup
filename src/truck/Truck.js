@@ -17,7 +17,7 @@
  * @param {boolean} [enableBody=false] - If true all Sprites created with {@link #create} or {@link #createMulitple} will have a physics body created on them. Change the body type with {@link #physicsBodyType}.
  * @param {integer} [physicsBodyType=0] - The physics body type to use when physics bodies are automatically added. See {@link #physicsBodyType} for values.
  */
-Fashion.Truck = function (game, key, dropZones, garments, parent, name, addToStage, enableBody, physicsBodyType)
+Fashion.Truck = function (game, key, dropZones, parent, name, addToStage, enableBody, physicsBodyType)
 {
     // call super constructor
     Phaser.Group.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
@@ -43,11 +43,8 @@ Fashion.Truck = function (game, key, dropZones, garments, parent, name, addToSta
 
     this.character.anchor.setTo(0.5, 0);
 
-    this.character.x = this.bg.width / 2;
-    this.character.y = this.bg.height * 0.1;
-
-    // render all of the garments
-    this.renderGarments(garments);
+    this.character.x = this.bg.width - this.character.width / 2 * 1.1;
+    this.character.y = this.bg.height * 0.2;
 };
 
 // extend class Phaser.Group
@@ -57,7 +54,17 @@ Fashion.Truck.prototype.constructor = Fashion.Truck;
 //============================================================
 // Public interface
 //============================================================
-
+/**
+ *
+ *
+ * @method Fashion.Truck#setup
+ * @memberof Fashion.Truck
+ */
+Fashion.Truck.prototype.setup = function (garments)
+{
+    // render all of the garments
+    this.renderGarments(garments);
+};
 /**
  * Destroys this group.
  *
@@ -100,17 +107,21 @@ Fashion.Truck.prototype.renderGarments = function (garments)
             data.coverage,
             data.bodyPartsBlocked
         );
-        garment.anchor.setTo(0.5, 0);
+        garment.anchor.setTo(0.5, 0.5);
+        this.addChild(garment);
+        this.garments[key] = garment;
         // make garments dragable
         garment.inputEnabled = true;
         garment.input.enableDrag(true, true, true);
 
         garment.events.onDragStart.add(this.startGarmentDrag, this);
         garment.events.onDragStop.add(this.stopGarmentDrag, this);
+        garment.scale.setTo(Fashion.scaleFactorCharacter);
 
-        this.addChild(garment);
+        var p = this.setRandomGarmentPosition(garment);
+        garment.x = p.x;
+        garment.y = p.y;
 
-        this.garments[key] = garment;
     }
     this.character.bringToTop();
 };
@@ -123,7 +134,11 @@ Fashion.Truck.prototype.renderGarments = function (garments)
  */
 Fashion.Truck.prototype.startGarmentDrag = function (garment, pointer)
 {
-    
+    garment.angle = 0;
+    if (garment.isWorn)
+    {
+        this.character.takeOffGarment(garment);
+    }
 };
 /**
  *
@@ -139,10 +154,20 @@ Fashion.Truck.prototype.stopGarmentDrag = function (garment, pointer)
     if (zone && this.character.wearGarment(garment))
     {
         Log.debug("garment hits valid zone " + zone);
+
     }
     else
     {
-        this.setRandomGarmentPosition(garment);
+        var angle = this.game.rnd.frac() * 180,
+            p = this.setRandomGarmentPosition(garment);
+
+        angle *= (this.game.rnd.frac() > 0.5) ? -1 : 1;
+
+        Fashion.Tween.create(this.game, garment,
+            { x: p.x, y: p.y, angle: angle},
+            Fashion.Tween.Garment.SNAP_ON_DROP
+        ).start();
+
         // move behind character
         this.setChildIndex(garment, this.getIndex(this.character) - 1);
     }
@@ -186,9 +211,12 @@ Fashion.Truck.prototype.setRandomGarmentPosition = function (garment)
 {
     if (!garment) return;
 
-    garment.x = 0;
-    garment.y = 0;
+    return new Phaser.Point(
+        garment.width / 2 + this.x + this.game.rnd.frac() * (this.bg.width - garment.width - this.character.width * 1.3),
+        garment.height / 2 + this.y + this.game.rnd.frac() * (this.bg.height - garment.height * 1.2)
+    );
 };
+
 //============================================================
 // Implicit getters and setters
 //============================================================

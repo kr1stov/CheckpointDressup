@@ -18,6 +18,7 @@ Fashion.Character = function (game, x, y, key, dropZones)
 {
     // call super constructor
     Phaser.Sprite.call(this, game, x, y, key, Fashion.Asset.Image.CHARACTER_BASE);
+    this.scale.setTo(Fashion.scaleFactorCharacter);
     /**
      * @property {Object} dropZones -
      * @private
@@ -28,6 +29,10 @@ Fashion.Character = function (game, x, y, key, dropZones)
      * @private
      */
     this.blockedBodyParts = [];
+    /**
+     * @property {object} coverage -
+     */
+    this.coverage = {};
     //-----------------------------------
     // Init
     //-----------------------------------
@@ -38,6 +43,14 @@ Fashion.Character = function (game, x, y, key, dropZones)
     {
         zone = dropZones[key];
         this.dropZones[key] = new Phaser.Rectangle(zone.x, zone.y, zone.width, zone.height);
+    }
+
+    // init coverage
+    var n = Fashion.BodyPart.Parts.length;
+    var i;
+    for (i = n; --i >= 0;)
+    {
+        this.coverage[Fashion.BodyPart.Parts[i]] = Fashion.ClothingStyle.EXPOSED;
     }
 
     if (Fashion.debug)
@@ -116,9 +129,22 @@ Fashion.Character.prototype.wearGarment = function (garment)
         {
             this.blockBodyParts(garment);
         }
+        garment.isWorn = true;
         return true;
     }
     return false;
+};
+/**
+ *
+ *
+ * @method Fashion.Character#takeOffGarment
+ * @memberof Fashion.Character
+ */
+Fashion.Character.prototype.takeOffGarment = function (garment)
+{
+    garment.isWorn = false;
+
+    this.unblockBodyParts(garment);
 };
 //============================================================
 // Private methods
@@ -157,8 +183,8 @@ Fashion.Character.prototype.positionGarment = function (garment)
 {
     if (garment)
     {
-        garment.x = this.x + garment.imageOffsetX;
-        garment.y = this.y + garment.imageOffsetY;
+        garment.x = this.x + (garment.imageOffsetX) * Fashion.scaleFactorCharacter;
+        garment.y = this.y + (garment.imageOffsetY) * Fashion.scaleFactorCharacter + garment.height / 2;
     }
 };
 /**
@@ -184,7 +210,20 @@ Fashion.Character.prototype.blockBodyParts = function (garment)
  */
 Fashion.Character.prototype.unblockBodyParts = function (garment)
 {
-
+    for (var key in garment.coverage)
+    {
+        var n = this.blockedBodyParts.length;
+        var i;
+        var part;
+        for (i = n; --i >= 0;)
+        {
+            part = this.blockedBodyParts[i];
+            if (this.blockedBodyParts[i] == key)
+            {
+                this.blockedBodyParts.splice(i,1);
+            }
+        }
+    }
 };
 /**
  *

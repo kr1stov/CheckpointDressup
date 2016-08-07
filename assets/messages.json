@@ -457,5 +457,126 @@
       "text": "a suicide blast killed 14 people",
       "certainty": 50
     },
+	"message64":
+    {
+      "factions": "Rebels",
+      "text": "rebel fighters have decapitated a young man in the town ahead of you",
+      "certainty": 100
+    },
+	"message65":
+    {
+      "factions": "Rebels",
+      "text": "control of road was seized by Rebel fighters",
+      "certainty": 100
+    },
+	"message66":
+    {
+      "factions": "Government",
+      "text": "attacks on a governmental prison has freed hundreds of militants",
+      "certainty": 50
+    },
+	"message67":
+    {
+      "factions": ["ISIS","Rebels"],
+      "text": "an army helicopter was shot down in the area ahead of us",
+      "certainty": 50
+    },
+	"message68":
+    {
+      "factions": "Rebels",
+      "text": "a Rebel leader was killed in a missile strike",
+      "certainty": 50
+    },
+	"message69":
+    {
+      "factions": "Marxist",
+      "text": "marxist forces hold the town ahead of us",
+      "certainty": 100
+    },
+	"message70":
+    {
+      "factions": "Rebels",
+      "text": "rebel forces hold the town ahead of us",
+      "certainty": 100
+    }
+  },
+
+  "hintMessages":
+  {
+    "hintMessage01":
+    {
+      "factions": "ISIS",
+      "text": "make sure that your whole body is covered when you are held up by a fanatic checkpoint",
+    },
+	"hintMessage02":
+    {
+      "factions": "ISIS",
+      "text": "never wear military clothing when you are approached by fanatics",
+    },
+	"hintMessage03":
+    {
+      "factions": "Government",
+      "text": "try to look casual when you run into Government forces",
+    },
+	"hintMessage04":
+    {
+      "factions": "Government",
+      "text": "do not wear military clothing when you run into Government guards",
+    },
+	"hintMessage05":
+    {
+      "factions": "Marxists",
+      "text": "Be sure to dress up completely in military clothing when you are approached by marxists",
+    },
+	"hintMessage06":
+    {
+      "factions": "Rebels",
+      "text": "your hair must be covered when you are approached by rebel soldiers",
+    },
+	"hintMessage07":
+    {
+      "factions": "Marxists",
+      "text": "the marxists won't let you pass for free if you have your head and face covered",
+    },
+	"hintMessage08":
+    {
+      "factions": "Rebels",
+      "text": "you do not need to cover your eyes when you are approached by rebels",
+    },
+	"hintMessage09":
+    {
+      "factions": "Rebels",
+      "text": "do not wear too many strict clothes when you are approached by rebels. they might think that you are a fanatic",
+    },
+	"hintMessage10":
+    {
+      "factions": "Rebels",
+      "text": "do not wear too many casual clothes when you are approached by rebels. they may not be fanatics but are still conservative",
+    },
+	"hintMessage11":
+    {
+      "factions": ["Rebels","ISIS"],
+      "text": "the burka is considered strict",
+    },
+	"hintMessage12":
+    {
+      "factions": ["Rebels","ISIS"],
+      "text": "neither rebels nor fanatics will let you pass with casual or military clothes",
+    },
+	"hintMessage13":
+    {
+      "factions": "ISIS",
+      "text": "fanatics will not accept bribes",
+    },
+	"hintMessage14":
+    {
+      "factions": "Marxists",
+      "text": "if you dress with military clothes, the marxists will treat you as an equal",
+    },
+	"hintMessage15":
+    {
+      "factions": "Government",
+      "text": "sunglasses and make-up are considered casual",
+    },
   }
 }
