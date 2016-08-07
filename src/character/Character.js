@@ -22,7 +22,19 @@ Fashion.Character = function (game, x, y, key, dropZones)
      * @property {Object} dropZones -
      * @private
      */
-    this.dropZones = dropZones;
+    this.dropZones = {};
+
+    //-----------------------------------
+    // Init
+    //-----------------------------------
+
+    // translate objects into rectangles
+    var zone;
+    for (var key in dropZones)
+    {
+        zone = dropZones[key];
+        this.dropZones[key] = new Phaser.Rectangle(zone.x, zone.y, zone.width, zone.height);
+    }
 
     if (Fashion.debug)
     {
@@ -65,6 +77,26 @@ Fashion.Character.prototype.destroy = function (destroyChildren)
 {
 
     Phaser.Sprite.prototype.destroy.call(this, destroyChildren);
+};
+
+/**
+ *
+ *
+ * @method Fashion.Character#hitsDropZone
+ * @memberof Fashion.Character
+ */
+Fashion.Character.prototype.hitsDropZone = function (x, y, zone)
+{
+    var p = this.toLocal(new Phaser.Point(x, y));
+    for (var key in this.dropZones)
+    {
+        if (key == zone && Phaser.Rectangle.containsPoint(this.dropZones[key], p))
+        {
+            Log.debug("zone hit " + zone);
+            return true;
+        }
+    }
+    return false;
 };
 //============================================================
 // Private methods
