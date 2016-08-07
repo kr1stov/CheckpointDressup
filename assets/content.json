@@ -529,7 +529,7 @@
         "eyes": "exposed"
       },
       "mustNot": {
-		"hair":	"exposed"
+		"hair":	"exposed",
         "torso": "exposed",
         "arms": "exposed",
         "thighs": "exposed",
