@@ -107,6 +107,7 @@ Fashion.Truck.prototype.renderGarments = function (garments)
 
         garment.events.onDragStart.add(this.startGarmentDrag, this);
         garment.events.onDragStop.add(this.stopGarmentDrag, this);
+        garment.scale.setTo(Fashion.scaleFactorCharacter);
 
         this.addChild(garment);
 

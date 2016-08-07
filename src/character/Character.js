@@ -18,6 +18,7 @@ Fashion.Character = function (game, x, y, key, dropZones)
 {
     // call super constructor
     Phaser.Sprite.call(this, game, x, y, key, Fashion.Asset.Image.CHARACTER_BASE);
+    this.scale.setTo(Fashion.scaleFactorCharacter);
     /**
      * @property {Object} dropZones -
      * @private
