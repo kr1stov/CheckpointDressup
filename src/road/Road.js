@@ -144,6 +144,7 @@ Fashion.Road.prototype.update = function ()
                 point.x -= deltaSpeed;
             }
         }
+        n = this.flags.length;
         var flag;
         for (i = n; --i >= 0;)
         {
