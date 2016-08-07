@@ -16,7 +16,8 @@
  */
 Fashion.Vehicle = function (game, x, y, key, frame) {
     // call super constructor
-    Phaser.Image.call(this, game, x, y, frame);
+    Phaser.Image.call(this, game, x, y, key, frame);
+    // Phaser.Image.call(this, game, x, y, frame);
 
 };
 
