@@ -93,12 +93,46 @@ Fashion.Truck.prototype.renderGarments = function (garments)
             this.game,
             0,0,
             Fashion.Asset.TextureAtlas.GAME,
-            key
+            key,
+            data.dropZones
         );
-        this.addChild(garment);
-        // TODO add listener
         this.garments[key] = garment;
+        this.addChild(garment);
+        // make garments dragable
+        garment.inputEnabled = true;
+        garment.input.enableDrag();
+        garment.events.onDragStart.add(this.startGarmentDrag, this);
+        garment.events.onDragStop.add(this.stopGarmentDrag, this);
+        // TODO limit drag bounds to truck
     }
+    this.character.bringToTop();
+};
+/**
+ *
+ *
+ * @method Fashion.Truck#starGarmentDrag
+ * @memberof Fashion.Truck
+ * @private
+ */
+Fashion.Truck.prototype.startGarmentDrag = function (target)
+{
+    Log.debug(target.garmentName);
+    target.bringToTop();
+};
+/**
+ *
+ *
+ * @method Fashion.Truck#stopGarmentDrag
+ * @memberof Fashion.Truck
+ * @private
+ */
+Fashion.Truck.prototype.stopGarmentDrag = function (target, pointer)
+{
+    // TODO make hit tests
+    //Log.debug(pointer.x, pointer.y);
+    //this.character.hitsDropZone(pointer.x, pointer.y, Fashion.DropZone.UPPER_BODY);
+    //Log.debug(p.x, p.y);
+
 };
 //============================================================
 // Implicit getters and setters
