@@ -201,9 +201,129 @@
     },
 	"message20":
     {
-      "factions": "Government",
+      "factions": ["ISIS","Rebels","Marxist"],
       "text": "government radio reports great progress in taking back province",
+      "certainty": 30
+    },
+	"message21":
+    {
+      "factions": ["Government","Rebels","Marxist"],
+      "text": "fanatics press their attack with great force",
+      "certainty": 30
+    },
+	"message22":
+    {
+      "factions": "Marxist",
+      "text": "a new video about marxist triumph near you was published",
       "certainty": 80
+    },
+	"message23":
+    {
+      "factions": "Rebels",
+      "text": "rebels tweet about relentless efforts to hold terrain",
+      "certainty": 80
+    },
+	"message24":
+    {
+      "factions": "Marxist",
+      "text": "female special forces are holding parades in the next town",
+      "certainty": 100
+    },
+	"message25":
+    {
+      "factions": "Government",
+      "text": "army forces in your area are on the edge of defeat",
+      "certainty": 30
+    },
+	"message26":
+    {
+      "factions": "ISIS",
+      "text": "fanatics in your area are on the edge of destruction",
+      "certainty": 30
+    },
+	"message27":
+    {
+      "factions": "Marxist",
+      "text": "marxists in your area are retreating",
+      "certainty": 30
+    },
+	"message28":
+    {
+      "factions": "Rebels",
+      "text": "rebels in your area are almost defeated",
+      "certainty": 30
+    },
+	"message29":
+    {
+      "factions": "ISIS",
+      "text": "black flags have been raised in the towns ahead of you",
+      "certainty": 30
+    },
+	"message30":
+    {
+      "factions": "Marxist",
+      "text": "a yellow flag with a red star has been raised on a nearby hillside",
+      "certainty": 80
+    },
+	"message31":
+    {
+      "factions": "Rebels",
+      "text": "a green rebel flag has been raised in the settlement ahead",
+      "certainty": 80
+    },
+	"message33":
+    {
+      "factions": "Government",
+      "text": "the national flags are still flying high in the region ahead",
+      "certainty": 80
+    },
+	"message34":
+    {
+      "factions": "Marxist",
+      "text": "armed women in uniform have been seen",
+      "certainty": 50
+    },
+	"message35":
+    {
+      "factions": "ISIS",
+      "text": "black clad fanatics are roaming the area",
+      "certainty": 50
+    },
+	"message36":
+    {
+      "factions": "Rebels",
+      "text": "rebels on pickup trucks are operating nearby",
+      "certainty": 50
+    },
+	"message37":
+    {
+      "factions": "Government",
+      "text": "there's a large tank convoy moving into the province",
+      "certainty": 50
+    },
+	"message38":
+    {
+      "factions": ["Government","Rebels","Marxist"],
+      "text": "fanatics have pulled out of the area",
+      "certainty": 30
+    },
+	"message39":
+    {
+      "factions": ["Government","Rebels","Marxist"],
+      "text": "fanatics have abandoned their positions",
+      "certainty": 30
+    },
+	"message40":
+    {
+      "factions": ["Government","Rebels","Marxist"],
+      "text": "fanatics were forced to flee",
+      "certainty": 30
+    },
+	"message41":
+    {
+      "factions": ["Government","ISIS","Marxist"],
+      "text": "rebels announced their withdrawl from the area.",
+      "certainty": 30
     },
   }
 }
