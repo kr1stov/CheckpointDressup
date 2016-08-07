@@ -403,7 +403,7 @@ Fashion.Game.prototype = {
     startNewGame: function ()
     {
         //this.showScreen(Fashion.Game.Screen.INTRO); // FIXME uncomment this and comment handleIntroClose
-        Fashion.playSound(Fashion.Asset.Sound.MUSIC, 1, true);
+        Fashion.playSound(Fashion.Asset.Sound.MUSIC, 0.5, true);
     },
     //-----------------------------------
     // Screen handler
