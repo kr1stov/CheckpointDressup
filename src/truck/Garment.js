@@ -14,28 +14,37 @@
  * @param {string|Phaser.RenderTexture|Phaser.BitmapData|PIXI.Texture} key - The texture used by the Image during rendering. It can be a string which is a reference to the Cache entry, or an instance of a RenderTexture, BitmapData or PIXI.Texture.
  * @param {string|number} frame - If this Image is using part of a sprite sheet or texture atlas you can specify the exact frame to use by giving a string or numeric index.
  */
-Fashion.Garment = function (game, x, y, key, garmentName)
+Fashion.Garment = function (game, x, y, key, garmentName, dropZones, coverage, blockedBodyParts)
 {
-    var f = Fashion.Asset.AtlasPath.GARMENTS + garmentName + ".png";
-    Log.debug(f);
     // call super constructor
-    Phaser.Image.call(this, game, x, y, key, f);
+    Phaser.Image.call(this, game, x, y, key, Fashion.Asset.AtlasPath.GARMENTS + garmentName + ".png");
+    /**
+     * @property {string} garmentName - The name of the garment.
+     * @private
+     */
+    this.garmentName = garmentName;
+    /**
+     * @property {array} targetDropZones - Array of Fashion.DropZone
+     * @private
+     */
+    this.targetDropZones = Fashion.DropZone.validateZones(dropZones, "Garment");
+    /**
+     * @property {object} coverage -
+     * @private
+     */
+    this.coverage = coverage;
+    /**
+     * @property {array} blockedBodyParts -
+     * @private
+     */
+    this.blockedBodyParts = Fashion.BodyPart.validateParts(blockedBodyParts, "Garment");
 
-    // TODO implement these
-    // targetDropZones: [DropZone]
-    // coverage: {BodyPart: ClothingStyle} assoc array
-    // bodyPartsBlocked: [BodyPart]
     // ? DressDuration
     // ? UndressDuration
 
     //-----------------------------------
     // Init
     //-----------------------------------
-    this.inputEnabled = true;
-    this.input.enableDrag();
-
-    this.events.onDragStart.add(this.handleDragStart, this);
-    this.events.onDragStop.add(this.handleDragStop, this);
 };
 
 // extend class Phaser.Image
@@ -77,28 +86,7 @@ Fashion.Garment.prototype.destroy = function (destroyChildren)
 //============================================================
 // Private methods
 //============================================================
-/**
- *
- *
- * @method Fashion.Garment#handleDragStart
- * @memberof Fashion.Garment
- * @private
- */
-Fashion.Garment.prototype.handleDragStart = function ()
-{
-    Log.debug("drag start");
-};
-/**
- *
- *
- * @method Fashion.Garment#handleDragStop
- * @memberof Fashion.Garment
- * @private
- */
-Fashion.Garment.prototype.handleDragStop = function ()
-{
-    Log.debug("drag stop");
-};
+
 //============================================================
 // Implicit getters and setters
 //============================================================

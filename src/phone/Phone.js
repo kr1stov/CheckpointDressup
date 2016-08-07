@@ -42,7 +42,7 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
      */
     this.messageMask = this.game.make.graphics(0, 0);
 
-
+    this.messageArray = new Array();
 
     //-----------------------------------
     // Init
@@ -60,12 +60,8 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
     this.messageContainer.add(this.messageMask);
     this.messageContainer.mask = this.messageMask;
 
-    //this.addNewMessage(messageContainer.x, messageContainer.y, key, Fashion.Asset.Image.MESSAGE_INCOMING);
-
-   this.addMessage(this.frame.x+32, this.frame.height-170, key, Fashion.Asset.Image.MESSAGE_INCOMING)
-    this.addMessage(this.frame.x+32, this.frame.height-300, key, Fashion.Asset.Image.MESSAGE_INCOMING)
-
-
+    //this.addMessage(this.frame.x+32, key, Fashion.Asset.Image.MESSAGE_INCOMING);
+    this.addMessage(this.frame.x+32, key, Fashion.Asset.Image.MESSAGE_INCOMING);
 };
 
 
@@ -83,14 +79,21 @@ Fashion.Phone.prototype.constructor = Fashion.Phone;
  * @method Fashion.Phone#addMessage
  * @memberof Fashion.Phone
  */
-Fashion.Phone.prototype.addMessage = function (xPos, yPos, key, asset)
+Fashion.Phone.prototype.addMessage = function (xPos, key, asset)
 {
-    var temp =  this.game.make.image(xPos, yPos, key, asset);
+    for(var i=0; i<this.messageArray.length; i++)
+    {
+        this.messageArray[i].y -= 130;
+    }
+
+
+    var temp =  this.game.make.image(xPos, this.frame.height-170, key, asset);
 
     //this.add(this.messageContainer);
 
     //var m = new Fashion.Message();
 
+    this.messageArray.push(temp);
     this.messageContainer.add(temp);
 };
 /**
