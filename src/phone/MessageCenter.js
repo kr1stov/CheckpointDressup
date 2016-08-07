@@ -104,7 +104,10 @@ Fashion.MessageCenter.prototype.getCheckMessages = function (checkpoint) {
     {
         var r = this.game.rnd.integerInRange(0, this.hintTextPool.length);
         var mTemp = this.hintTextPool[r];
-        messages.push(mTemp.text);
+        if (mTemp)
+        {
+            messages.push(mTemp.text);
+        }
     }
 
     for(var i=0; i<checkpoint.numFactionsMessages; i++)
@@ -114,10 +117,20 @@ Fashion.MessageCenter.prototype.getCheckMessages = function (checkpoint) {
 
         r = this.game.rnd.integerInRange(0, this.preTextPool.length);
         var mTemp2 = this.preTextPool[r];
-
-        messages.push(mTemp2.text + mTemp.text);
+        if (mTemp && mTemp2)
+        {
+            messages.push(mTemp2.text + mTemp.text);
+        }
     }
 
+    var n = messages.length;
+    var i;
+    var obj;
+    for (i = 0; i < n; i++)
+    {
+        obj = messages[i];
+        Log.debug(obj.text);
+    }
     return messages;
 };
 
