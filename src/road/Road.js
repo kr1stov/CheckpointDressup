@@ -71,9 +71,7 @@ Fashion.Road.prototype.constructor = Fashion.Road;
  */
 Fashion.Road.prototype.spawnCheckpoint = function (duration, speed)
 {
-    Log.debug("spawn " );
     var dist = this.vehicle.x + (duration / 1000) * speed;
-    Log.debug("dist: " + dist);
     var frameName = Fashion.Asset.Image.CHECK_POINT_PREFIX + (Math.round(this.game.rnd.frac() * 3) + 1) + '.png';
     var point = this.game.make.image(dist, 0, Fashion.Asset.TextureAtlas.GAME, frameName);
     point.anchor.setTo(0,0);
