@@ -17,7 +17,7 @@ Fashion.MainMessage = function (factions, text, certainty) {
      * @property {Array} factions -
      * @private
      */
-    this.factions = factions.split(',');
+    this.factions = factions;
 
     /**
      * @property {string} text -
