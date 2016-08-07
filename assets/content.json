@@ -7,7 +7,7 @@
     },
     "road":
     {
-      "scrollSpeed": -1
+      "scrollSpeed": 60
     }
 
   },
