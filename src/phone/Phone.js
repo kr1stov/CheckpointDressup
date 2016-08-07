@@ -60,8 +60,8 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
     this.messageContainer.add(this.messageMask);
     this.messageContainer.mask = this.messageMask;
 
-    //this.addMessage(this.frame.x+32, key, Fashion.Asset.Image.MESSAGE_INCOMING);
-    this.addMessage(this.frame.x+32, key, Fashion.Asset.Image.MESSAGE_INCOMING);
+    this.addMessage(key, Fashion.MessageType.INCOMING);
+    this.addMessage(key, Fashion.MessageType.OUTGOING);
 };
 
 
@@ -79,22 +79,32 @@ Fashion.Phone.prototype.constructor = Fashion.Phone;
  * @method Fashion.Phone#addMessage
  * @memberof Fashion.Phone
  */
-Fashion.Phone.prototype.addMessage = function (xPos, key, asset)
+Fashion.Phone.prototype.addMessage = function (key, type)
 {
     for(var i=0; i<this.messageArray.length; i++)
     {
         this.messageArray[i].y -= 130;
     }
 
+    var mTemp = this.game.make.group();
+    var temp;
 
-    var temp =  this.game.make.image(xPos, this.frame.height-170, key, asset);
+    if(type == Fashion.MessageType.INCOMING)
+        temp =  this.game.make.image(this.frame.x+20, this.frame.height-170, key,  Fashion.Asset.Image.MESSAGE_INCOMING);
+    else
+        temp =  this.game.make.image(this.frame.x+50, this.frame.height-170, key,  Fashion.Asset.Image.MESSAGE_OUTGOING);
+
+    mTemp.add(temp);
+
+    var tTemp = this.game.add.text(this.frame.x+20, this.frame.height-170, "lorem ipsum", {fontSize: '32px', fill: '#000'});
+    mTemp.add(tTemp);
 
     //this.add(this.messageContainer);
 
     //var m = new Fashion.Message();
 
-    this.messageArray.push(temp);
-    this.messageContainer.add(temp);
+    this.messageArray.push(mTemp);
+    this.messageContainer.add(mTemp);
 };
 /**
  * Destroys this group.
