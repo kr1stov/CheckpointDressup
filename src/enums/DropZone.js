@@ -40,3 +40,26 @@ Fashion.DropZone.validate = function (zone)
     }
     return false;
 };
+/**
+ *
+ *
+ * @method Fashion.DropZone#validateZones
+ * @memberof Fashion.DropZone
+ * @static
+ */
+Fashion.DropZone.validateZones = function (zones, callee)
+{
+    var n = zones.length;
+    var i;
+    var zone;
+    for (i = n; --i >= 0;)
+    {
+        zone = zones[i];
+        if (!Fashion.DropZone.validate(zone))
+        {
+            Log.error("Invalid drop zone detected in '" + callee + "': " + zone);
+            return false;
+        }
+    }
+    return true;
+};
