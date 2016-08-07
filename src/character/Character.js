@@ -334,28 +334,29 @@ Fashion.Character.prototype.updateCoverage = function ()
 
     if (Fashion.debug)
     {
-        this.dumpCoverage();
+        Fashion.Character.dumpCoverage(this.coverage);
     }
 };
+//============================================================
+// Implicit getters and setters
+//============================================================
 
 /**
  *
  *
  * @method Fashion.Character#dumpCoverage
  * @memberof Fashion.Character
- * @private
+ * @static
  */
-Fashion.Character.prototype.dumpCoverage = function ()
+Fashion.Character.dumpCoverage = function (coverage)
 {
+    if (!coverage) return;
+
     Log.debug("-------");
     Log.debug("Current coverage is: ");
-    for (var key in this.coverage)
+    for (var key in coverage)
     {
-        Log.debug(key + ": " + this.coverage[key]);
+        Log.debug(key + ": " + coverage[key]);
     }
     Log.debug("-------");
 };
-//============================================================
-// Implicit getters and setters
-//============================================================
-
