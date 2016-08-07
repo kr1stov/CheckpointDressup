@@ -45,6 +45,11 @@ Fashion.Road = function (game, key, parent, name, addToStage, enableBody, physic
      * @private
      */
     this.checkPoints = [];
+    /**
+     * @property {array} flags - 
+     * @private
+     */
+    this.flags = [];
     //-----------------------------------
     // Init
     //-----------------------------------
@@ -69,14 +74,21 @@ Fashion.Road.prototype.constructor = Fashion.Road;
  * @method Fashion.Road#spawnCheckpoint
  * @memberof Fashion.Road
  */
-Fashion.Road.prototype.spawnCheckpoint = function (duration, speed)
+Fashion.Road.prototype.spawnCheckpoint = function (duration, speed, faction)
 {
     var dist = this.vehicle.x + (duration / 1000) * speed;
+
     var frameName = Fashion.Asset.Image.CHECK_POINT_PREFIX + (Math.round(this.game.rnd.frac() * 3) + 1) + '.png';
     var point = this.game.make.image(dist, 0, Fashion.Asset.TextureAtlas.GAME, frameName);
-    point.anchor.setTo(0,0);
     this.add(point);
     this.checkPoints.push(point);
+
+    frameName = Fashion.Asset.Image.CHECK_POINT_FLAG + faction + ".png";
+    Log.debug(frameName);
+    var flag = this.game.make.image(dist, 0, Fashion.Asset.TextureAtlas.GAME, frameName);
+    this.add(flag);
+    this.flags.push(flag);
+
     this.vehicle.bringToTop();
 };
 /**
@@ -130,6 +142,20 @@ Fashion.Road.prototype.update = function ()
             else
             {
                 point.x -= deltaSpeed;
+            }
+        }
+        var flag;
+        for (i = n; --i >= 0;)
+        {
+            flag = this.flags[i];
+            if (flag.x < -flag.width)
+            {
+                this.flags.splice(i,1);
+                this.remove(flag);
+            }
+            else
+            {
+                flag.x -= deltaSpeed;
             }
         }
     }
