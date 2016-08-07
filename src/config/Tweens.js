@@ -21,6 +21,18 @@ Fashion.Tween.Garment = {
         easing: Phaser.Easing.Quadratic.Out
     }
 };
+Fashion.Tween.Guard = {
+
+    WALK_IN: {
+        duration: 500,
+        easing: Phaser.Easing.Quadratic.Out
+    },
+
+    WALK_OUT: {
+        duration: 500,
+        easing: Phaser.Easing.Quadratic.In
+    }
+};
 
 
 

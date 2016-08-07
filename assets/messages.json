@@ -556,12 +556,12 @@
     },
 	"message11":
     {
-      "factions": [ "rebels","fanatics" ],
+      "factions": [ "rebels", "fanatics" ],
       "message": "the burka is considered strict"
     },
 	"message12":
     {
-      "factions": [ "rebels","fanatics" ],
+      "factions": [ "rebels", "fanatics" ],
       "message": "neither rebels nor fanatics will let you pass with casual or military clothes"
     },
 	"message13":

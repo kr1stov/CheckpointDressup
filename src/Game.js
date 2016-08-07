@@ -139,6 +139,22 @@ Fashion.Game.prototype = {
         this.dressUpSpace.y = this.game.world.height - this.dressUpSpace.height;
         this.dressUpSpace.setup(Fashion.content.garments);
 
+        this.guard = this.game.add.image(100, 0, Fashion.Asset.TextureAtlas.GAME, Fashion.Asset.AtlasPath.DRESS_UP_SPACE + "guard-right.png");
+        this.guard.y = this.game.world.height;
+
+        this.bubble = this.game.add.image(100, 0, Fashion.Asset.TextureAtlas.GAME, Fashion.Asset.AtlasPath.DRESS_UP_SPACE + "menu-speechbubble.png");
+        this.bubble.inputEnabled = true;
+        this.bubble.events.onInputDown.add(this.handleBubbleClick, this);
+        this.bubble.x = 100;
+        this.bubble.y = 100;
+        this.bubble.visible = false;
+
+        var style = Fashion.config.getFontStyle(Fashion.Asset.FontStyle.GUARD_ANSWER);
+        this.bubbleLabel = this.game.add.text(0, 0, "Hello there!", style);
+        this.bubbleLabel.x = this.bubble.x + 100;
+        this.bubbleLabel.y = this.bubble.y + 30;
+        this.bubbleLabel.visible = false;
+
         // test button
         //var btn = this.game.add.image(-80,80, Fashion.Asset.TextureAtlas.MENU, Fashion.Asset.Image.MENU_BTN);
         //btn.inputEnabled = true;
@@ -267,17 +283,83 @@ Fashion.Game.prototype = {
 
         if (penalty > dressCode.penaltyLimit)
         {
-            Log.debug("YOU SHALL NOT PASS!!");
+            this.bubbleLabel.text = "You may not pass!";
+            //Log.debug("YOU SHALL NOT PASS!!");
         }
         else
         {
             Log.debug("YOU SHALL PASS");
             if (penalty > 0)
             {
-                Log.debug("... IF YOU GIVE ME " + penalty + " MONEY!");
+                this.bubbleLabel.text = "You may pass!\nBut you must pay " + penalty + ".";
+                //Log.debug("... IF YOU GIVE ME " + penalty + " MONEY!");
+            }
+            else
+            {
+
+                this.bubbleLabel.text = "Save journey!";
             }
         }
 
+        this.sendInTheClowns();
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#sendInTheClowns
+     * @memberof Fashion.Game
+     * @private
+     */
+    sendInTheClowns: function ()
+    {
+        var t = Fashion.Tween.create(this.game, this.guard,
+            { y:  this.game.world.height - this.guard.height},
+            Fashion.Tween.Guard.WALK_IN
+        );
+        t.onComplete.add(this.onSendInComplete, this);
+        t.start();
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#onSendInComplete
+     * @memberof Fashion.Game
+     * @private
+     */
+    onSendInComplete: function ()
+    {
+        Log.debug("onSendInComplete");
+        this.bubble.visible = true;
+        this.bubbleLabel.visible = true;
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#handleBubbleClick
+     * @memberof Fashion.Game
+     * @private
+     */
+    handleBubbleClick: function ()
+    {
+        this.bubble.visible = false;
+        this.bubbleLabel.visible = false;
+
+        var t = Fashion.Tween.create(this.game, this.guard,
+            { y: this.game.world.height},
+            Fashion.Tween.Guard.WALK_OUT
+        );
+        t.onComplete.add(this.onSendOutComplete, this);
+        t.start();
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#onSendOutComplete
+     * @memberof Fashion.Game
+     * @private
+     */
+    onSendOutComplete: function ()
+    {
         this.continueJourney();
     },
     /**

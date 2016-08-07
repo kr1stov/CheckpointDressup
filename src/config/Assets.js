@@ -134,5 +134,6 @@ Fashion.Asset.FontStyle = {
 
     MENU_BTN_ACTIVE: "menuBtnActive",
     MENU_BTN_DISABLED: "menuBtnActive",
+    GUARD_ANSWER: "guardAnswer",
     PHONE_MESSAGE: "phoneMessage"
 };

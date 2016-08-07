@@ -67,11 +67,11 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
     this.messageContainer.add(this.messageMask);
     this.messageContainer.mask = this.messageMask;
 
-    this.addMessage(Fashion.MessageType.INCOMING, "1 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
-    this.addMessage(Fashion.MessageType.OUTGOING, "2 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
-    this.addMessage(Fashion.MessageType.INCOMING, "3 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
-    this.addMessage(Fashion.MessageType.OUTGOING, "4 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
-    this.addMessage(Fashion.MessageType.INCOMING, "5 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    //this.addMessage(Fashion.MessageType.INCOMING, "1 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    //this.addMessage(Fashion.MessageType.OUTGOING, "2 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    //this.addMessage(Fashion.MessageType.INCOMING, "3 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    //this.addMessage(Fashion.MessageType.OUTGOING, "4 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
+    //this.addMessage(Fashion.MessageType.INCOMING, "5 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
 
 };
 
