@@ -432,19 +432,17 @@ Fashion.Game.prototype = {
 
         var duration = checkPoint.duration * 1000;
         this.startCheckPointTimer(duration);
-        var totalMessages = checkPoint.numHelpMessages + checkPoint.numFactionMessages;
-        var mTime = Math.round(duration / totalMessages);
-        // TODO round around
 
-        // TODO eval messages here
-        var n = totalMessages;
+        var messageTexts = this.phone.messageCenter.getCheckMessages(checkPoint);
+        var totalMessages = checkPoint.numHelpMessages + checkPoint.numFactionMessages;
+        var timePerSegment = Math.round(duration / ( totalMessages + 2 ));
+
         var i;
-        for (i = 0; i < n; i++)
+        var msgTime;
+        for (i = 0; i < totalMessages; i++)
         {
-            if (i % 2)
-                this.startNewMessageTimer(mTime, "Hello blabla", this.postNewHelpMessage, this);
-            else
-                this.startNewMessageTimer(mTime, "Hello blabla", this.postNewFactionMessage, this);
+            msgTime = (i + 1 + this.game.rnd.frac()) * timePerSegement;
+            this.startNewMessageTimer(msgTime, messageTexts[i], this.postNewIncomingMessage, this);
         }
     },
 
@@ -466,9 +464,10 @@ Fashion.Game.prototype = {
      * @memberof Fashion.Game
      * @private
      */
-    postNewHelpMessage: function (data)
+    postNewOutgoingMessage: function (data)
     {
-        Log.debug("NEW HELP MESSAGE: " + data);
+        Log.debug("OUTGOING MESSAGE: " + data);
+        this.phone.addMessage(Fashion.MessageType.OUTGOING, data);
     },
     /**
      *
@@ -477,9 +476,10 @@ Fashion.Game.prototype = {
      * @memberof Fashion.Game
      * @private
      */
-    postNewFactionMessage: function (data)
+    postNewIncomingMessage: function (data)
     {
-        Log.debug("NEW FACTION MESSAGE: " + data);
+        Log.debug("INCOMING MESSAGE: " + data);
+        this.phone.addMessage(Fashion.MessageType.INCOMING, data);
     },
     /**
      *
