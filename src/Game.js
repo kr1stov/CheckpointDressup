@@ -455,10 +455,11 @@ Fashion.Game.prototype = {
         var messageTexts = this.phone.messageCenter.getCheckMessages(checkPoint);
         var totalMessages = checkPoint.numHelpMessages + checkPoint.numFactionMessages;
         var timePerSegment = Math.round(duration / ( totalMessages + 2 ));
-
+        Log.debug(totalMessages);
+        Log.debug(messageTexts.length);
+        var n = messageTexts.length;
         var i;
-        var msgTime;
-        for (i = 0; i < totalMessages; i++)
+        for (i = 0; i < n; i++)
         {
             msgTime = (i + 1 + this.game.rnd.frac()) * timePerSegment;
             this.startNewMessageTimer(msgTime, messageTexts[i], this.postNewIncomingMessage, this);
@@ -486,7 +487,7 @@ Fashion.Game.prototype = {
     postNewOutgoingMessage: function (data)
     {
         Log.debug("OUTGOING MESSAGE: " + data);
-        this.phone.addMessage(Fashion.MessageType.OUTGOING, data);
+        this.phone.addMessage(Fashion.MessageType.OUTGOING, data.text);
     },
     /**
      *
@@ -498,7 +499,7 @@ Fashion.Game.prototype = {
     postNewIncomingMessage: function (data)
     {
         Log.debug("INCOMING MESSAGE: " + data);
-        this.phone.addMessage(Fashion.MessageType.INCOMING, data);
+        this.phone.addMessage(Fashion.MessageType.INCOMING, data.text);
     },
     /**
      *
