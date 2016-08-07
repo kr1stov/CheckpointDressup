@@ -97,17 +97,17 @@ Fashion.Asset.Graphics = {
  */
 Fashion.Asset.Sound = {
     BTN_CLICK: 'sndButtonDefault',
-    CLOTHES_DROP_CHAR: 'sndClothesDropChar';
-    CLOTHES_DROP_FLOOR: 'sndClothesDropFloor';
-    CLOTHES_ERROR: 'sndClothesError';
-    CLOTHES_PICKUP: 'sndClothesPickup';
-    MINE_EXPLOSION: 'sndMineExplosion';
-    MONEY_LOSE: 'sndMoneyLose';
-    MUSIC: 'sndMusic';
-    TRUCK_CRASH: 'sndTruckCrash';
-    TRUCK_IDLE: 'sndTruckIdle';
-    TRUCK_START: 'sndTruckStart';
-    TRUCK: 'sndTruck';
+    CLOTHES_DROP_CHAR: 'sndClothesDropChar',
+    CLOTHES_DROP_FLOOR: 'sndClothesDropFloor',
+    CLOTHES_ERROR: 'sndClothesError',
+    CLOTHES_PICKUP: 'sndClothesPickup',
+    MINE_EXPLOSION: 'sndMineExplosion',
+    MONEY_LOSE: 'sndMoneyLose',
+    MUSIC: 'sndMusic',
+    TRUCK_CRASH: 'sndTruckCrash',
+    TRUCK_IDLE: 'sndTruckIdle',
+    TRUCK_START: 'sndTruckStart',
+    TRUCK: 'sndTruck',
 };
 
 /**
