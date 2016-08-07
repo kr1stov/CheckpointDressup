@@ -1,4 +1,35 @@
 {
+  "gameConfig":
+  {
+    "dressTest":
+    {
+      "faction": "rebels"
+    },
+    "checks":
+    [
+      {
+        "duration": 60,
+        "numHelpMessages": 2,
+        "numFactionMessages": 2,
+        "precisionFactionMessages":
+        {
+          "min": 2,
+          "max": 5
+        }
+      },
+      {
+        "duration": 60,
+        "numHelpMessages": 2,
+        "numFactionMessages": 2,
+        "precisionFactionMessages":
+        {
+          "min": 2,
+          "max": 5
+        }
+      }
+    ]
+  },
+
   "dropZones": {
     "head": {
       "x": -60,
