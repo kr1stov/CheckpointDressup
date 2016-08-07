@@ -54,6 +54,8 @@ Fashion.MessageCenter = function (game, parent, name, addToStage, enableBody, ph
      */
     this.certainty = 100;
 
+    this.buildPool();
+
 };
 
 // extend class Phaser.Group
@@ -78,6 +80,26 @@ Fashion.MessageCenter.prototype.constructor = Fashion.MessageCenter;
 Fashion.MessageCenter.prototype.destroy = function (destroyChildren, soft) {
 
     Phaser.Group.prototype.destroy.call(this, destroyChildren, soft);
+};
+
+/**
+ * 
+ *
+ * @method Fashion.MessageCenter#getCheckMessages
+ * @memberof Fashion.MessageCenter
+ */
+Fashion.MessageCenter.prototype.getCheckMessages = function () {
+    
+};
+
+/**
+ * creates message
+ *
+ * @method Fashion.MessageCenter#createMessage
+ * @memberof Fashion.MessageCenter
+ */
+Fashion.MessageCenter.prototype.createMessage = function (currentFactions) {
+
 };
 
 /**
