@@ -418,8 +418,24 @@ Fashion.Game.prototype = {
         var roadConfig = Fashion.content.gameConfig.road;
         this.road.startRolling(roadConfig.scrollSpeed);
         this.loadNextCheckpoint();
+        
+        this.startNewMessageTimer(1, "Mom Message 1", this.postNewIncomingMessage, this);
+        this.startNewMessageTimer(3, "Mom Message 2", this.postNewIncomingMessage, this);
+        this.startNewMessageTimer(5, "Mom Message 3", this.postNewIncomingMessage, this);
 
+        this.game.time.events.repeat(7, 1, this.startNewGameDelayed, this);
     },
+
+    startNewGameDelayed: function (data)
+    {
+       this.road.startRolling(roadConfig.scrollSpeed);
+       this.loadNextCheckpoint();
+       Fashion.playSound(Fashion.Asset.Sound.TRUCK_START);
+       Fashion.playSound(Fashion.Asset.Sound.TRUCK, 0.5);
+    },
+
+
+
     /**
      *
      *
