@@ -41,8 +41,8 @@ Fashion.Preloader.prototype = {
         this.background.y = Math.round((this.game.world.height - this.background.height) / 2);
 
         this.preloadBar = this.game.add.image(0, 0, "preloaderBar");
-        this.preloadBar.x = Math.round((this.game.world.width - this.preloadBar.width) * 0.9);
-        this.preloadBar.y = Math.round((this.game.world.height - this.preloadBar.height) * 0.8);
+        this.preloadBar.x = Math.round((this.game.world.width - this.preloadBar.width) / 2);
+        this.preloadBar.y = Math.round((this.game.world.height - this.preloadBar.height) * 0.6);
 
         this.preloadFill = this.game.add.image(0, 0, "preloaderFill");
         this.preloadFill.x = this.preloadBar.x;
