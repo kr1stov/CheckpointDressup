@@ -83,13 +83,42 @@ Fashion.MessageCenter.prototype.destroy = function (destroyChildren, soft) {
 };
 
 /**
- * 
+ *
  *
  * @method Fashion.MessageCenter#getCheckMessages
  * @memberof Fashion.MessageCenter
  */
-Fashion.MessageCenter.prototype.getCheckMessages = function () {
-    
+Fashion.MessageCenter.prototype.getCheckMessages = function (checkpoint) {
+
+    var messages = {};
+    /*"duration": 60,
+        "numHelpMessages": 2,
+        "numFactionMessages": 4,
+        "precisionFactionMessages":
+    {
+        "min": 60,
+        "max": 100
+    }*/
+
+    for(var i=0; i<checkpoint.numHelpMessages; i++)
+    {
+        var r = game.rnd.integerInRange(0, this.hintTextPool.length)
+        var mTemp = this.hintTextPool[r];
+        messages.push(mTemp);
+    }
+
+    for(var i=0; i<checkpoint.numFactionsMessages; i++)
+    {
+        var r = game.rnd.integerInRange(0, this.mainTextPool.length)
+        var mTemp = this.mainTextPool[r];
+
+        r = game.rnd.integerInRange(0, this.preTextPool.length)
+        var mTemp2 = this.preTextPool[r];
+
+        messages.push(mTemp2 + mTemp);
+    }
+
+    return messages;
 };
 
 /**

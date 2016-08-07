@@ -67,6 +67,7 @@ Fashion.Phone = function (game, key, parent, name, addToStage, enableBody, physi
     this.addMessage(key, Fashion.MessageType.OUTGOING, "4 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");
     this.addMessage(key, Fashion.MessageType.INCOMING, "5 your brother read a message that might be relevant for you. " + "the international community is protesting against atrocities commited in a nearby town.");*/
 
+
 };
 
 
