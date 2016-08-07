@@ -5,80 +5,86 @@
     {
       "faction": "rebels"
     },
-    "checks":
-    [
-      {
-        "duration": 60,
-        "numHelpMessages": 2,
-        "numFactionMessages": 4,
-        "precisionFactionMessages":
-        {
-          "min": 60,
-          "max": 100
-        }
-      },
-      {
-        "duration": 60,
-        "numHelpMessages": 1,
-        "numFactionMessages": 4,
-        "precisionFactionMessages":
-        {
-          "min": 52,
-          "max": 86
-        }
-      },
-	  {
-        "duration": 60,
-        "numHelpMessages": 1,
-        "numFactionMessages": 3,
-        "precisionFactionMessages":
-        {
-          "min": 43,
-          "max": 73
-        }
-      },
-	  {
-        "duration": 60,
-        "numHelpMessages": 0,
-        "numFactionMessages": 3,
-        "precisionFactionMessages":
-        {
-          "min": 35,
-          "max": 60
-        }
-      },
-	  {
-        "duration": 60,
-        "numHelpMessages": 0,
-        "numFactionMessages": 3,
-        "precisionFactionMessages":
-        {
-          "min": 27,
-          "max": 47
-        }
-      },
-	  {
-        "duration": 60,
-        "numHelpMessages": 0,
-        "numFactionMessages": 2,
-        "precisionFactionMessages":
-        {
-          "min": 19,
-          "max": 33
-        }
-      },
-	  {
-        "duration": 60,
-        "numHelpMessages": 0,
-        "numFactionMessages": 2,
-        "precisionFactionMessages":
-        {
-          "min": 10,
-          "max": 20
-        }
-      }
-    ]
+    "road":
+    {
+      "scrollSpeed": -1
+    }
+
   },
+
+  "checks":
+  [
+    {
+      "duration": 60,
+      "numHelpMessages": 2,
+      "numFactionMessages": 4,
+      "precisionFactionMessages":
+      {
+        "min": 60,
+        "max": 100
+      }
+    },
+    {
+      "duration": 60,
+      "numHelpMessages": 1,
+      "numFactionMessages": 4,
+      "precisionFactionMessages":
+      {
+        "min": 52,
+        "max": 86
+      }
+    },
+    {
+      "duration": 60,
+      "numHelpMessages": 1,
+      "numFactionMessages": 3,
+      "precisionFactionMessages":
+      {
+        "min": 43,
+        "max": 73
+      }
+    },
+    {
+      "duration": 60,
+      "numHelpMessages": 0,
+      "numFactionMessages": 3,
+      "precisionFactionMessages":
+      {
+        "min": 35,
+        "max": 60
+      }
+    },
+    {
+      "duration": 60,
+      "numHelpMessages": 0,
+      "numFactionMessages": 3,
+      "precisionFactionMessages":
+      {
+        "min": 27,
+        "max": 47
+      }
+    },
+    {
+      "duration": 60,
+      "numHelpMessages": 0,
+      "numFactionMessages": 2,
+      "precisionFactionMessages":
+      {
+        "min": 19,
+        "max": 33
+      }
+    },
+    {
+      "duration": 60,
+      "numHelpMessages": 0,
+      "numFactionMessages": 2,
+      "precisionFactionMessages":
+      {
+        "min": 10,
+        "max": 20
+      }
+    }
+  ],
 
   "dropZones": {
     "head": {
@@ -208,6 +214,24 @@
       },
       "bodyPartsBlocked": [
         "feet"
+      ],
+      "dressDuration": 1000,
+      "undressDuration": 1000
+    },
+    "relaxed-hijab": {
+      "imageKey": "relaxed-hijab",
+      "imageOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "dropZones": [
+        "head"
+      ],
+      "coverage": {
+        "hair": "relaxed"
+      },
+      "bodyPartsBlocked": [
+        "hair"
       ],
       "dressDuration": 1000,
       "undressDuration": 1000
@@ -481,7 +505,7 @@
     "fanatics": {
       "failTolerance": 0,
       "penaltyPerFail": 1,
-      "penaltyLimit": 0,
+      "penaltyLimit": 1,
       "corruptibility": false,
       "greed": 0,
       "minStyle": {},
@@ -497,7 +521,7 @@
     "rebels": {
       "failTolerance": 1,
       "penaltyPerFail": 1,
-      "penaltyLimit": 10,
+      "penaltyLimit": 3,
       "corruptibility": true,
       "greed": 0.2,
       "minStyle": {},
@@ -506,11 +530,11 @@
         "relaxed": 1
       },
       "must": {
-        "hair": "strict",
         "face": "exposed",
         "eyes": "exposed"
       },
       "mustNot": {
+		"hair":	"exposed",
         "torso": "exposed",
         "arms": "exposed",
         "thighs": "exposed",
@@ -521,9 +545,9 @@
     "government": {
       "failTolerance": 1,
       "penaltyPerFail": 1,
-      "penaltyLimit": 10,
+      "penaltyLimit": 5,
       "corruptibility": true,
-      "greed": 0.1,
+      "greed": 0.3,
       "minStyle": {
         "relaxed": 2
       },
@@ -541,7 +565,7 @@
     "marxists": {
       "failTolerance": 1,
       "penaltyPerFail": 2,
-      "penaltyLimit": 10,
+      "penaltyLimit": 3,
       "corruptibility": true,
       "greed": 0.05,
       "minStyle": {

@@ -67,6 +67,11 @@ Fashion.Game = function (game) {
      * @private
      */
     //this.overlayAlert = null;
+    /**
+     * @property {number} checkPointIndex -
+     * @private
+     */
+    this.checkPointIndex = 0;
 };
 
 Fashion.Game.prototype = {
@@ -135,7 +140,7 @@ Fashion.Game.prototype = {
         this.dressUpSpace.setup(Fashion.content.garments);
 
         // test button
-        var btn = this.game.add.image(0,60, Fashion.Asset.TextureAtlas.MENU, Fashion.Asset.Image.MENU_BTN);
+        var btn = this.game.add.image(-80,80, Fashion.Asset.TextureAtlas.MENU, Fashion.Asset.Image.MENU_BTN);
         btn.inputEnabled = true;
         btn.events.onInputDown.add(this.performDressCheck, this);
         //-----------------------------------
@@ -160,6 +165,17 @@ Fashion.Game.prototype = {
             // TODO check addSound signature for details: soundName, volume, loop
             // Buttons
             Fashion.addSound(Fashion.Asset.Sound.BTN_CLICK, 1.5);
+            Fashion.addSound(Fashion.Asset.Sound.CLOTHES_DROP_CHAR, 1);
+            Fashion.addSound(Fashion.Asset.Sound.CLOTHES_DROP_FLOOR, 1);
+            Fashion.addSound(Fashion.Asset.Sound.CLOTHES_ERROR, 1);
+            Fashion.addSound(Fashion.Asset.Sound.CLOTHES_PICKUP, 1);
+            Fashion.addSound(Fashion.Asset.Sound.MINE_EXPLOSION, 1);
+            Fashion.addSound(Fashion.Asset.Sound.MONEY_LOSE, 1);
+            Fashion.addSound(Fashion.Asset.Sound.MUSIC, 1);
+            Fashion.addSound(Fashion.Asset.Sound.TRUCK_CRASH, 1);
+            Fashion.addSound(Fashion.Asset.Sound.TRUCK_IDLE, 1);
+            Fashion.addSound(Fashion.Asset.Sound.TRUCK_START, 1);
+            Fashion.addSound(Fashion.Asset.Sound.TRUCK, 1);
         }
         //-----------------------------------
         // Kickoff
@@ -182,6 +198,8 @@ Fashion.Game.prototype = {
      */
     performDressCheck: function ()
     {
+        this.road.stopRolling();
+
         var faction = (Fashion.debug) ? Fashion.content.gameConfig.dressTest.faction : Fashion.Faction.All[Math.round(this.game.rnd.frac() * (Fashion.Faction.All.length - 1))];
         Log.debug(" ");
         Log.debug("DRESS CODE CHECK BY: " + faction);
@@ -259,6 +277,10 @@ Fashion.Game.prototype = {
                 Log.debug("... IF YOU GIVE ME " + penalty + " MONEY!");
             }
         }
+        // TODO put timer here
+        // continue
+        this.loadNextCheckpoint();
+        this.road.startRolling();
     },
     /**
      *
@@ -318,7 +340,7 @@ Fashion.Game.prototype = {
         }
 
         if (this.currentScreen) this.currentScreen.hide();
-        
+
         switch (id)
         {
             //-----------------------------------
@@ -378,7 +400,7 @@ Fashion.Game.prototype = {
     {
         this.overlayAlert.hide();
     },
-    
+
     //-----------------------------------
     // Menu Screen
     //-----------------------------------
@@ -392,6 +414,89 @@ Fashion.Game.prototype = {
     startNewGame: function ()
     {
         //this.showScreen(Fashion.Game.Screen.INTRO); // FIXME uncomment this and comment handleIntroClose
+        Fashion.playSound(Fashion.Asset.Sound.MUSIC, 0.5, true);
+        var roadConfig = Fashion.content.gameConfig.road;
+        this.road.startRolling(roadConfig.scrollSpeed);
+        this.loadNextCheckpoint();
+
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#loadNextCheckpoint
+     * @memberof Fashion.Game
+     * @private
+     */
+    loadNextCheckpoint: function ()
+    {
+        var checks = Fashion.content.checks;
+        if (this.checkPointIndex >= checks.length) return;
+
+        var checkPoint = checks[this.checkPointIndex];
+        this.checkPointIndex++;
+
+        var duration = checkPoint.duration * 1000;
+        this.startCheckPointTimer(duration);
+        var totalMessages = checkPoint.numHelpMessages + checkPoint.numFactionMessages;
+        var mTime = Math.round(duration / totalMessages);
+        // TODO round around
+
+        // TODO eval messages here
+        var n = totalMessages;
+        var i;
+        for (i = 0; i < n; i++)
+        {
+            if (i % 2)
+                this.startNewMessageTimer(mTime, "Hello blabla", this.postNewHelpMessage, this);
+            else
+                this.startNewMessageTimer(mTime, "Hello blabla", this.postNewFactionMessage, this);
+        }
+    },
+
+    /**
+     *
+     *
+     * @method Fashion.Game#startNewMessageTimer
+     * @memberof Fashion.Game
+     * @private
+     */
+    startNewMessageTimer: function (duration, data, handler, context)
+    {
+        this.game.time.events.repeat(duration, 1, handler, context, data);
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#postNewMessage
+     * @memberof Fashion.Game
+     * @private
+     */
+    postNewHelpMessage: function (data)
+    {
+        Log.debug("NEW HELP MESSAGE: " + data);
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#postNewMessage
+     * @memberof Fashion.Game
+     * @private
+     */
+    postNewFactionMessage: function (data)
+    {
+        Log.debug("NEW FACTION MESSAGE: " + data);
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#startCheckPointTimer
+     * @memberof Fashion.Game
+     * @private
+     */
+    startCheckPointTimer: function (duration)
+    {
+        Log.debug("New checkpoint in " + duration /1000 + " seconds!");
+        this.game.time.events.repeat(duration, 1, this.performDressCheck, this);
     },
     //-----------------------------------
     // Screen handler
@@ -417,6 +522,8 @@ Fashion.Game.prototype = {
     handleIntroClose: function ()
     {
         this.currentScreen.hide();
+
+        // TODO this is where the game starts.
     },
     /**
      *
