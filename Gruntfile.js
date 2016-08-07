@@ -12,7 +12,6 @@ module.exports = function(grunt) {
                 "lib/utils/ArrayUtil.js",
                 "lib/utils/FontUtil.js",
                 "lib/utils/LangUtil.js",
-
                 "lib/TextButton.js",
                 "lib/CategoryButton.js",
                 "lib/ShiningCategoryButton.js",
@@ -22,43 +21,47 @@ module.exports = function(grunt) {
                 "lib/SpeechBubble.js",
                 "lib/LabelWithValue.js",
                 "lib/LabelPanel.js",
-
+    
                 "src/Boot.js",
                 "src/Preloader.js",
                 "src/Game.js",
-
+    
                 "src/config/Assets.js",
                 "src/config/Config.js",
                 "src/config/Player.js",
                 "src/config/Tweens.js",
                 "src/config/LangTokens.js",
-
+    
                 "src/enums/BodyPart.js",
                 "src/enums/ClothingStyle.js",
                 "src/enums/DropZone.js",
                 "src/enums/Faction.js",
                 "src/enums/MessageType.js",
-
+    
                 "src/screens/Screen.js",
                 "src/screens/ClickableScreen.js",
                 "src/screens/StartScreen.js",
                 "src/screens/GameOverScreen.js",
                 "src/screens/CreditsScreen.js",
                 "src/screens/IntroScreen.js",
-
-                "src/road/Road.js",
-                "src/road/Vehicle.js",
-
-                "src/truck/Garment.js",
-                "src/truck/Truck.js",
-                "src/dressup/DressUpSpace.js",
-
+    
                 "src/utils/FormatUtil.js",
                 "src/utils/LabelUtil.js",
-
+    
                 "src/phone/Phone.js",
-                "scr/phone/Message.js",
-                "scr/phone/MessageCenter.js"
+                "src/phone/MainMessage.js",
+                "src/phone/PreMessage.js",
+                "src/phone/HintMessage.js",
+                "src/phone/Message.js",
+                "src/phone/MessageCenter.js",
+    
+                "src/road/Road.js",
+                "src/road/Vehicle.js",
+    
+                "src/character/Character.js",
+                "src/truck/Garment.js",
+                "src/truck/Truck.js",
+                "src/dressup/DressUpSpace.js"
 
             ]
         },
