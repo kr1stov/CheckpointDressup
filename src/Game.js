@@ -139,6 +139,16 @@ Fashion.Game.prototype = {
         this.dressUpSpace.y = this.game.world.height - this.dressUpSpace.height;
         this.dressUpSpace.setup(Fashion.content.garments);
 
+        this.guard = this.game.add.image(100, 0, Fashion.Asset.TextureAtlas.GAME, Fashion.Asset.AtlasPath.DRESS_UP_SPACE + "guard-right.png");
+        this.guard.y = this.game.world.height;
+
+        this.bubble = this.game.add.image(100, 0, Fashion.Asset.TextureAtlas.GAME, Fashion.Asset.AtlasPath.DRESS_UP_SPACE + "menu-speechbubble.png");
+        this.bubble.inputEnabled = true;
+        this.bubble.events.onInputDown.add(this.handleBubbleClick, this);
+        this.bubble.x = 100;
+        this.bubble.y = 100;
+        this.bubble.visible = false;
+
         // test button
         //var btn = this.game.add.image(-80,80, Fashion.Asset.TextureAtlas.MENU, Fashion.Asset.Image.MENU_BTN);
         //btn.inputEnabled = true;
@@ -278,6 +288,63 @@ Fashion.Game.prototype = {
             }
         }
 
+        this.sendInTheClowns();
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#sendInTheClowns
+     * @memberof Fashion.Game
+     * @private
+     */
+    sendInTheClowns: function ()
+    {
+        var t = Fashion.Tween.create(this.game, this.guard,
+            { y:  this.game.world.height - this.guard.height},
+            Fashion.Tween.Guard.WALK_IN
+        );
+        t.onComplete.add(this.onSendInComplete, this);
+        t.start();
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#onSendInComplete
+     * @memberof Fashion.Game
+     * @private
+     */
+    onSendInComplete: function ()
+    {
+        Log.debug("onSendInComplete");
+        this.bubble.visible = true;
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#handleBubbleClick
+     * @memberof Fashion.Game
+     * @private
+     */
+    handleBubbleClick: function ()
+    {
+        this.bubble.visible = false;
+
+        var t = Fashion.Tween.create(this.game, this.guard,
+            { y: this.game.world.height},
+            Fashion.Tween.Guard.WALK_OUT
+        );
+        t.onComplete.add(this.onSendOutComplete, this);
+        t.start();
+    },
+    /**
+     *
+     *
+     * @method Fashion.Game#onSendOutComplete
+     * @memberof Fashion.Game
+     * @private
+     */
+    onSendOutComplete: function ()
+    {
         this.continueJourney();
     },
     /**
