@@ -112,7 +112,7 @@ Fashion.Truck.prototype.renderGarments = function (garments)
         this.garments[key] = garment;
         // make garments dragable
         garment.inputEnabled = true;
-        garment.input.enableDrag(true, true, true);
+        garment.input.enableDrag(true, true, true, 0.5);
 
         garment.events.onDragStart.add(this.startGarmentDrag, this);
         garment.events.onDragStop.add(this.stopGarmentDrag, this);

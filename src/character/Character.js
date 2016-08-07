@@ -30,6 +30,11 @@ Fashion.Character = function (game, x, y, key, dropZones)
      */
     this.blockedBodyParts = [];
     /**
+     * @property {array} garments -
+     * @private
+     */
+    this.garments = [];
+    /**
      * @property {object} coverage -
      */
     this.coverage = {};
@@ -43,14 +48,6 @@ Fashion.Character = function (game, x, y, key, dropZones)
     {
         zone = dropZones[key];
         this.dropZones[key] = new Phaser.Rectangle(zone.x, zone.y, zone.width, zone.height);
-    }
-
-    // init coverage
-    var n = Fashion.BodyPart.Parts.length;
-    var i;
-    for (i = n; --i >= 0;)
-    {
-        this.coverage[Fashion.BodyPart.Parts[i]] = Fashion.ClothingStyle.EXPOSED;
     }
 
     if (Fashion.debug)
@@ -123,13 +120,14 @@ Fashion.Character.prototype.wearGarment = function (garment)
 {
     if (this.isCoveragePossible(garment))
     {
+        garment.isWorn = true;
         this.positionGarment(garment);
-        Log.debug("is top layer " + garment.isTopLayer);
+        this.stackGarment(garment);
+        this.updateCoverage();
         if (garment.isTopLayer)
         {
             this.blockBodyParts(garment);
         }
-        garment.isWorn = true;
         return true;
     }
     return false;
@@ -143,6 +141,9 @@ Fashion.Character.prototype.wearGarment = function (garment)
 Fashion.Character.prototype.takeOffGarment = function (garment)
 {
     garment.isWorn = false;
+
+    this.removeGarment(garment);
+    this.updateCoverage();
 
     this.unblockBodyParts(garment);
 };
@@ -239,7 +240,6 @@ Fashion.Character.prototype.isCoveragePossible = function (garment)
         var i;
         for (i = n; --i >= 0;)
         {
-            Log.debug("check " + this.blockedBodyParts[i]);
             if (key == this.blockedBodyParts[i])
             {
                 Log.error("Cannot place garment '" + garment.garmentName + "' becuase body part " + key + " is already blocked.");
@@ -248,6 +248,111 @@ Fashion.Character.prototype.isCoveragePossible = function (garment)
         }
     }
     return true;
+};
+
+/**
+ * 
+ *
+ * @method Fashion.Character#stackGarment
+ * @memberof Fashion.Character
+ * @private
+ */
+Fashion.Character.prototype.stackGarment = function (garment)
+{
+    var n = this.garments.length;
+    var i;
+    for (i = 0; i < n; i++)
+    {
+        if (garment == this.garments[i])
+        {
+            return;
+        }
+    }
+    this.garments.push(garment);
+};
+/**
+ *
+ *
+ * @method Fashion.Character#removeGarment
+ * @memberof Fashion.Character
+ * @private
+ */
+Fashion.Character.prototype.removeGarment = function (garment)
+{
+    var n = this.garments.length;
+    var i;
+    for (i = n; --i >= 0;)
+    {
+        if (garment == this.garments[i])
+        {
+            this.garments.splice(i,1);
+            return true;
+        }
+    }
+    return false;
+};
+/**
+ *
+ *
+ * @method Fashion.Character#initCoverage
+ * @memberof Fashion.Character
+ * @private
+ */
+Fashion.Character.prototype.initCoverage = function ()
+{
+    // init coverage
+    var n = Fashion.BodyPart.Parts.length;
+    var i;
+    for (i = n; --i >= 0;)
+    {
+        this.coverage[Fashion.BodyPart.Parts[i]] = Fashion.ClothingStyle.EXPOSED;
+    }
+};
+/**
+ *
+ *
+ * @method Fashion.Character#updateCoverage
+ * @memberof Fashion.Character
+ * @private
+ */
+Fashion.Character.prototype.updateCoverage = function ()
+{
+    this.initCoverage();
+
+    var n = this.garments.length;
+    var i;
+    var coverage;
+    for (i = 0; i < n; i++)
+    {
+        coverage = this.garments[i].coverage;
+        for (var key in coverage)
+        {
+            this.coverage[key] = coverage[key];
+        }
+    }
+
+    if (Fashion.debug)
+    {
+        this.dumpCoverage();
+    }
+};
+
+/**
+ *
+ *
+ * @method Fashion.Character#dumpCoverage
+ * @memberof Fashion.Character
+ * @private
+ */
+Fashion.Character.prototype.dumpCoverage = function ()
+{
+    Log.debug("-------");
+    Log.debug("Current coverage is: ");
+    for (var key in this.coverage)
+    {
+        Log.debug(key + ": " + this.coverage[key]);
+    }
+    Log.debug("-------");
 };
 //============================================================
 // Implicit getters and setters
