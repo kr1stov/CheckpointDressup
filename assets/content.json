@@ -116,8 +116,8 @@
     "strict-shoes": {
       "imageKey": "strict-shoes",
       "imageOffset": {
-        "x": 0,
-        "y": 0
+        "x": 2,
+        "y": 356
       },
       "dropZones": [
         "feet"
@@ -211,7 +211,7 @@
       "imageKey": "relaxed-sneakers",
       "imageOffset": {
         "x": 0,
-        "y": 343
+        "y": 380
       },
       "dropZones": [
         "feet"
@@ -229,7 +229,7 @@
       "imageKey": "relaxed-espandrillos",
       "imageOffset": {
         "x": 0,
-        "y": 343
+        "y": 380
       },
       "dropZones": [
         "feet"
@@ -381,7 +381,7 @@
       "imageKey": "moderate-flats",
       "imageOffset": {
         "x": 2,
-        "y": 343
+        "y": 370
       },
       "dropZones": [
         "feet"
