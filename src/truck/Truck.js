@@ -109,6 +109,10 @@ Fashion.Truck.prototype.renderGarments = function (garments)
         garment.events.onDragStop.add(this.stopGarmentDrag, this);
         garment.scale.setTo(Fashion.scaleFactorCharacter);
 
+        var p = this.setRandomGarmentPosition(garment);
+        garment.x = p.x;
+        garment.y = p.y;
+
         this.addChild(garment);
 
         this.garments[key] = garment;
@@ -124,7 +128,7 @@ Fashion.Truck.prototype.renderGarments = function (garments)
  */
 Fashion.Truck.prototype.startGarmentDrag = function (garment, pointer)
 {
-    
+
 };
 /**
  *
@@ -143,7 +147,9 @@ Fashion.Truck.prototype.stopGarmentDrag = function (garment, pointer)
     }
     else
     {
-        this.setRandomGarmentPosition(garment);
+        var p = this.setRandomGarmentPosition(garment);
+        garment.x = p.x;
+        garment.y = p.y;
         // move behind character
         this.setChildIndex(garment, this.getIndex(this.character) - 1);
     }
@@ -187,9 +193,12 @@ Fashion.Truck.prototype.setRandomGarmentPosition = function (garment)
 {
     if (!garment) return;
 
-    garment.x = 0;
-    garment.y = 0;
+    return new Phaser.Point(
+        garment.width / 2 + this.x + this.game.rnd.frac() * (this.bg.width - garment.width),
+        garment.y = this.y + this.game.rnd.frac() * (this.bg.height - garment.height)
+    );
 };
+
 //============================================================
 // Implicit getters and setters
 //============================================================
