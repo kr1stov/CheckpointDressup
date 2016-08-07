@@ -133,6 +133,11 @@ Fashion.Game.prototype = {
         this.gameLayer.add(this.dressUpSpace);
         this.dressUpSpace.y = this.game.world.height - this.dressUpSpace.height;
         this.dressUpSpace.setup(Fashion.content.garments);
+
+        // test button
+        var btn = this.game.add.image(0,60, Fashion.Asset.TextureAtlas.MENU, Fashion.Asset.Image.MENU_BTN);
+        btn.inputEnabled = true;
+        btn.events.onInputDown.add(this.performDressCheck, this);
         //-----------------------------------
         // Alert (& Overlay)
         //-----------------------------------
@@ -179,7 +184,93 @@ Fashion.Game.prototype = {
     {
 
     },
+    /**
+     *
+     *
+     * @method Fashion.Game#performDressCheck
+     * @memberof Fashion.Game
+     * @private
+     */
+    performDressCheck: function ()
+    {
+        var faction = (Fashion.debug) ? Fashion.content.gameConfig.dressTest.faction : Fashion.Faction.All[Math.round(this.game.rnd.frac() * (Fashion.Faction.All.length - 1))];
+        Log.debug(" ");
+        Log.debug("DRESS CODE CHECK BY: " + faction);
 
+        var coverage = this.dressUpSpace.getCharacterCoverage();
+        if (Fashion.debug)
+        {
+            Fashion.Character.dumpCoverage(coverage);
+        }
+
+        var dressCode = Fashion.content.dressCodes[faction];
+        Log.debug(dressCode);
+        var errorsCoverage = 0;
+
+        var styleCount = {};
+        styleCount[Fashion.ClothingStyle.EXPOSED] = 0;
+        styleCount[Fashion.ClothingStyle.MILITARY] = 0;
+        styleCount[Fashion.ClothingStyle.MODERATE] = 0;
+        styleCount[Fashion.ClothingStyle.RELAXED] = 0;
+        styleCount[Fashion.ClothingStyle.STRICT] = 0;
+
+        for (var part in coverage)
+        {
+            styleCount[coverage[part]]++;
+
+            if (dressCode.must[part] && dressCode.must[part] != coverage[part])
+            {
+                errorsCoverage++;
+            }
+            if (dressCode.mustNot[part] && dressCode.mustNot[part] == coverage[part])
+            {
+                errorsCoverage++;
+            }
+        }
+        Log.debug(styleCount);
+        Log.debug("Errors coverage: "+ errorsCoverage);
+        Log.debug(" ");
+        var num;
+        var errorsLimits = 0;
+        for (var style in styleCount)
+        {
+            if (!isNaN(dressCode.maxStyle[style]))
+            {
+                num = styleCount[style] - dressCode.maxStyle[style];
+                Log.debug("max Style: " + style + ": " + num);
+                errorsLimits += (num < 0) ? 0 : num;
+            }
+            if (!isNaN(dressCode.minStyle[style]))
+            {
+                num = dressCode.minStyle[style] - styleCount[style];
+                Log.debug("min Style: " + style + ": " + num);
+                errorsLimits += (num < 0) ? 0 : num;
+            }
+        }
+        Log.debug("Errors limits: "+ errorsLimits);
+
+        var errors = Math.max(errorsCoverage, errorsLimits);
+        Log.debug("Max error: " + errors);
+        errors -= dressCode.failTolerance;
+        errors = (errors < 0 ) ? 0 : errors;
+        Log.debug("Max error after tolerance: " + errors);
+
+        var penalty = errors * dressCode.penaltyPerFail;
+        Log.debug("Penalty: " + penalty);
+
+        if (penalty > dressCode.penaltyLimit)
+        {
+            Log.debug("YOU SHALL NOT PASS!!");
+        }
+        else
+        {
+            Log.debug("YOU SHALL PASS");
+            if (penalty > 0)
+            {
+                Log.debug("... IF YOU GIVE ME " + penalty + " MONEY!");
+            }
+        }
+    },
     /**
      *
      *

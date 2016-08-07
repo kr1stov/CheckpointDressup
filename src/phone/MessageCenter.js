@@ -37,6 +37,12 @@ Fashion.MessageCenter = function (game, parent, name, addToStage, enableBody, ph
     this.preTextPool = {};
 
     /**
+     * @property {Array} hintTextPool - pool of hint text elements
+     * @private
+     */
+    this.hintTextPool = {};
+
+    /**
      * @property {Fashion.Faction} currentFaction - current faction in the area
      * @private
      */
@@ -88,23 +94,29 @@ Fashion.MessageCenter.prototype.buildPool = function () {
     var mainMessages = messages['messages'];
     var hintMessages = messages['hintMessages'];
 
+    var data;
 
-    /*var message, data;
-
-    for (var key in garments)
+    for(var key in preMessages)
     {
-        data = garments[key];
-        garment = new Fashion.Garment(
-            this.game,
-            0,0,
-            Fashion.Asset.TextureAtlas.GAME,
-            key,
-            data.imageOffset.x,
-            data.imageOffset.y,
-            data.dropZones,
-            data.coverage,
-            data.bodyPartsBlocked
-        );*/
+        data = preMessages[key];
+        var temp = new Fashion.PreMessage(data.message);
+        this.preTextPool.push(temp);
+    }
+
+    for(var key in mainMessages)
+    {
+        data = preMessages[key];
+        var temp = new Fashion.MainMessage(data.factions, data.message, data.certainty);
+        this.mainTextPool.push(temp);
+    }
+
+    for(var key in hintMessages)
+    {
+        data = preMessages[key];
+        var temp = new Fashion.PreMessage(data.factions, data.message);
+        this.hintTextPool.push(temp);
+    }
+
 
 };
 //============================================================

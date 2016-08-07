@@ -54,6 +54,7 @@ Fashion.Asset.Image = {
     // ROAD
     //-----------------------------------
     ROAD_BG: Fashion.Asset.AtlasPath.ROAD  + 'bg.png',
+    MAIN_CHAR_VEHICLE: Fashion.Asset.AtlasPath.ROAD  + 'maincharacter.png',
     //-----------------------------------
     // Dress up space
     //-----------------------------------
