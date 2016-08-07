@@ -49,6 +49,7 @@ Fashion.Character = function (game, x, y, key, dropZones)
         zone = dropZones[key];
         this.dropZones[key] = new Phaser.Rectangle(zone.x, zone.y, zone.width, zone.height);
     }
+    this.initCoverage();
 
     if (Fashion.debug)
     {
