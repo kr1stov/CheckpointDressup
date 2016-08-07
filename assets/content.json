@@ -4,7 +4,12 @@
     "dressTest":
     {
       "faction": "rebels"
+    },
+    "road":
+    {
+      "scrollSpeed": -1
     }
+
   },
 
   "checks":
