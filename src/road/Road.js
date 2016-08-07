@@ -1,5 +1,6 @@
 /**
  * @author       Michel Wacker <mw@gentletroll.com>
+ * @author       Claudius Häcker <info@chaecker.de>
  * @copyright    2016 Gentle Troll Entertainment GmbH
  */
 
@@ -30,6 +31,9 @@ Fashion.Road = function (game, key, parent, name, addToStage, enableBody, physic
     // Init
     //-----------------------------------
     this.add(this.bg);
+
+    this.vehicle=new Fashion.Vehicle(game, 0,0, Fashion.Asset.TextureAtlas.GAME, Fashion.Asset.Image.MAIN_CHAR_VEHICLE);
+    this.add(this.vehicle);
 };
 
 // extend class Phaser.Group
