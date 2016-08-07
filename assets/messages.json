@@ -3,8 +3,84 @@
   {
     "preMessage01":
     {
-      "text": "A friend of your cousin just said that"
-    }
+      "text": "a friend of your cousin just said that"
+    },
+	"preMessage02":
+    {
+      "text": "the mother of a friend told me that"
+    },
+	"preMessage03":
+    {
+      "text": "i heard from trustworthy sources that"
+    },
+	"preMessage04":
+    {
+      "text": "my brother-in-law told me that"
+    },
+	"preMessage05":
+    {
+      "text": "Your cousin has informed me that"
+    },
+	"preMessage06":
+    {
+      "text": "our neighbour talked to a friend in the army."
+    },
+	"preMessage07":
+    {
+      "text": "your brother called and told me"
+    },
+	"preMessage08":
+    {
+      "text": "someone told me that"
+    },
+	"preMessage09":
+    {
+      "text": "i heard that"
+    },
+	"preMessage10":
+    {
+      "text": "i just listened to the radio. They said that"
+    },
+	"preMessage11":
+    {
+      "text": "the national television claims that"
+    },
+	"preMessage12":
+    {
+      "text": "your father wants you to know that"
+    },
+	"preMessage13":
+    {
+      "text": "your cousin saw a tweet that claimed that"
+    },
+	"preMessage14":
+    {
+      "text": "i heard a woman on the market say that"
+    },
+	"preMessage15":
+    {
+      "text": "your brother read a message that might be relevant for you."
+    },
+	"preMessage16":
+    {
+      "text": "there's a video shot in an area near you. apparently"
+    },
+	"preMessage17":
+    {
+      "text": "it seems that"
+    },
+	"preMessage18":
+    {
+      "text": "your brother called."
+    },
+	"preMessage19":
+    {
+      "text": "your cousin's friend wants you to know that"
+    },
+	"preMessage20":
+    {
+      "text": "your friend's father heard from a journalist that"
+    },
   },
 
   "messages":
@@ -12,8 +88,38 @@
     "message01":
     {
       "factions": "ISIS",
-      "text": "A man was stoned in the village ahead",
+      "text": "a man was stoned in the village ahead",
       "certainty": 100
-    }
+    },
+	"message02":
+    {
+      "factions": "ISIS",
+      "text": "a black flag has been raised over a mosque in the town ahead",
+      "certainty": 100
+    },
+	"message03":
+    {
+      "factions": "ISIS","Rebels",
+      "text": "government forces have been executed in the area ahead of you",
+      "certainty": 50
+    },
+	"message04":
+    {
+      "factions": "ISIS","Rebels","Government",
+      "text": "marxists are shelling nearby positions",
+      "certainty": 30
+    },
+	"message05":
+    {
+      "factions": "Marxist","Rebels","Government",
+      "text": "fanatics are conducting artillery strikes near you",
+      "certainty": 30
+    },
+	"message06":
+    {
+      "factions": "Marxist","ISIS","Government",
+      "text": "rebels are shooting with mortars at units ahead of you",
+      "certainty": 30
+    },
   }
 }
