@@ -124,9 +124,14 @@ Fashion.Game.prototype = {
         //-----------------------------------
         // Truck
         //-----------------------------------
-        this.truck = new Fashion.Truck(this.game, Fashion.Asset.TextureAtlas.GAME);
-        this.gameLayer.add(this.truck);
-        this.truck.y = this.game.world.height - this.truck.height;
+        this.dressUpSpace = new Fashion.DressUpSpace(
+            this.game,
+            Fashion.Asset.TextureAtlas.GAME,
+            Fashion.content.dropZones,
+            Fashion.content.garments
+        );
+        this.gameLayer.add(this.dressUpSpace);
+        this.dressUpSpace.y = this.game.world.height - this.dressUpSpace.height;
         //-----------------------------------
         // Alert (& Overlay)
         //-----------------------------------

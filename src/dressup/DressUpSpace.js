@@ -4,9 +4,9 @@
  */
 
 /**
- * @class Fashion.Truck
+ * @class Fashion.DressUpSpace
  *
- * @classdesc Create a new 'Truck' object.
+ * @classdesc Create a new 'DressUpSpace' object.
  * @constructor
  * @extends Phaser.Group
  * @param {Phaser.Game} game - A reference to the currently running game.
@@ -17,42 +17,32 @@
  * @param {boolean} [enableBody=false] - If true all Sprites created with {@link #create} or {@link #createMulitple} will have a physics body created on them. Change the body type with {@link #physicsBodyType}.
  * @param {integer} [physicsBodyType=0] - The physics body type to use when physics bodies are automatically added. See {@link #physicsBodyType} for values.
  */
-Fashion.Truck = function (game, key, dropZones, garments, parent, name, addToStage, enableBody, physicsBodyType)
+Fashion.DressUpSpace = function (game, key, dropZones, garments, parent, name, addToStage, enableBody, physicsBodyType)
 {
     // call super constructor
     Phaser.Group.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
     /**
-     * @property {Phaser.BitmapText} bg - Background
+     * @property {Phaser.Image} bg -
      */
-    this.bg = this.game.make.image(0, 0, key, Fashion.Asset.Image.TRUCK_BG);
+    this.bg = this.game.make.image(0, 0, key, Fashion.Asset.Image.DRESS_UP_BG);
     /**
-     * @property {Fashion.Character} character -
+     * @property {Fashion.Truck} truck -
      * @private
      */
-    this.character = new Fashion.Character(game, 0, 0, key, dropZones);
-    /**
-     * @property {array} garments - All of the garments
-     * @private
-     */
-    this.garments = {};
+    this.truck = new Fashion.Truck(game, key, dropZones, garments);
     //-----------------------------------
     // Init
     //-----------------------------------
     this.add(this.bg);
-    this.add(this.character);
+    this.add(this.truck);
 
-    this.character.anchor.setTo(0.5, 0);
-
-    this.character.x = this.bg.width / 2;
-    this.character.y = this.bg.height * 0.1;
-
-    // render all of the garments
-    this.renderGarments(garments);
+    this.truck.x = Math.round((this.bg.width - this.truck.width) / 2);
+    this.truck.y = Math.round((this.bg.height - this.truck.height) / 2);
 };
 
 // extend class Phaser.Group
-Fashion.Truck.prototype = Object.create(Phaser.Group.prototype);
-Fashion.Truck.prototype.constructor = Fashion.Truck;
+Fashion.DressUpSpace.prototype = Object.create(Phaser.Group.prototype);
+Fashion.DressUpSpace.prototype.constructor = Fashion.DressUpSpace;
 
 //============================================================
 // Public interface
@@ -63,12 +53,12 @@ Fashion.Truck.prototype.constructor = Fashion.Truck;
  *
  * Removes all children, then removes this group from its parent and nulls references.
  *
- * @method Fashion.Truck#destroy
- * @memberof Fashion.Truck
+ * @method Fashion.DressUpSpace#destroy
+ * @memberof Fashion.DressUpSpace
  * @param {boolean} [destroyChildren=true] - If true `destroy` will be invoked on each removed child.
  * @param {boolean} [soft=false] - A 'soft destroy' (set to true) doesn't remove this group from its parent or null the game reference. Set to false and it does.
  */
-Fashion.Truck.prototype.destroy = function (destroyChildren, soft)
+Fashion.DressUpSpace.prototype.destroy = function (destroyChildren, soft)
 {
 
     Phaser.Group.prototype.destroy.call(this, destroyChildren, soft);
@@ -76,30 +66,7 @@ Fashion.Truck.prototype.destroy = function (destroyChildren, soft)
 //============================================================
 // Private methods
 //============================================================
-/**
- *
- *
- * @method Fashion.Truck#renderGarments
- * @memberof Fashion.Truck
- * @private
- */
-Fashion.Truck.prototype.renderGarments = function (garments)
-{
-    var garment, data;
-    for (var key in garments)
-    {
-        data = garments[key];
-        garment = new Fashion.Garment(
-            this.game,
-            0,0,
-            Fashion.Asset.TextureAtlas.GAME,
-            key
-        );
-        this.addChild(garment);
-        // TODO add listener
-        this.garments[key] = garment;
-    }
-};
+
 //============================================================
 // Implicit getters and setters
 //============================================================

@@ -1,4 +1,37 @@
 {
+  "dropZones":
+  {
+    "head": {
+      "x": -60,
+      "y": -10,
+      "width": 120,
+      "height": 140
+    },
+    "upperBody": {
+      "x": -70,
+      "y": 120,
+      "width": 140,
+      "height": 140
+    },
+    "lowerBody": {
+      "x": -50,
+      "y": 260,
+      "width": 100,
+      "height": 120
+    },
+    "hands": {
+      "x": -110,
+      "y": 200,
+      "width": 220,
+      "height": 90
+    },
+    "feet": {
+      "x": -75,
+      "y": 380,
+      "width": 150,
+      "height": 50
+    }
+  },
   "garments": {
     "strict-burka": {
       "imageKey": "strict-burka",

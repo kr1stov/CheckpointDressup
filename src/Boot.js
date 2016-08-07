@@ -14,6 +14,8 @@ Fashion = {
     runsOnMobile: false,
     runsOnDesktop: false,
 
+    debug: true,
+
     config: null,
 
     content: null,
