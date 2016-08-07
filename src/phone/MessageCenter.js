@@ -25,16 +25,16 @@ Fashion.MessageCenter = function (game, parent, name, addToStage, enableBody, ph
     Phaser.Group.call(this, game, parent, name, addToStage, enableBody, physicsBodyType);
 
     /**
-     * @property {string[]} mainTextPool - pool of main text elements
+     * @property {Array} mainTextPool - pool of main text elements
      * @private
      */
-    this.mainTextPool = [];
+    this.mainTextPool = {};
 
     /**
-     * @property {string[]} preTextPool - pool of pre text elements
+     * @property {Array} preTextPool - pool of pre text elements
      * @private
      */
-    this.preTextPool = [];
+    this.preTextPool = {};
 
     /**
      * @property {Fashion.Faction} currentFaction - current faction in the area
@@ -80,12 +80,25 @@ Fashion.MessageCenter.prototype.destroy = function (destroyChildren, soft) {
  * @method Fashion.MessageCenter#generatePool
  * @memberof Fashion.MessageCenter
  */
-Fashion.MessageCenter.prototype.buildPool = function (src, dest) {
+Fashion.MessageCenter.prototype.buildPool = function () {
 
-    for(var i = 0; i < src.length; i++)
+    /*var message, data;
+
+    for (var key in garments)
     {
-        dest[i] = src[i];
-    }
+        data = garments[key];
+        garment = new Fashion.Garment(
+            this.game,
+            0,0,
+            Fashion.Asset.TextureAtlas.GAME,
+            key,
+            data.imageOffset.x,
+            data.imageOffset.y,
+            data.dropZones,
+            data.coverage,
+            data.bodyPartsBlocked
+        );*/
+
 };
 //============================================================
 // Private methods
