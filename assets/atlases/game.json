@@ -9,7 +9,7 @@
 	"sourceSize": {"w":764,"h":556}
 },
 {
-	"filename": "phone/bg-phone.png",
+	"filename": "phone/bg.png",
 	"frame": {"x":1454,"y":0,"w":260,"h":556},
 	"rotated": false,
 	"trimmed": false,
@@ -41,7 +41,7 @@
 	"sourceSize": {"w":164,"h":127}
 },
 {
-	"filename": "road/bg-road.png",
+	"filename": "road/bg.png",
 	"frame": {"x":0,"y":646,"w":1024,"h":75},
 	"rotated": false,
 	"trimmed": false,
@@ -57,7 +57,7 @@
 	"sourceSize": {"w":1031,"h":88}
 },
 {
-	"filename": "truck/bg-truck.png",
+	"filename": "truck/bg.png",
 	"frame": {"x":765,"y":0,"w":688,"h":500},
 	"rotated": false,
 	"trimmed": false,
@@ -127,6 +127,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1714,"h":1010},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:bd57840af5e0e704ebed77d7fdfade01:48c7f8b8e61da993015960dfb90a10f4:fc2835210f98bae8e8c1b7f0a84c9321$"
+	"smartupdate": "$TexturePacker:SmartUpdate:bcfe4dc054c719ef0842e5b61c5b932b:48c7f8b8e61da993015960dfb90a10f4:fc2835210f98bae8e8c1b7f0a84c9321$"
 }
 }
