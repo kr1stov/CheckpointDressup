@@ -23,7 +23,11 @@ Fashion.Character = function (game, x, y, key, dropZones)
      * @private
      */
     this.dropZones = {};
-
+    /**
+     * @property {array} blockedBodyParts -
+     * @private
+     */
+    this.blockedBodyParts = [];
     //-----------------------------------
     // Init
     //-----------------------------------
@@ -85,16 +89,34 @@ Fashion.Character.prototype.destroy = function (destroyChildren)
  * @method Fashion.Character#hitsDropZone
  * @memberof Fashion.Character
  */
-Fashion.Character.prototype.hitsDropZone = function (x, y, zone)
+Fashion.Character.prototype.hitsDropZone = function (point, zone)
 {
-    var p = this.toLocal(new Phaser.Point(x, y));
     for (var key in this.dropZones)
     {
-        if (key == zone && Phaser.Rectangle.containsPoint(this.dropZones[key], p))
+        if (key == zone && Phaser.Rectangle.containsPoint(this.dropZones[key], point))
         {
-            Log.debug("zone hit " + zone);
             return true;
         }
+    }
+    return false;
+};
+/**
+ *
+ *
+ * @method Fashion.Character#wearGarment
+ * @memberof Fashion.Character
+ */
+Fashion.Character.prototype.wearGarment = function (garment)
+{
+    if (this.isCoveragePossible(garment))
+    {
+        this.positionGarment(garment);
+        Log.debug("is top layer " + garment.isTopLayer);
+        if (garment.isTopLayer)
+        {
+            this.blockBodyParts(garment);
+        }
+        return true;
     }
     return false;
 };
@@ -116,13 +138,77 @@ Fashion.Character.prototype.drawDropZones = function ()
     {
         rect = this.dropZones[key];
         zone = this.game.make.graphics(rect.x, rect.y);
-        Log.debug("zone key: " + key, rect.x, rect.y, rect.width, rect.height);
+        //Log.debug("zone key: " + key, rect.x, rect.y, rect.width, rect.height);
 
         zone.beginFill(0xff0000, 0.5);
         zone.drawRect(0, 0, rect.width, rect.height);
 
         this.addChild(zone);
     }
+};
+/**
+ *
+ *
+ * @method Fashion.Character#positionGarment
+ * @memberof Fashion.Character
+ * @private
+ */
+Fashion.Character.prototype.positionGarment = function (garment)
+{
+    if (garment)
+    {
+        garment.x = this.x + garment.imageOffsetX;
+        garment.y = this.y + garment.imageOffsetY;
+    }
+};
+/**
+ *
+ *
+ * @method Fashion.Character#blockBodyParts
+ * @memberof Fashion.Character
+ * @private
+ */
+Fashion.Character.prototype.blockBodyParts = function (garment)
+{
+    for (var key in garment.coverage)
+    {
+        this.blockedBodyParts.push(key);
+    }
+};
+/**
+ *
+ *
+ * @method Fashion.Character#unblockBodyParts
+ * @memberof Fashion.Character
+ * @private
+ */
+Fashion.Character.prototype.unblockBodyParts = function (garment)
+{
+
+};
+/**
+ *
+ *
+ * @method Fashion.Character#isCoveragePossible
+ * @memberof Fashion.Character
+ */
+Fashion.Character.prototype.isCoveragePossible = function (garment)
+{
+    for (var key in garment.coverage)
+    {
+        var n = this.blockedBodyParts.length;
+        var i;
+        for (i = n; --i >= 0;)
+        {
+            Log.debug("check " + this.blockedBodyParts[i]);
+            if (key == this.blockedBodyParts[i])
+            {
+                Log.error("Cannot place garment '" + garment.garmentName + "' becuase body part " + key + " is already blocked.");
+                return false;
+            }
+        }
+    }
+    return true;
 };
 //============================================================
 // Implicit getters and setters

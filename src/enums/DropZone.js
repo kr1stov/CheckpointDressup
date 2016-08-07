@@ -58,8 +58,8 @@ Fashion.DropZone.validateZones = function (zones, callee)
         if (!Fashion.DropZone.validate(zone))
         {
             Log.error("Invalid drop zone detected in '" + callee + "': " + zone);
-            return false;
+            return null;
         }
     }
-    return true;
+    return zones;
 };
